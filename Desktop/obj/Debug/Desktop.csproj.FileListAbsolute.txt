@@ -1,0 +1,10 @@
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\Desktop.exe.config
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\Desktop.exe
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\Desktop.pdb
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csprojAssemblyReference.cache
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Desktop.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Properties.Resources.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.GenerateResource.cache
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CoreCompileInputs.cache
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.exe
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.pdb

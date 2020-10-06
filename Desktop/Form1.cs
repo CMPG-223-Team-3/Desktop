@@ -10,11 +10,27 @@ using System.Windows.Forms;
 
 namespace Desktop
 {
-    public partial class Form1 : Form
+    public partial class Desktop : Form
     {
-        public Form1()
+        IDictionary<string, Panel> myPanels = new Dictionary<string, Panel>();
+        public Desktop()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            myPanels.Add("Login", LoginPanel);
+
+            foreach(KeyValuePair<string, Panel> kvp in myPanels)
+            {
+                kvp.Value.Visible = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
