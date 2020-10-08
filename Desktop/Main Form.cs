@@ -20,6 +20,12 @@ namespace Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
+            string database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.Machine) ?? string.Empty;
+            string uid = System.Environment.GetEnvironmentVariable("CMPG223UID", EnvironmentVariableTarget.Machine) ?? string.Empty;
+            string password = System.Environment.GetEnvironmentVariable("CMPG223PASSWORD", EnvironmentVariableTarget.Machine) ?? string.Empty;
+            
+            
             myPanels.Add("Login", LoginPanel);
 
             foreach(KeyValuePair<string, Panel> kvp in myPanels)
@@ -29,6 +35,11 @@ namespace Desktop
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void staffToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

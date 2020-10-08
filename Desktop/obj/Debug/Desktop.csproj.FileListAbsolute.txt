@@ -8,3 +8,4 @@ C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CoreCompileInputs.cache
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.exe
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.pdb
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.UserControl1.resources
