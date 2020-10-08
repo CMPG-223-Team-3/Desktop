@@ -12,36 +12,40 @@ namespace Desktop
 {
     public partial class Desktop : Form
     {
-        IDictionary<string, Panel> myPanels = new Dictionary<string, Panel>();
+        IDictionary<string, Form> myForms = new Dictionary<string, Form>();
         public Desktop()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string uid = System.Environment.GetEnvironmentVariable("CMPG223UID", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string password = System.Environment.GetEnvironmentVariable("CMPG223PASSWORD", EnvironmentVariableTarget.Machine) ?? string.Empty;
-            
-            
-            myPanels.Add("Login", LoginPanel);
 
-            foreach(KeyValuePair<string, Panel> kvp in myPanels)
+
+            myForms.Add("Login", new Login());
+
+            foreach(KeyValuePair<string, Form> kvp in myForms)
             {
-                kvp.Value.Visible = false;
+                kvp.Value.MdiParent = this;
+                kvp.Value.StartPosition = FormStartPosition.CenterScreen;
             }
+
+            myForms["Login"].Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void HideAllForms(string nextFormKey)
         {
-
-        }
-
-        private void staffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            foreach (KeyValuePair<string, Form> kvp in myForms)
+            {
+                if (!kvp.Key.Equals(nextFormKey))
+                { 
+                    kvp.Value.Hide(); 
+                }
+            }
         }
     }
 }
