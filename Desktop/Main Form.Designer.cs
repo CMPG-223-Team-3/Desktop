@@ -94,19 +94,19 @@
             // categoriesToolStripMenuItem
             // 
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoriesToolStripMenuItem.Text = "Categories";
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customersToolStripMenuItem.Text = "Customers";
             // 
             // locationsToolStripMenuItem
             // 
             this.locationsToolStripMenuItem.Name = "locationsToolStripMenuItem";
-            this.locationsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.locationsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.locationsToolStripMenuItem.Text = "Locations";
             // 
             // staffToolStripMenuItem
@@ -118,49 +118,49 @@
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ordersToolStripMenuItem.Text = "Orders";
             // 
             // positionsToolStripMenuItem
             // 
             this.positionsToolStripMenuItem.Name = "positionsToolStripMenuItem";
-            this.positionsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.positionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.positionsToolStripMenuItem.Text = "Positions";
             // 
             // recipesToolStripMenuItem
             // 
             this.recipesToolStripMenuItem.Name = "recipesToolStripMenuItem";
-            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.recipesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recipesToolStripMenuItem.Text = "Recipes";
             // 
             // staffToolStripMenuItem1
             // 
             this.staffToolStripMenuItem1.Name = "staffToolStripMenuItem1";
-            this.staffToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.staffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.staffToolStripMenuItem1.Text = "Staff";
             // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stockToolStripMenuItem.Text = "Stock";
             // 
             // suppliersToolStripMenuItem
             // 
             this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.suppliersToolStripMenuItem.Text = "Suppliers";
             // 
             // worklogToolStripMenuItem
             // 
             this.worklogToolStripMenuItem.Name = "worklogToolStripMenuItem";
-            this.worklogToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.worklogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.worklogToolStripMenuItem.Text = "Worklog";
             // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.databaseToolStripMenuItem.Text = "Database";
             // 
             // Desktop
