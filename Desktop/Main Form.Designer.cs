@@ -112,9 +112,8 @@
             // staffToolStripMenuItem
             // 
             this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            this.staffToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.staffToolStripMenuItem.Text = "Menu Items";
-            this.staffToolStripMenuItem.Click += new System.EventHandler(this.staffToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 

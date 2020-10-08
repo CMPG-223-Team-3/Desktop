@@ -31,21 +31,21 @@ namespace Desktop
             foreach(KeyValuePair<string, Form> kvp in myForms)
             {
                 kvp.Value.MdiParent = this;
+                kvp.Value.StartPosition = FormStartPosition.CenterScreen;
             }
-
-            myForms["Login"].StartPosition = FormStartPosition.CenterScreen;
 
             myForms["Login"].Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void HideAllForms(string nextFormKey)
         {
-
-        }
-
-        private void staffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            foreach (KeyValuePair<string, Form> kvp in myForms)
+            {
+                if (!kvp.Key.Equals(nextFormKey))
+                { 
+                    kvp.Value.Hide(); 
+                }
+            }
         }
     }
 }
