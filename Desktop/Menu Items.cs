@@ -16,5 +16,10 @@ namespace Desktop
         {
             InitializeComponent();
         }
+
+        private void Menu_Items_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
