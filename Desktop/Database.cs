@@ -33,8 +33,8 @@ namespace Desktop
             uid = "admin";
             password = "cmpg22310";
             string connectionString;
-            connectionString = "Server=" + server + ";" + "Port=" + port+";" + "Database=" +
-            database + ";" + " Uid=" + uid + ";" + "pwd=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "PORT=" + port+";" + "DATABASE=" +
+            database + ";" + " UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             conn = new MySqlConnection(connectionString);
             conn.Open();

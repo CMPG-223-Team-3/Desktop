@@ -59,5 +59,11 @@ namespace Desktop
                 }
             }
         }
+
+        private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HideAllForms("Database");
+            myForms["Database"].Show();
+        }
     }
 }

@@ -20,3 +20,5 @@ C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Stock.resources
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Suppliers.resources
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Worklog.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\MySql.Data.dll
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CopyComplete
