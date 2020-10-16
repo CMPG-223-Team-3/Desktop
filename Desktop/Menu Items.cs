@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Menu_Items : Form
     {
-        public Menu_Items()
+        private Desktop myMainForm;
+        public Menu_Items(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
 
         private void Menu_Items_Load(object sender, EventArgs e)

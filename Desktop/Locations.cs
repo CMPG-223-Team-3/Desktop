@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Locations : Form
     {
-        public Locations()
+        private Desktop myMainForm;
+        public Locations(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }

@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Recipes : Form
     {
-        public Recipes()
+        private Desktop myMainForm;
+        public Recipes(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }

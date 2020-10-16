@@ -12,9 +12,16 @@ namespace Desktop
 {
     public partial class Login : Form
     {
-        public Login()
+        private Desktop myMainForm;
+        public Login(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

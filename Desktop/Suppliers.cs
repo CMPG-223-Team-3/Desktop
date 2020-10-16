@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Suppliers : Form
     {
-        public Suppliers()
+        private Desktop myMainForm;
+        public Suppliers(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }

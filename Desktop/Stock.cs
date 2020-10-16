@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Stock : Form
     {
-        public Stock()
+        private Desktop myMainForm;
+        public Stock(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }

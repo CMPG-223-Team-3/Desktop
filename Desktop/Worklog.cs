@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Worklog : Form
     {
-        public Worklog()
+        private Desktop myMainForm;
+        public Worklog(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }

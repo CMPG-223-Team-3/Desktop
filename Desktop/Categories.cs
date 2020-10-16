@@ -12,9 +12,11 @@ namespace Desktop
 {
     public partial class Categories : Form
     {
-        public Categories()
+        private Desktop myMainForm;
+        public Categories(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
     }
 }
