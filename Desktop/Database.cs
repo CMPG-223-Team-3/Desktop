@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace Desktop
 {
@@ -27,6 +25,7 @@ namespace Desktop
             InitializeComponent();
 
             this.myMainForm = MainForm;
+
 
             server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.User) ?? "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
             database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.User) ?? "sql7368973";
@@ -116,15 +115,8 @@ namespace Desktop
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
-
-        private void txtServerPort_TextChanged(object sender, EventArgs e)
-        {
-            if(!int.TryParse(txtServerPort.Text, out int temp))
-            {
-                txtServerPort.Text = "";
-            }
+            this.myMainForm.HideAllForms("Login");
+            this.myMainForm.myForms["Login"].Show();
         }
     }
 }

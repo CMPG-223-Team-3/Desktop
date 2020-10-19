@@ -103,7 +103,6 @@
             this.txtServerPort.Name = "txtServerPort";
             this.txtServerPort.Size = new System.Drawing.Size(50, 20);
             this.txtServerPort.TabIndex = 6;
-            this.txtServerPort.TextChanged += new System.EventHandler(this.txtServerPort_TextChanged);
             // 
             // lblSchema
             // 
