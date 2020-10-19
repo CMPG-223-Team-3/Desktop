@@ -112,11 +112,5 @@ namespace Desktop
 
             MessageBox.Show("Server info saved");
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.myMainForm.HideAllForms("Login");
-            this.myMainForm.myForms["Login"].Show();
-        }
     }
 }
