@@ -12,7 +12,7 @@ namespace Desktop
 {
     public partial class Desktop : Form
     {
-        IDictionary<string, Form> myForms = new Dictionary<string, Form>();
+        public IDictionary<string, Form> myForms = new Dictionary<string, Form>();
         public Desktop()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Desktop
             myForms["Login"].Show();
         }
 
-        private void HideAllForms(string nextFormKey)
+        public void HideAllForms(string nextFormKey)
         {
             foreach (KeyValuePair<string, Form> kvp in myForms)
             {
