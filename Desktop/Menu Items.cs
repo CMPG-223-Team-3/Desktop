@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Desktop
 {
-    public partial class Login : Form
+    public partial class Menu_Items : Form
     {
-        public Login()
+        public Menu_Items()
         {
             InitializeComponent();
+        }
+
+        private void Menu_Items_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

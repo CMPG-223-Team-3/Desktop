@@ -20,8 +20,6 @@ namespace Desktop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Desktop myMainForm = this;
-
             string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string uid = System.Environment.GetEnvironmentVariable("CMPG223UID", EnvironmentVariableTarget.Machine) ?? string.Empty;
@@ -29,18 +27,19 @@ namespace Desktop
             string port = System.Environment.GetEnvironmentVariable("CMPG223PORT", EnvironmentVariableTarget.Machine) ?? "3306";
 
 
-            myForms.Add("Categories", new Categories(ref myMainForm));
-            myForms.Add("Customers", new Customers(ref myMainForm));
-            myForms.Add("Database", new Database(ref myMainForm));
-            myForms.Add("Locations", new Locations(ref myMainForm));
-            myForms.Add("Login", new Login(ref myMainForm));
-            myForms.Add("Menu Items", new Menu_Items(ref myMainForm));
-            myForms.Add("Orders", new Orders(ref myMainForm));
-            myForms.Add("Positions", new Positions(ref myMainForm));
-            myForms.Add("Recipes", new Recipes(ref myMainForm));
-            myForms.Add("Stock", new Stock(ref myMainForm));
-            myForms.Add("Suppliers", new Suppliers(ref myMainForm));
-            myForms.Add("Worklog", new Worklog(ref myMainForm));
+            myForms.Add("Categories", new Categories());
+            myForms.Add("Customers", new Customers());
+            myForms.Add("Database", new Database());
+            myForms.Add("Locations", new Locations());
+            myForms.Add("Login", new Login());
+            myForms.Add("Menu Items", new Menu_Items());
+            myForms.Add("Orders", new Orders());
+            myForms.Add("Positions", new Positions());
+            myForms.Add("Recipes", new Recipes());
+           // myForms.Add("Login", new Login());
+            myForms.Add("Stock", new Stock());
+            myForms.Add("Suppliers", new Suppliers());
+            myForms.Add("Worklog", new Worklog());
 
             foreach (KeyValuePair<string, Form> kvp in myForms)
             {
