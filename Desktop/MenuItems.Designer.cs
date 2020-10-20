@@ -1,4 +1,4 @@
-﻿namespace Manager
+﻿namespace Desktop
 {
     partial class MenuItems
     {

@@ -9,17 +9,7 @@ C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.exe
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.pdb
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Login.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Categories.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Customers.resources
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Database.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Locations.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Menu_Items.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Orders.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Positions.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Recipes.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Stock.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Suppliers.resources
-C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.Worklog.resources
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\MySql.Data.dll
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CopyComplete
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\BouncyCastle.Crypto.dll
@@ -35,3 +25,7 @@ C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\MySql.Data.xml
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.exe.config
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Manager.MenuItems.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Manager.Orders.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Manager.Reports.resources
+C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Manager.Staff.resources

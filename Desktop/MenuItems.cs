@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Manager
+namespace Desktop
 {
     public partial class MenuItems : Form
     {
