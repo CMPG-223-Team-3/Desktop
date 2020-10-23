@@ -12,6 +12,8 @@ namespace Desktop
 {
     public partial class Desktop : Form
     {
+        
+
         public IDictionary<string, Form> myForms = new Dictionary<string, Form>();
         public Desktop()
         {
@@ -41,6 +43,7 @@ namespace Desktop
             //myForms.Add("Stock", new Stock(ref myMainForm));
             //myForms.Add("Suppliers", new Suppliers(ref myMainForm));
             //myForms.Add("Worklog", new Worklog(ref myMainForm));
+
 
             foreach (KeyValuePair<string, Form> kvp in myForms)
             {

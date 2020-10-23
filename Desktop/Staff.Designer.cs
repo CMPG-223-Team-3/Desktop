@@ -1,4 +1,4 @@
-﻿namespace Manager
+﻿namespace Desktop
 {
     partial class Staff
     {
@@ -30,18 +30,20 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lblAddFirstname = new System.Windows.Forms.Label();
-            this.lblAddLastname = new System.Windows.Forms.Label();
-            this.lblAddUsername = new System.Windows.Forms.Label();
-            this.lblAddPassword = new System.Windows.Forms.Label();
-            this.textBoxAddFirstname = new System.Windows.Forms.TextBox();
-            this.textBoxAddLastname = new System.Windows.Forms.TextBox();
-            this.textBoxAddUsername = new System.Windows.Forms.TextBox();
             this.textBoxAddPassword = new System.Windows.Forms.TextBox();
-            this.lblStaffIDdelete = new System.Windows.Forms.Label();
+            this.textBoxAddUsername = new System.Windows.Forms.TextBox();
+            this.textBoxAddLastname = new System.Windows.Forms.TextBox();
+            this.textBoxAddFirstname = new System.Windows.Forms.TextBox();
+            this.lblAddPassword = new System.Windows.Forms.Label();
+            this.lblAddUsername = new System.Windows.Forms.Label();
+            this.lblAddLastname = new System.Windows.Forms.Label();
+            this.lblAddFirstname = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxDeleteStaffID = new System.Windows.Forms.ComboBox();
+            this.lblStaffIDdelete = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBoxStaffIDUP = new System.Windows.Forms.ComboBox();
+            this.lblStaffUP = new System.Windows.Forms.Label();
             this.textBoxPasswordUP = new System.Windows.Forms.TextBox();
             this.textBoxUPusername = new System.Windows.Forms.TextBox();
             this.textBoxUpLastname = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.lblUPuasername = new System.Windows.Forms.Label();
             this.lblUpLastname = new System.Windows.Forms.Label();
             this.lblUPfirstname = new System.Windows.Forms.Label();
-            this.lblStaffUP = new System.Windows.Forms.Label();
-            this.comboBoxStaffIDUP = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -63,10 +63,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(194, 62);
+            this.tabControl1.Location = new System.Drawing.Point(194, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(447, 331);
+            this.tabControl1.Size = new System.Drawing.Size(508, 362);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -82,10 +82,74 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(439, 302);
+            this.tabPage1.Size = new System.Drawing.Size(500, 333);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBoxAddPassword
+            // 
+            this.textBoxAddPassword.Location = new System.Drawing.Point(135, 182);
+            this.textBoxAddPassword.Name = "textBoxAddPassword";
+            this.textBoxAddPassword.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAddPassword.TabIndex = 7;
+            // 
+            // textBoxAddUsername
+            // 
+            this.textBoxAddUsername.Location = new System.Drawing.Point(135, 139);
+            this.textBoxAddUsername.Name = "textBoxAddUsername";
+            this.textBoxAddUsername.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAddUsername.TabIndex = 6;
+            // 
+            // textBoxAddLastname
+            // 
+            this.textBoxAddLastname.Location = new System.Drawing.Point(135, 97);
+            this.textBoxAddLastname.Name = "textBoxAddLastname";
+            this.textBoxAddLastname.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAddLastname.TabIndex = 5;
+            // 
+            // textBoxAddFirstname
+            // 
+            this.textBoxAddFirstname.Location = new System.Drawing.Point(135, 59);
+            this.textBoxAddFirstname.Name = "textBoxAddFirstname";
+            this.textBoxAddFirstname.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAddFirstname.TabIndex = 4;
+            // 
+            // lblAddPassword
+            // 
+            this.lblAddPassword.AutoSize = true;
+            this.lblAddPassword.Location = new System.Drawing.Point(64, 185);
+            this.lblAddPassword.Name = "lblAddPassword";
+            this.lblAddPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblAddPassword.TabIndex = 3;
+            this.lblAddPassword.Text = "Password";
+            // 
+            // lblAddUsername
+            // 
+            this.lblAddUsername.AutoSize = true;
+            this.lblAddUsername.Location = new System.Drawing.Point(61, 144);
+            this.lblAddUsername.Name = "lblAddUsername";
+            this.lblAddUsername.Size = new System.Drawing.Size(73, 17);
+            this.lblAddUsername.TabIndex = 2;
+            this.lblAddUsername.Text = "Username";
+            // 
+            // lblAddLastname
+            // 
+            this.lblAddLastname.AutoSize = true;
+            this.lblAddLastname.Location = new System.Drawing.Point(58, 102);
+            this.lblAddLastname.Name = "lblAddLastname";
+            this.lblAddLastname.Size = new System.Drawing.Size(70, 17);
+            this.lblAddLastname.TabIndex = 1;
+            this.lblAddLastname.Text = "Lastname";
+            // 
+            // lblAddFirstname
+            // 
+            this.lblAddFirstname.AutoSize = true;
+            this.lblAddFirstname.Location = new System.Drawing.Point(55, 64);
+            this.lblAddFirstname.Name = "lblAddFirstname";
+            this.lblAddFirstname.Size = new System.Drawing.Size(74, 17);
+            this.lblAddFirstname.TabIndex = 0;
+            this.lblAddFirstname.Text = "First name";
             // 
             // tabPage2
             // 
@@ -94,10 +158,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(439, 302);
+            this.tabPage2.Size = new System.Drawing.Size(500, 333);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxDeleteStaffID
+            // 
+            this.comboBoxDeleteStaffID.FormattingEnabled = true;
+            this.comboBoxDeleteStaffID.Location = new System.Drawing.Point(161, 127);
+            this.comboBoxDeleteStaffID.Name = "comboBoxDeleteStaffID";
+            this.comboBoxDeleteStaffID.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxDeleteStaffID.TabIndex = 2;
+            // 
+            // lblStaffIDdelete
+            // 
+            this.lblStaffIDdelete.AutoSize = true;
+            this.lblStaffIDdelete.Location = new System.Drawing.Point(83, 127);
+            this.lblStaffIDdelete.Name = "lblStaffIDdelete";
+            this.lblStaffIDdelete.Size = new System.Drawing.Size(54, 17);
+            this.lblStaffIDdelete.TabIndex = 1;
+            this.lblStaffIDdelete.Text = "Staff ID";
             // 
             // tabPage3
             // 
@@ -113,91 +194,27 @@
             this.tabPage3.Controls.Add(this.lblUPfirstname);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(439, 302);
+            this.tabPage3.Size = new System.Drawing.Size(500, 333);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // lblAddFirstname
+            // comboBoxStaffIDUP
             // 
-            this.lblAddFirstname.AutoSize = true;
-            this.lblAddFirstname.Location = new System.Drawing.Point(55, 64);
-            this.lblAddFirstname.Name = "lblAddFirstname";
-            this.lblAddFirstname.Size = new System.Drawing.Size(74, 17);
-            this.lblAddFirstname.TabIndex = 0;
-            this.lblAddFirstname.Text = "First name";
+            this.comboBoxStaffIDUP.FormattingEnabled = true;
+            this.comboBoxStaffIDUP.Location = new System.Drawing.Point(200, 75);
+            this.comboBoxStaffIDUP.Name = "comboBoxStaffIDUP";
+            this.comboBoxStaffIDUP.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxStaffIDUP.TabIndex = 17;
             // 
-            // lblAddLastname
+            // lblStaffUP
             // 
-            this.lblAddLastname.AutoSize = true;
-            this.lblAddLastname.Location = new System.Drawing.Point(58, 102);
-            this.lblAddLastname.Name = "lblAddLastname";
-            this.lblAddLastname.Size = new System.Drawing.Size(70, 17);
-            this.lblAddLastname.TabIndex = 1;
-            this.lblAddLastname.Text = "Lastname";
-            // 
-            // lblAddUsername
-            // 
-            this.lblAddUsername.AutoSize = true;
-            this.lblAddUsername.Location = new System.Drawing.Point(61, 144);
-            this.lblAddUsername.Name = "lblAddUsername";
-            this.lblAddUsername.Size = new System.Drawing.Size(73, 17);
-            this.lblAddUsername.TabIndex = 2;
-            this.lblAddUsername.Text = "Username";
-            // 
-            // lblAddPassword
-            // 
-            this.lblAddPassword.AutoSize = true;
-            this.lblAddPassword.Location = new System.Drawing.Point(64, 185);
-            this.lblAddPassword.Name = "lblAddPassword";
-            this.lblAddPassword.Size = new System.Drawing.Size(69, 17);
-            this.lblAddPassword.TabIndex = 3;
-            this.lblAddPassword.Text = "Password";
-            // 
-            // textBoxAddFirstname
-            // 
-            this.textBoxAddFirstname.Location = new System.Drawing.Point(135, 59);
-            this.textBoxAddFirstname.Name = "textBoxAddFirstname";
-            this.textBoxAddFirstname.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAddFirstname.TabIndex = 4;
-            // 
-            // textBoxAddLastname
-            // 
-            this.textBoxAddLastname.Location = new System.Drawing.Point(135, 97);
-            this.textBoxAddLastname.Name = "textBoxAddLastname";
-            this.textBoxAddLastname.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAddLastname.TabIndex = 5;
-            // 
-            // textBoxAddUsername
-            // 
-            this.textBoxAddUsername.Location = new System.Drawing.Point(135, 139);
-            this.textBoxAddUsername.Name = "textBoxAddUsername";
-            this.textBoxAddUsername.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAddUsername.TabIndex = 6;
-            // 
-            // textBoxAddPassword
-            // 
-            this.textBoxAddPassword.Location = new System.Drawing.Point(135, 182);
-            this.textBoxAddPassword.Name = "textBoxAddPassword";
-            this.textBoxAddPassword.Size = new System.Drawing.Size(100, 22);
-            this.textBoxAddPassword.TabIndex = 7;
-            // 
-            // lblStaffIDdelete
-            // 
-            this.lblStaffIDdelete.AutoSize = true;
-            this.lblStaffIDdelete.Location = new System.Drawing.Point(83, 127);
-            this.lblStaffIDdelete.Name = "lblStaffIDdelete";
-            this.lblStaffIDdelete.Size = new System.Drawing.Size(54, 17);
-            this.lblStaffIDdelete.TabIndex = 1;
-            this.lblStaffIDdelete.Text = "Staff ID";
-            // 
-            // comboBoxDeleteStaffID
-            // 
-            this.comboBoxDeleteStaffID.FormattingEnabled = true;
-            this.comboBoxDeleteStaffID.Location = new System.Drawing.Point(161, 127);
-            this.comboBoxDeleteStaffID.Name = "comboBoxDeleteStaffID";
-            this.comboBoxDeleteStaffID.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxDeleteStaffID.TabIndex = 2;
+            this.lblStaffUP.AutoSize = true;
+            this.lblStaffUP.Location = new System.Drawing.Point(123, 75);
+            this.lblStaffUP.Name = "lblStaffUP";
+            this.lblStaffUP.Size = new System.Drawing.Size(54, 17);
+            this.lblStaffUP.TabIndex = 16;
+            this.lblStaffUP.Text = "Staff ID";
             // 
             // textBoxPasswordUP
             // 
@@ -262,23 +279,6 @@
             this.lblUPfirstname.Size = new System.Drawing.Size(74, 17);
             this.lblUPfirstname.TabIndex = 8;
             this.lblUPfirstname.Text = "First name";
-            // 
-            // lblStaffUP
-            // 
-            this.lblStaffUP.AutoSize = true;
-            this.lblStaffUP.Location = new System.Drawing.Point(123, 75);
-            this.lblStaffUP.Name = "lblStaffUP";
-            this.lblStaffUP.Size = new System.Drawing.Size(54, 17);
-            this.lblStaffUP.TabIndex = 16;
-            this.lblStaffUP.Text = "Staff ID";
-            // 
-            // comboBoxStaffIDUP
-            // 
-            this.comboBoxStaffIDUP.FormattingEnabled = true;
-            this.comboBoxStaffIDUP.Location = new System.Drawing.Point(200, 75);
-            this.comboBoxStaffIDUP.Name = "comboBoxStaffIDUP";
-            this.comboBoxStaffIDUP.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxStaffIDUP.TabIndex = 17;
             // 
             // Staff
             // 

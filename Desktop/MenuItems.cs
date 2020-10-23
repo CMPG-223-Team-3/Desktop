@@ -7,34 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace Manager
+namespace Desktop
+
 {
     public partial class MenuItems : Form
     {
-        public MenuItems()
+        private MySqlConnection connection;
+        private string server = "sql7.freemysqlhosting.net";
+        private string database = "sql7368973";
+        private string uid = "sql7368973";
+        private string password = "1lFxsKtjXr";
+        string connectionstring;
+
+        public MenuItems(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
 
-        private void addMenuItem(int menuID, string menuitem, string menuItemDes ,int price)
+        private void addMenuItem(int menuID, string menuitem, string menuItemDes, int price)
         {
-            string addquery = "INSERT INTO Menu_Items (Menu_Item_ID,Item_Name,Item_Description,Price) VALUES('" +menuID +"','" +menuitem+"','" +menuItemDes +"','" +price +"')";
+            string addquery = "INSERT INTO Menu_Items (Menu_Item_ID,Item_Name,Item_Description,Price) VALUES('" + menuID + "','" + menuitem + "','" + menuItemDes + "','" + price + "')";
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = addquery;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void deleteMenuItem(int menuID)
         {
-            string deletequery = "DELETE FROM Menu_Items WHERE Menu_Item_ID ='"+menuID+"'";
+            string deletequery = "DELETE FROM Menu_Items WHERE Menu_Item_ID ='" + menuID + "'";
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = deletequery;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void updateMenuItem(int menuID, string menuitem, string menuItemDes, int price)
         {
             string updatequery = "UPDATE Menu_Items SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = updatequery;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
+
         }
 
         private void MenuItems_Load(object sender, EventArgs e)
         {
-
+            connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
+                 + ";" + "PASSWORD" + password + ";";
+            connection = new MySqlConnection(connectionstring);
         }
     }
 }

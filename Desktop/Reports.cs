@@ -7,30 +7,164 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace Manager
+namespace Desktop
 {
     public partial class Reports : Form
     {
-        public Reports()
+        private MySqlConnection connection;
+        private string server = "sql7.freemysqlhosting.net";
+        private string database = "sql7368973";
+        private string uid = "sql7368973";
+        private string password = "1lFxsKtjXr";
+        string connectionstring;
+
+        private Desktop myMainForm;
+        public Reports(ref Desktop MainForm)
         {
             InitializeComponent();
+            this.myMainForm = MainForm;
         }
-        private void top10(DateTime beginDate, DateTime endDate, DateTime beginTime, DateTime endTime)
+        private void orders(DateTime beginDate, DateTime endDate, DateTime beginTime, DateTime endTime)
         {
 
             string top10Rquery = " SELECT * FROM ORDER_DETAIL";
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(top10Rquery, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                //dataR.GetValue();
+                listBoxOrders.Items.Add(dataR["Order_ID"]+","+ dataR["Order_DateTime"] + "," + dataR["Table_nr"] + "," + dataR["Waiter_ID"] + "," + dataR["Paid"] + "," + dataR["CashOrCard"] + "," + dataR["Status"] );
+
+            }
+
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
 
         }
 
-        private void orders(DateTime beginDate , DateTime endDate , DateTime beginTime, DateTime endTime)
+        private void top10(DateTime beginDate, DateTime endDate, DateTime beginTime, DateTime endTime)
         {
-            string orderRquery = "SELECT * FROM ORDERS where Order_Date >= '"+ beginDate + "' AND Order_Date <= '" + endDate + "' AND Order_Time >= '" + beginTime + "' AND Order_Time <= '" + endTime + "' ";
+            //Hello sp
+
+
+
+            // count menu items to make menu items list and amount 
+
+            string queryCount = "SELECT COUNT(MenuItemID) FROM Menu_Item";
+            int listSize = 0;
+            
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand(queryCount, connection);
+            listSize = int.Parse(cmd.ExecuteScalar() + "");
+            connection.Close();
+
+            int[,] menuItemsList = new int[listSize,1];
+            
+            string[] Top10names = new string[10];
+            int[] Top10amount = new int[10];
+
+            // fill arrays 
+            string menyQuery = "SELECT * FROM MENU_ITEM";
+            connection.Open();
+            //put in comand
+            cmd = new MySqlCommand(menyQuery, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                int menuItemID = int.Parse(dataR["Menu_Item_ID"] + "");
+                for (int i = 0; i< listSize; i++)
+                {
+                    menuItemsList[i,0] = menuItemID;
+                    menuItemsList[i, 1] = 0;
+                }
+
+            }
+
+
+
+            // go get orders in the selected time period 
+            int quantity = 0;
+            int orderID = 0;
+            int menuID = 0;
+            string orderRquery = "SELECT * FROM ORDERS where Order_Date >= '" + beginDate + "' AND Order_Date <= '" + endDate + "' AND Order_Time >= '" + beginTime + "' AND Order_Time <= '" + endTime + "' ";
+            connection.Open();
+            //put in comand
+             cmd = new MySqlCommand(orderRquery, connection);
+            dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+
+                // go get menu items connected to ID and add 
+                orderID = int.Parse(dataR["Order_ID"]+"" ) ;
+                 orderRquery = "SELECT * FROM ORDERS DETAIL where Order_ID = '" + orderID + "'  ";
+
+                connection.Open();
+                //put in comand
+                cmd = new MySqlCommand(orderRquery, connection);
+                MySqlDataReader dataR2 = cmd.ExecuteReader();
+                // data reader
+                while (dataR.Read())
+                {
+                    menuID = int.Parse(dataR["MenuItemID"]+"");
+                    quantity = int.Parse(dataR["Quantity_Orderd"] + "");
+
+                    for (int i = 0; i < listSize; i++)
+                    {
+                        if (menuItemsList[i,0] == menuID)
+                        {
+                            menuItemsList[i,1] += quantity;
+                        }
+
+                    }
+
+                }
+
+                // close data reader
+                dataR.Close();
+                // close connection 
+                connection.Close();
+
+
+            }
+
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
+
+            int temp = 0;
+            for (int i = 0; i < listSize; i++)
+            {
+                for (int k = 0; k < listSize; k++)
+                {
+                    if (menuItemsList[k,1]> menuItemsList[k + 1, 1])
+                    {
+                        temp = menuItemsList[k, 1];
+                        menuItemsList[k, 1] = menuItemsList[k + 1, 1];
+                        menuItemsList[k + 1, 1] = temp;
+                    }
+                    
+                }
+            }
+                
+
+
         }
 
         private void Reports_Load(object sender, EventArgs e)
         {
-
+            connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
+                 + ";" + "PASSWORD" + password + ";";
+            connection = new MySqlConnection(connectionstring);
         }
     }
 }
