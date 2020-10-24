@@ -107,5 +107,33 @@ namespace Desktop
             // close connection 
             connection.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = textBoxAddFirstname.Text;
+            string lastname = textBoxAddLastname.Text;
+            string username = textBoxAddUsername.Text;
+            string password = textBoxAddPassword.Text;
+
+            addStaff(name, lastname, username, password);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
+            deleteStaff(id);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(comboBoxStaffIDUP.SelectedItem.ToString());
+            string name = textBoxUPFirstName.Text;
+            string lastname = textBoxUpLastname.Text;
+            string password = textBoxPasswordUP.Text;
+            string username = textBoxUPusername.Text;
+
+
+            updateStaff(id, name, lastname, username, password);
+        }
     }
 }

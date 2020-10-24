@@ -26,10 +26,10 @@ namespace Desktop
             InitializeComponent();
             this.myMainForm = MainForm;
         }
-        private void orders(DateTime beginDate, DateTime endDate, DateTime beginTime, DateTime endTime)
+        private void orders(DateTime beginDateTime, DateTime endDateTime)
         {
 
-            string top10Rquery = " SELECT * FROM ORDER_DETAIL";
+            string top10Rquery = " SELECT * FROM ORDER WHERE Order_DateTime >='"+beginDateTime+"' AND Order_DateTime<= '"+endDateTime+"'";
             connection.Open();
             //put in comand
             MySqlCommand cmd = new MySqlCommand(top10Rquery, connection);
@@ -49,7 +49,7 @@ namespace Desktop
 
         }
 
-        private void top10(DateTime beginDate, DateTime endDate, DateTime beginTime, DateTime endTime)
+        private void top10(DateTime beginDateTime, DateTime endDateTime)
         {
             //Hello sp
 
@@ -57,7 +57,7 @@ namespace Desktop
 
             // count menu items to make menu items list and amount 
 
-            string queryCount = "SELECT COUNT(MenuItemID) FROM Menu_Item";
+            string queryCount = "SELECT COUNT(MenuItemID) FROM Menu_Item ";
             int listSize = 0;
             
             connection.Open();
@@ -94,7 +94,7 @@ namespace Desktop
             int quantity = 0;
             int orderID = 0;
             int menuID = 0;
-            string orderRquery = "SELECT * FROM ORDERS where Order_Date >= '" + beginDate + "' AND Order_Date <= '" + endDate + "' AND Order_Time >= '" + beginTime + "' AND Order_Time <= '" + endTime + "' ";
+            string orderRquery = "SELECT * FROM ORDERS where Order_Date >= '" + beginDateTime + "' AND Order_Date <= '" + endDateTime + "'  ";
             connection.Open();
             //put in comand
              cmd = new MySqlCommand(orderRquery, connection);
@@ -165,6 +165,24 @@ namespace Desktop
             connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime beginOrders = new DateTime();
+            DateTime endOrders = new DateTime();
+            beginOrders = dateTimePickerBeginOrders.Value;
+            endOrders = dateTimePickerEndOrders.Value;
+            orders(beginOrders, endOrders);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime beginTOp10 = new DateTime();
+            DateTime endTop10 = new DateTime();
+            beginTOp10 = dateTimePickerBeginTop10.Value;
+            endTop10 = dateTimePickerEndTopt10.Value;
+            orders(beginTOp10, endTop10);
         }
     }
 }

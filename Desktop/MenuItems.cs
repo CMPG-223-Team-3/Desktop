@@ -27,9 +27,9 @@ namespace Desktop
             this.myMainForm = MainForm;
         }
 
-        private void addMenuItem(int menuID, string menuitem, string menuItemDes, int price)
+        private void addMenuItem( string menuitem, string menuItemDes, int price)
         {
-            string addquery = "INSERT INTO Menu_Items (Menu_Item_ID,Item_Name,Item_Description,Price) VALUES('" + menuID + "','" + menuitem + "','" + menuItemDes + "','" + price + "')";
+            string addquery = "INSERT INTO Menu_Items (Item_Name,Item_Description,Price) VALUES('" + menuitem + "','" + menuItemDes + "','" + price + "')";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = addquery;
@@ -104,6 +104,31 @@ namespace Desktop
             dataR.Close();
             // close connection 
             connection.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string name = textBoxMenuItemName.Text;
+            string descrip = textBoxMenuItemDes.Text;
+            int  price = int.Parse(textBoxMenuItemPrice.Text);
+
+            addMenuItem(name, descrip, price);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
+
+            deleteMenuItem(id);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(comboBoxMenueIDUP.SelectedItem.ToString());
+            string itemName = textBoxMenuNameUP.Text;
+            string itemDes = textBoxMenuDesUP.Text;
+            int price = int .Parse(textBoxMenuPriceUP.Text);
+            updateMenuItem(id, itemName, itemDes, price);
         }
     }
 }
