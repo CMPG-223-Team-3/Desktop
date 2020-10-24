@@ -170,6 +170,8 @@
             this.comboBoxDeleteStaffID.Name = "comboBoxDeleteStaffID";
             this.comboBoxDeleteStaffID.Size = new System.Drawing.Size(121, 24);
             this.comboBoxDeleteStaffID.TabIndex = 2;
+            this.comboBoxDeleteStaffID.SelectedIndexChanged += new System.EventHandler(this.comboBoxDeleteStaffID_SelectedIndexChanged);
+            this.comboBoxDeleteStaffID.Click += new System.EventHandler(this.comboBoxDeleteStaffID_Click);
             // 
             // lblStaffIDdelete
             // 
@@ -206,6 +208,7 @@
             this.comboBoxStaffIDUP.Name = "comboBoxStaffIDUP";
             this.comboBoxStaffIDUP.Size = new System.Drawing.Size(121, 24);
             this.comboBoxStaffIDUP.TabIndex = 17;
+            this.comboBoxStaffIDUP.Click += new System.EventHandler(this.comboBoxStaffIDUP_Click);
             // 
             // lblStaffUP
             // 

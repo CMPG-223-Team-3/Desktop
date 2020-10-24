@@ -67,5 +67,43 @@ namespace Desktop
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
         }
+
+        private void comboBoxDeleteMenuID_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM MENU_ITEM";
+            //open connection
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                comboBoxDeleteMenuID.Items.Add(dataR["Menu_Item_ID"]);
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
+        }
+
+        private void comboBoxMenueIDUP_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM MENU_ITEM";
+            //open connection
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                comboBoxMenueIDUP.Items.Add(dataR["Menu_Item_ID"]);
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
+        }
     }
 }
