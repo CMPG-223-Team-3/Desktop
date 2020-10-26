@@ -83,7 +83,7 @@ namespace Desktop
             }
             // close data reader
             dataR.Close();
-            // close connection 
+            // close connection
             connection.Close();
         }
 
@@ -102,7 +102,7 @@ namespace Desktop
             }
             // close data reader
             dataR.Close();
-            // close connection 
+            // close connection
             connection.Close();
         }
 

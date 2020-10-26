@@ -49,7 +49,7 @@ namespace Desktop
             port = System.Environment.GetEnvironmentVariable("CMPG223PORT", EnvironmentVariableTarget.User) ?? "3306";
 
 
-            return testConnection(server,port,database,uid,password);
+            return testConnection(server, port, database, uid, password);
         }
 
         public bool testConnection(String server, String port, String database, String uid, String password)
@@ -68,7 +68,7 @@ namespace Desktop
             {
                 return false;
             }
-            
+
         }
 
         private void btnTestConnection_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Desktop
             uid = txtUsername.Text;
             password = txtPassword.Text;
 
-            if(testConnection(server, port, database, uid, password))
+            if (testConnection(server, port, database, uid, password))
             {
                 MessageBox.Show("Connected");
             }
@@ -111,12 +111,6 @@ namespace Desktop
             txtServerPort.Text = port;
 
             MessageBox.Show("Server info saved");
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.myMainForm.HideAllForms("Login");
-            this.myMainForm.myForms["Login"].Show();
         }
     }
 }
