@@ -35,3 +35,15 @@ C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\bin\Debug\MySql.Data.xml
 C:\Users\Jimmy-Desktop\OneDrive - NORTH-WEST UNIVERSITY\2020\Semester 2\CMPG 223\Project\Code\Desktop\Desktop\obj\Debug\Desktop.exe.config
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.exe.config
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Login.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Desktop.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.MenuItems.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Orders.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Properties.Resources.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Reports.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.Staff.resources
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.exe
+C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.pdb

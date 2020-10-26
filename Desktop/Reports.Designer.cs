@@ -34,10 +34,10 @@
             this.dateTimePickerEndOrders = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBeginTop10 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerEndTopt10 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lblOrders = new System.Windows.Forms.Label();
+            this.lblTop10 = new System.Windows.Forms.Label();
+            this.btnOrderReport = new System.Windows.Forms.Button();
+            this.btnTop10Report = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxOrders
@@ -86,53 +86,53 @@
             this.dateTimePickerEndTopt10.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerEndTopt10.TabIndex = 5;
             // 
-            // label1
+            // lblOrders
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Orders";
+            this.lblOrders.AutoSize = true;
+            this.lblOrders.Location = new System.Drawing.Point(9, 9);
+            this.lblOrders.Name = "lblOrders";
+            this.lblOrders.Size = new System.Drawing.Size(52, 17);
+            this.lblOrders.TabIndex = 6;
+            this.lblOrders.Text = "Orders";
             // 
-            // label2
+            // lblTop10
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 224);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Top10";
+            this.lblTop10.AutoSize = true;
+            this.lblTop10.Location = new System.Drawing.Point(9, 224);
+            this.lblTop10.Name = "lblTop10";
+            this.lblTop10.Size = new System.Drawing.Size(49, 17);
+            this.lblTop10.TabIndex = 7;
+            this.lblTop10.Text = "Top10";
             // 
-            // button1
+            // btnOrderReport
             // 
-            this.button1.Location = new System.Drawing.Point(150, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 37);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Generate orders report";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOrderReport.Location = new System.Drawing.Point(150, 72);
+            this.btnOrderReport.Name = "btnOrderReport";
+            this.btnOrderReport.Size = new System.Drawing.Size(181, 37);
+            this.btnOrderReport.TabIndex = 8;
+            this.btnOrderReport.Text = "Generate orders report";
+            this.btnOrderReport.UseVisualStyleBackColor = true;
+            this.btnOrderReport.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnTop10Report
             // 
-            this.button2.Location = new System.Drawing.Point(129, 294);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 40);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Generate Top 10 Menu items";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnTop10Report.Location = new System.Drawing.Point(129, 294);
+            this.btnTop10Report.Name = "btnTop10Report";
+            this.btnTop10Report.Size = new System.Drawing.Size(202, 40);
+            this.btnTop10Report.TabIndex = 9;
+            this.btnTop10Report.Text = "Generate Top 10 Menu items";
+            this.btnTop10Report.UseVisualStyleBackColor = true;
+            this.btnTop10Report.Click += new System.EventHandler(this.button2_Click);
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnTop10Report);
+            this.Controls.Add(this.btnOrderReport);
+            this.Controls.Add(this.lblTop10);
+            this.Controls.Add(this.lblOrders);
             this.Controls.Add(this.dateTimePickerEndTopt10);
             this.Controls.Add(this.dateTimePickerBeginTop10);
             this.Controls.Add(this.dateTimePickerEndOrders);
@@ -155,9 +155,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerEndOrders;
         private System.Windows.Forms.DateTimePicker dateTimePickerBeginTop10;
         private System.Windows.Forms.DateTimePicker dateTimePickerEndTopt10;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblOrders;
+        private System.Windows.Forms.Label lblTop10;
+        private System.Windows.Forms.Button btnOrderReport;
+        private System.Windows.Forms.Button btnTop10Report;
     }
 }

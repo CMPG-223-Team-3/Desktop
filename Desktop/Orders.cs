@@ -65,6 +65,31 @@ namespace Desktop
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
 
+            // GUI
+            lblDeletetableOrders.ForeColor = System.Drawing.Color.White;
+            lblOrderDeleteID.ForeColor = System.Drawing.Color.White;
+            comboBoxDeleteOrderID.ForeColor = System.Drawing.Color.White;
+            comboBoxDeleteTable.ForeColor = System.Drawing.Color.White;
+            tabPageDeleteOrders.ForeColor= System.Drawing.Color.White;
+             tabPageUpOrders.ForeColor= System.Drawing.Color.White;
+
+            string hexPayensGray = "#536878";
+
+            Color color = System.Drawing.ColorTranslator.FromHtml(hexPayensGray);
+
+            this.BackColor = color;
+
+            tabPageDeleteOrders.BackColor = color;
+            tabPageUpOrders.BackColor = color;
+
+            string hexNavy = "#000080";
+
+             color = System.Drawing.ColorTranslator.FromHtml(hexNavy);
+
+            btnConfirmDelete.ForeColor= System.Drawing.Color.White;
+            btnConfirmDelete.BackColor = color;
+
+
 
         }
 

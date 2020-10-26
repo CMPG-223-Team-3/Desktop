@@ -165,6 +165,37 @@ namespace Desktop
             connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
+            //GUI
+
+            lblOrders.ForeColor = System.Drawing.Color.White;
+            lblTop10.ForeColor = System.Drawing.Color.White;
+
+
+            dateTimePickerBeginOrders.ForeColor = System.Drawing.Color.White;
+            dateTimePickerBeginTop10.ForeColor = System.Drawing.Color.White;
+            dateTimePickerEndOrders.ForeColor = System.Drawing.Color.White;
+            dateTimePickerEndTopt10.ForeColor = System.Drawing.Color.White;
+
+           
+
+            string hexPayensGray = "#536878";
+
+            Color color = System.Drawing.ColorTranslator.FromHtml(hexPayensGray);
+
+            this.BackColor = color;
+
+            
+
+            string hexNavy = "#000080";
+
+            color = System.Drawing.ColorTranslator.FromHtml(hexNavy);
+
+            btnOrderReport.ForeColor = System.Drawing.Color.White;
+            btnOrderReport.BackColor = color;
+
+            btnTop10Report.ForeColor = System.Drawing.Color.White;
+            btnTop10Report.BackColor = color;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

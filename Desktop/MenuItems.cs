@@ -66,6 +66,46 @@ namespace Desktop
             connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
+
+            //GUI
+            lblDeleteMenuID.ForeColor = System.Drawing.Color.White;
+            lblMenuItemDes.ForeColor = System.Drawing.Color.White;
+            lblMenuItemName.ForeColor = System.Drawing.Color.White;
+            lblMenuItemPrice.ForeColor = System.Drawing.Color.White;
+            lblMenuNameUP.ForeColor = System.Drawing.Color.White;
+            lblMenuDesUP.ForeColor = System.Drawing.Color.White;
+            lblMenuPriceUP.ForeColor = System.Drawing.Color.White;
+
+            comboBoxDeleteMenuID.ForeColor = System.Drawing.Color.White;
+            comboBoxMenueIDUP.ForeColor = System.Drawing.Color.White;
+
+            tabPageAddMenuItem.ForeColor = System.Drawing.Color.White;
+            tabPageDeleteMenuItem.ForeColor = System.Drawing.Color.White;
+            tabPageUPmenuItem.ForeColor = System.Drawing.Color.White;
+
+            string hexPayensGray = "#536878";
+
+            Color color = System.Drawing.ColorTranslator.FromHtml(hexPayensGray);
+
+            this.BackColor = color;
+
+            tabPageAddMenuItem.BackColor = color;
+            tabPageDeleteMenuItem.BackColor = color;
+            tabPageUPmenuItem.BackColor = color;
+
+            string hexNavy = "#000080";
+
+            color = System.Drawing.ColorTranslator.FromHtml(hexNavy);
+
+            btnAddMenuItem.ForeColor = System.Drawing.Color.White;
+            btnAddMenuItem.BackColor = color;
+
+            btnDeleteMenuItem.ForeColor = System.Drawing.Color.White;
+            btnDeleteMenuItem.BackColor = color;
+
+            btnUpMenuItem.ForeColor = System.Drawing.Color.White;
+            btnUpMenuItem.BackColor = color;
+
         }
 
         private void comboBoxDeleteMenuID_Click(object sender, EventArgs e)
@@ -112,7 +152,32 @@ namespace Desktop
             string descrip = textBoxMenuItemDes.Text;
             int  price = int.Parse(textBoxMenuItemPrice.Text);
 
-            addMenuItem(name, descrip, price);
+            try 
+            {
+                string test;
+                string query = "SELECT * FROM MENU_ITEM WHERE Item_Name '"+name+ "' AND Item_Description '" + descrip + "' AND Price '" + price + "' ";
+                //open connection
+                connection.Open();
+                //put in comand
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataR = cmd.ExecuteReader();
+                // data reader
+                while (dataR.Read())
+                {
+                    test = dataR["Item_Name"] + "";
+                }
+                // close data reader
+                dataR.Close();
+                // close connection 
+                connection.Close();
+                MessageBox.Show("A Menu Item with these details already exist");
+            }
+            catch
+            {
+                addMenuItem(name, descrip, price);
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -63,6 +63,47 @@ namespace Desktop
             connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
                  + ";" + "PASSWORD" + password + ";";
             connection = new MySqlConnection(connectionstring);
+
+            //GUI
+            lblAddFirstname.ForeColor = System.Drawing.Color.White;
+            lblAddLastname.ForeColor = System.Drawing.Color.White;
+            lblAddPassword.ForeColor = System.Drawing.Color.White;
+            lblAddUsername.ForeColor = System.Drawing.Color.White;
+            lblPasswordUP.ForeColor = System.Drawing.Color.White;
+            lblStaffUP.ForeColor = System.Drawing.Color.White;
+            lblUPfirstname.ForeColor = System.Drawing.Color.White;
+            lblUpLastname.ForeColor = System.Drawing.Color.White;
+            lblUPuasername.ForeColor = System.Drawing.Color.White;
+            lblStaffIDdelete.ForeColor = System.Drawing.Color.White;
+
+            comboBoxDeleteStaffID.ForeColor = System.Drawing.Color.White;
+            comboBoxStaffIDUP.ForeColor = System.Drawing.Color.White;
+            tabPageAddStaff.ForeColor = System.Drawing.Color.White;
+            tabPageDeleteStaff.ForeColor = System.Drawing.Color.White;
+            tabPageUpStaff.ForeColor = System.Drawing.Color.White;
+
+            string hexPayensGray = "#536878";
+
+            Color color = System.Drawing.ColorTranslator.FromHtml(hexPayensGray);
+
+            this.BackColor = color;
+
+            tabPageAddStaff.BackColor = color;
+            tabPageDeleteStaff.BackColor = color;
+            tabPageUpStaff.BackColor = color;
+
+            string hexNavy = "#000080";
+
+            color = System.Drawing.ColorTranslator.FromHtml(hexNavy);
+
+            btnAddStaff.ForeColor = System.Drawing.Color.White;
+            btnAddStaff.BackColor = color;
+
+            btnDeleteStaff.ForeColor = System.Drawing.Color.White;
+            btnDeleteStaff.BackColor = color;
+
+            btnUpdateStaff.ForeColor = System.Drawing.Color.White;
+            btnUpdateStaff.BackColor = color;
         }
 
         private void comboBoxDeleteStaffID_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,7 +156,33 @@ namespace Desktop
             string username = textBoxAddUsername.Text;
             string password = textBoxAddPassword.Text;
 
-            addStaff(name, lastname, username, password);
+
+            try 
+            {
+                string test;
+                string query = "SELECT * FROM STAFF WHERE Waiter_Firstname'"+name+"' AND Waiter_Lastname'"+lastname+ "' AND Username'"+username+"' AND Password '"+password+"'";
+                //open connection
+                connection.Open();
+                //put in comand
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataR = cmd.ExecuteReader();
+                // data reader
+                while (dataR.Read())
+                {
+                    test = dataR["Firstname"] + "";
+                }
+                // close data reader
+                dataR.Close();
+                // close connection 
+                connection.Close();
+
+                MessageBox.Show("A Staff memeber with these details already exists");
+            }
+            catch
+            {
+                addStaff(name, lastname, username, password);
+            }
+            ;
         }
 
         private void button2_Click(object sender, EventArgs e)

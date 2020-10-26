@@ -30,6 +30,7 @@
         {
             this.tabControlMenuItem = new System.Windows.Forms.TabControl();
             this.tabPageAddMenuItem = new System.Windows.Forms.TabPage();
+            this.btnAddMenuItem = new System.Windows.Forms.Button();
             this.textBoxMenuItemPrice = new System.Windows.Forms.TextBox();
             this.textBoxMenuItemDes = new System.Windows.Forms.TextBox();
             this.textBoxMenuItemName = new System.Windows.Forms.TextBox();
@@ -37,9 +38,11 @@
             this.lblMenuItemDes = new System.Windows.Forms.Label();
             this.lblMenuItemName = new System.Windows.Forms.Label();
             this.tabPageDeleteMenuItem = new System.Windows.Forms.TabPage();
+            this.btnDeleteMenuItem = new System.Windows.Forms.Button();
             this.comboBoxDeleteMenuID = new System.Windows.Forms.ComboBox();
             this.lblDeleteMenuID = new System.Windows.Forms.Label();
             this.tabPageUPmenuItem = new System.Windows.Forms.TabPage();
+            this.btnUpMenuItem = new System.Windows.Forms.Button();
             this.comboBoxMenueIDUP = new System.Windows.Forms.ComboBox();
             this.lblMenuIDUP = new System.Windows.Forms.Label();
             this.textBoxMenuPriceUP = new System.Windows.Forms.TextBox();
@@ -48,9 +51,6 @@
             this.lblMenuPriceUP = new System.Windows.Forms.Label();
             this.lblMenuDesUP = new System.Windows.Forms.Label();
             this.lblMenuNameUP = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabControlMenuItem.SuspendLayout();
             this.tabPageAddMenuItem.SuspendLayout();
             this.tabPageDeleteMenuItem.SuspendLayout();
@@ -70,7 +70,7 @@
             // 
             // tabPageAddMenuItem
             // 
-            this.tabPageAddMenuItem.Controls.Add(this.button1);
+            this.tabPageAddMenuItem.Controls.Add(this.btnAddMenuItem);
             this.tabPageAddMenuItem.Controls.Add(this.textBoxMenuItemPrice);
             this.tabPageAddMenuItem.Controls.Add(this.textBoxMenuItemDes);
             this.tabPageAddMenuItem.Controls.Add(this.textBoxMenuItemName);
@@ -84,6 +84,16 @@
             this.tabPageAddMenuItem.TabIndex = 0;
             this.tabPageAddMenuItem.Text = "Add Menu Item";
             this.tabPageAddMenuItem.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMenuItem
+            // 
+            this.btnAddMenuItem.Location = new System.Drawing.Point(58, 217);
+            this.btnAddMenuItem.Name = "btnAddMenuItem";
+            this.btnAddMenuItem.Size = new System.Drawing.Size(75, 23);
+            this.btnAddMenuItem.TabIndex = 7;
+            this.btnAddMenuItem.Text = "Add";
+            this.btnAddMenuItem.UseVisualStyleBackColor = true;
+            this.btnAddMenuItem.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxMenuItemPrice
             // 
@@ -135,7 +145,7 @@
             // 
             // tabPageDeleteMenuItem
             // 
-            this.tabPageDeleteMenuItem.Controls.Add(this.button2);
+            this.tabPageDeleteMenuItem.Controls.Add(this.btnDeleteMenuItem);
             this.tabPageDeleteMenuItem.Controls.Add(this.comboBoxDeleteMenuID);
             this.tabPageDeleteMenuItem.Controls.Add(this.lblDeleteMenuID);
             this.tabPageDeleteMenuItem.Location = new System.Drawing.Point(4, 25);
@@ -145,6 +155,16 @@
             this.tabPageDeleteMenuItem.TabIndex = 1;
             this.tabPageDeleteMenuItem.Text = "Delete Menu Item";
             this.tabPageDeleteMenuItem.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteMenuItem
+            // 
+            this.btnDeleteMenuItem.Location = new System.Drawing.Point(104, 223);
+            this.btnDeleteMenuItem.Name = "btnDeleteMenuItem";
+            this.btnDeleteMenuItem.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteMenuItem.TabIndex = 3;
+            this.btnDeleteMenuItem.Text = "Delete";
+            this.btnDeleteMenuItem.UseVisualStyleBackColor = true;
+            this.btnDeleteMenuItem.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBoxDeleteMenuID
             // 
@@ -166,7 +186,7 @@
             // 
             // tabPageUPmenuItem
             // 
-            this.tabPageUPmenuItem.Controls.Add(this.button3);
+            this.tabPageUPmenuItem.Controls.Add(this.btnUpMenuItem);
             this.tabPageUPmenuItem.Controls.Add(this.comboBoxMenueIDUP);
             this.tabPageUPmenuItem.Controls.Add(this.lblMenuIDUP);
             this.tabPageUPmenuItem.Controls.Add(this.textBoxMenuPriceUP);
@@ -181,6 +201,16 @@
             this.tabPageUPmenuItem.TabIndex = 2;
             this.tabPageUPmenuItem.Text = "Update Menu Item";
             this.tabPageUPmenuItem.UseVisualStyleBackColor = true;
+            // 
+            // btnUpMenuItem
+            // 
+            this.btnUpMenuItem.Location = new System.Drawing.Point(129, 251);
+            this.btnUpMenuItem.Name = "btnUpMenuItem";
+            this.btnUpMenuItem.Size = new System.Drawing.Size(75, 23);
+            this.btnUpMenuItem.TabIndex = 18;
+            this.btnUpMenuItem.Text = "Update";
+            this.btnUpMenuItem.UseVisualStyleBackColor = true;
+            this.btnUpMenuItem.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBoxMenueIDUP
             // 
@@ -248,36 +278,6 @@
             this.lblMenuNameUP.TabIndex = 8;
             this.lblMenuNameUP.Text = "Name";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(58, 217);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(104, 223);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(129, 251);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Update";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // MenuItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,8 +320,8 @@
         private System.Windows.Forms.Label lblMenuPriceUP;
         private System.Windows.Forms.Label lblMenuDesUP;
         private System.Windows.Forms.Label lblMenuNameUP;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddMenuItem;
+        private System.Windows.Forms.Button btnDeleteMenuItem;
+        private System.Windows.Forms.Button btnUpMenuItem;
     }
 }

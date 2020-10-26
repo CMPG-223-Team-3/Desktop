@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageDeleteOrders = new System.Windows.Forms.TabPage();
+            this.btnConfirmDelete = new System.Windows.Forms.Button();
             this.comboBoxDeleteTable = new System.Windows.Forms.ComboBox();
             this.comboBoxDeleteOrderID = new System.Windows.Forms.ComboBox();
             this.lblDeletetableOrders = new System.Windows.Forms.Label();
             this.lblOrderDeleteID = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageUpOrders = new System.Windows.Forms.TabPage();
+            this.btnConfirmUP = new System.Windows.Forms.Button();
             this.comboBoxCashorCard = new System.Windows.Forms.ComboBox();
             this.comboBoxPaid = new System.Windows.Forms.ComboBox();
             this.textBoxWaiter = new System.Windows.Forms.TextBox();
@@ -47,37 +49,45 @@
             this.lblCashorCard = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
-            this.btnConfirmDelete = new System.Windows.Forms.Button();
-            this.btnConfirmUP = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPageDeleteOrders.SuspendLayout();
+            this.tabPageUpOrders.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPageDeleteOrders);
+            this.tabControl1.Controls.Add(this.tabPageUpOrders);
             this.tabControl1.Location = new System.Drawing.Point(210, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(493, 465);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageDeleteOrders
             // 
-            this.tabPage1.Controls.Add(this.btnConfirmDelete);
-            this.tabPage1.Controls.Add(this.comboBoxDeleteTable);
-            this.tabPage1.Controls.Add(this.comboBoxDeleteOrderID);
-            this.tabPage1.Controls.Add(this.lblDeletetableOrders);
-            this.tabPage1.Controls.Add(this.lblOrderDeleteID);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(485, 436);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Delete Order";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageDeleteOrders.Controls.Add(this.btnConfirmDelete);
+            this.tabPageDeleteOrders.Controls.Add(this.comboBoxDeleteTable);
+            this.tabPageDeleteOrders.Controls.Add(this.comboBoxDeleteOrderID);
+            this.tabPageDeleteOrders.Controls.Add(this.lblDeletetableOrders);
+            this.tabPageDeleteOrders.Controls.Add(this.lblOrderDeleteID);
+            this.tabPageDeleteOrders.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDeleteOrders.Name = "tabPageDeleteOrders";
+            this.tabPageDeleteOrders.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDeleteOrders.Size = new System.Drawing.Size(485, 436);
+            this.tabPageDeleteOrders.TabIndex = 0;
+            this.tabPageDeleteOrders.Text = "Delete Order";
+            this.tabPageDeleteOrders.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirmDelete
+            // 
+            this.btnConfirmDelete.Location = new System.Drawing.Point(66, 266);
+            this.btnConfirmDelete.Name = "btnConfirmDelete";
+            this.btnConfirmDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmDelete.TabIndex = 5;
+            this.btnConfirmDelete.Text = "Confirm";
+            this.btnConfirmDelete.UseVisualStyleBackColor = true;
+            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
             // 
             // comboBoxDeleteTable
             // 
@@ -115,28 +125,38 @@
             this.lblOrderDeleteID.TabIndex = 0;
             this.lblOrderDeleteID.Text = "Delete order by Order ID";
             // 
-            // tabPage2
+            // tabPageUpOrders
             // 
-            this.tabPage2.Controls.Add(this.btnConfirmUP);
-            this.tabPage2.Controls.Add(this.comboBoxCashorCard);
-            this.tabPage2.Controls.Add(this.comboBoxPaid);
-            this.tabPage2.Controls.Add(this.textBoxWaiter);
-            this.tabPage2.Controls.Add(this.textBoxTable);
-            this.tabPage2.Controls.Add(this.dateTimePickerOrder);
-            this.tabPage2.Controls.Add(this.comboBoxOrderID);
-            this.tabPage2.Controls.Add(this.lblTable);
-            this.tabPage2.Controls.Add(this.lblWaiter);
-            this.tabPage2.Controls.Add(this.lblPaid);
-            this.tabPage2.Controls.Add(this.lblCashorCard);
-            this.tabPage2.Controls.Add(this.lblDate);
-            this.tabPage2.Controls.Add(this.lblOrderID);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(485, 436);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Update Orders";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageUpOrders.Controls.Add(this.btnConfirmUP);
+            this.tabPageUpOrders.Controls.Add(this.comboBoxCashorCard);
+            this.tabPageUpOrders.Controls.Add(this.comboBoxPaid);
+            this.tabPageUpOrders.Controls.Add(this.textBoxWaiter);
+            this.tabPageUpOrders.Controls.Add(this.textBoxTable);
+            this.tabPageUpOrders.Controls.Add(this.dateTimePickerOrder);
+            this.tabPageUpOrders.Controls.Add(this.comboBoxOrderID);
+            this.tabPageUpOrders.Controls.Add(this.lblTable);
+            this.tabPageUpOrders.Controls.Add(this.lblWaiter);
+            this.tabPageUpOrders.Controls.Add(this.lblPaid);
+            this.tabPageUpOrders.Controls.Add(this.lblCashorCard);
+            this.tabPageUpOrders.Controls.Add(this.lblDate);
+            this.tabPageUpOrders.Controls.Add(this.lblOrderID);
+            this.tabPageUpOrders.Location = new System.Drawing.Point(4, 25);
+            this.tabPageUpOrders.Name = "tabPageUpOrders";
+            this.tabPageUpOrders.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUpOrders.Size = new System.Drawing.Size(485, 436);
+            this.tabPageUpOrders.TabIndex = 1;
+            this.tabPageUpOrders.Text = "Update Orders";
+            this.tabPageUpOrders.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirmUP
+            // 
+            this.btnConfirmUP.Location = new System.Drawing.Point(123, 399);
+            this.btnConfirmUP.Name = "btnConfirmUP";
+            this.btnConfirmUP.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmUP.TabIndex = 13;
+            this.btnConfirmUP.Text = "Confirm";
+            this.btnConfirmUP.UseVisualStyleBackColor = true;
+            this.btnConfirmUP.Click += new System.EventHandler(this.btnConfirmUP_Click);
             // 
             // comboBoxCashorCard
             // 
@@ -242,40 +262,20 @@
             this.lblOrderID.TabIndex = 0;
             this.lblOrderID.Text = "Order ID";
             // 
-            // btnConfirmDelete
-            // 
-            this.btnConfirmDelete.Location = new System.Drawing.Point(147, 278);
-            this.btnConfirmDelete.Name = "btnConfirmDelete";
-            this.btnConfirmDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmDelete.TabIndex = 5;
-            this.btnConfirmDelete.Text = "Confirm";
-            this.btnConfirmDelete.UseVisualStyleBackColor = true;
-            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
-            // 
-            // btnConfirmUP
-            // 
-            this.btnConfirmUP.Location = new System.Drawing.Point(123, 399);
-            this.btnConfirmUP.Name = "btnConfirmUP";
-            this.btnConfirmUP.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmUP.TabIndex = 13;
-            this.btnConfirmUP.Text = "Confirm";
-            this.btnConfirmUP.UseVisualStyleBackColor = true;
-            this.btnConfirmUP.Click += new System.EventHandler(this.btnConfirmUP_Click);
-            // 
             // Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 503);
+            this.ClientSize = new System.Drawing.Size(818, 532);
             this.Controls.Add(this.tabControl1);
             this.Name = "Orders";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.Orders_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageDeleteOrders.ResumeLayout(false);
+            this.tabPageDeleteOrders.PerformLayout();
+            this.tabPageUpOrders.ResumeLayout(false);
+            this.tabPageUpOrders.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -283,12 +283,12 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageDeleteOrders;
         private System.Windows.Forms.ComboBox comboBoxDeleteTable;
         private System.Windows.Forms.ComboBox comboBoxDeleteOrderID;
         private System.Windows.Forms.Label lblDeletetableOrders;
         private System.Windows.Forms.Label lblOrderDeleteID;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageUpOrders;
         private System.Windows.Forms.ComboBox comboBoxCashorCard;
         private System.Windows.Forms.ComboBox comboBoxPaid;
         private System.Windows.Forms.TextBox textBoxWaiter;
