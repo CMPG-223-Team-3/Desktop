@@ -28,7 +28,7 @@ namespace Desktop
         }
         private void deleteOrderID(int orderID)
         {
-            string queryDelete = "DELETE FROM Orders WHERE OrderID = '" + orderID + "'";
+            string queryDelete = "DELETE FROM ORDERS WHERE Order_ID = '" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -39,7 +39,7 @@ namespace Desktop
 
         private void deleteOrderTable(int tableNum)
         {
-            string queryDelete = "DELETE FROM Orders WHERE Table_nr = '" + tableNum + "'";
+            string queryDelete = "DELETE FROM ORDERS WHERE Table_nr = '" + tableNum + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -48,9 +48,9 @@ namespace Desktop
             connection.Close();
         }
 
-        private void updateOrder(int orderID, DateTime orderTime, DateTime orderDate, int table, int paid, int cashOrCard, int waiterID)
+        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID)
         {
-            string queryUpdate = "UPDATE Orders SET Order_Date='" + orderDate + "',Order_Time='" + orderTime + "',Table_nr='" + table + "',WaiterID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "' WHERE OrderID='" + orderID + "'";
+            string queryUpdate = "UPDATE ORDERS SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -70,7 +70,27 @@ namespace Desktop
 
         private void comboBoxOrderID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string query = "SELECT * FROM ORDERS WHERE Order_ID '" + int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString()) + "'";
+            //open connection
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                textBoxTable.Text = dataR["Table_nr"] + "";
+                textBoxWaiter.Text = dataR["Waiter_ID"] + "";
 
+                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_DateTime"] + "");
+
+                comboBoxPaid.SelectedItem = dataR["Paid"] + "";
+                comboBoxCashorCard.SelectedItem = dataR["CashOrCard"] + "";
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
         }
 
         private void comboBoxOrderID_Click(object sender, EventArgs e)
@@ -137,31 +157,47 @@ namespace Desktop
 
         private void btnConfirmUP_Click(object sender, EventArgs e)
         {
-            int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString()) ;
-            DateTime date = dateTimePickerOrder.Value;// check this later on 
-            bool tableVal = false;
-            if (int.TryParse(textBoxTable.Text, out int table))
-                tableVal = true;
-            else
-            {   
-                //error message
+            try {
+                int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
+                DateTime date = dateTimePickerOrder.Value;// check this later on 
+                bool tableVal = false;
+                if (int.TryParse(textBoxTable.Text, out int table))
+                    tableVal = true;
+                else
+                {
+                    //error message
+                    MessageBox.Show("Table needs to be a number");
+                    textBoxTable.Focus();
+
+                }
+                bool waiterVal = false;
+                if (int.TryParse(textBoxWaiter.Text, out int waiter))
+                    waiterVal = true;
+                else
+                { //error message
+                    MessageBox.Show("Waiter ID needs to be a number");
+                    textBoxWaiter.Focus();
+
+                }
+
+
+
+                int paid = int.Parse(comboBoxPaid.SelectedItem.ToString());
+                int paidStatus = int.Parse(comboBoxCashorCard.SelectedItem.ToString());
+
+
+                if (waiterVal && tableVal)
+                {
+                    updateOrder(orderID, date, table, waiter, paid, paidStatus);
+                    MessageBox.Show("Order has been updated");
+
+                }
             }
-            bool waiterVal = false;
-            if (int.TryParse(textBoxWaiter.Text, out int waiter))
-                waiterVal = true;
-            else
-            { //error message
-
-            }
-
-
+            catch {
+                MessageBox.Show("Order could not be updated");
             
-            int paid = int.Parse(comboBoxPaid.SelectedItem.ToString());
-            int paidStatus = int.Parse(comboBoxCashorCard.SelectedItem.ToString());
-            if (waiterVal && tableVal)
-            { 
-                updateOrder(orderID, date, table:, waiter, paid, paidStatus);
             }
+            
 
         }
 
@@ -205,12 +241,45 @@ namespace Desktop
 
         private void btnConfirmDelete_Click(object sender, EventArgs e)
         {
-            int deleteID = int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString());
+            try {
+                int deleteID = int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString());
 
-            deleteOrderID(deleteID);
+                deleteOrderID(deleteID);
+
+                MessageBox.Show("Order has been deleted");
+            }
+            catch {
+                MessageBox.Show("Order could not be deleted");
+            }
+            
 
 
 
+
+        }
+
+        private void comboBoxDeleteOrderID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            myMainForm.switchTo("MainForm");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
 
         }
     }

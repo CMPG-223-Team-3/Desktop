@@ -57,7 +57,7 @@ namespace Desktop
 
             // count menu items to make menu items list and amount 
 
-            string queryCount = "SELECT COUNT(MenuItemID) FROM Menu_Item ";
+            string queryCount = "SELECT COUNT(Menu_Item_ID) FROM MENU_ITEM ";
             int listSize = 0;
             
             connection.Open();
@@ -94,7 +94,7 @@ namespace Desktop
             int quantity = 0;
             int orderID = 0;
             int menuID = 0;
-            string orderRquery = "SELECT * FROM ORDERS where Order_Date >= '" + beginDateTime + "' AND Order_Date <= '" + endDateTime + "'  ";
+            string orderRquery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
             connection.Open();
             //put in comand
              cmd = new MySqlCommand(orderRquery, connection);
@@ -171,18 +171,61 @@ namespace Desktop
         {
             DateTime beginOrders = new DateTime();
             DateTime endOrders = new DateTime();
-            beginOrders = dateTimePickerBeginOrders.Value;
-            endOrders = dateTimePickerEndOrders.Value;
-            orders(beginOrders, endOrders);
+
+            if (beginOrders > endOrders)
+            {
+                MessageBox.Show("The begin date for the report cannot be begin the end date");
+            }
+            else
+            {
+                beginOrders = dateTimePickerBeginOrders.Value;
+                endOrders = dateTimePickerEndOrders.Value;
+                orders(beginOrders, endOrders);
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             DateTime beginTOp10 = new DateTime();
             DateTime endTop10 = new DateTime();
-            beginTOp10 = dateTimePickerBeginTop10.Value;
-            endTop10 = dateTimePickerEndTopt10.Value;
-            orders(beginTOp10, endTop10);
+
+            if (beginTOp10 > endTop10)
+            {
+                MessageBox.Show("The begin date for the report cannot be begin the end date");
+            }
+            else
+            {
+                beginTOp10 = dateTimePickerBeginTop10.Value;
+                endTop10 = dateTimePickerEndTopt10.Value;
+                orders(beginTOp10, endTop10);
+            }
+            
+        }
+
+        private void dateTimePickerBeginTop10_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerEndTopt10_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxTop10_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            myMainForm.switchTo("MainForm");
         }
     }
 }

@@ -30,6 +30,10 @@ namespace Desktop
 
             myForms.Add("Database", new Database(ref myMainForm));
             myForms.Add("Login", new Login(ref myMainForm));
+            myForms.Add("Staff", new Staff(ref myMainForm));
+            myForms.Add("Reports", new Reports(ref myMainForm));
+            myForms.Add("Orders", new Orders(ref myMainForm));
+            myForms.Add("MenuItems", new MenuItems(ref myMainForm));
 
 
             foreach (KeyValuePair<string, Form> kvp in myForms)
@@ -44,7 +48,7 @@ namespace Desktop
             }
         }
 
-        private void switchTo(string nextFormKey)
+        public void switchTo(string nextFormKey)
         {
             foreach (KeyValuePair<string, Form> kvp in myForms)
             {
@@ -62,6 +66,26 @@ namespace Desktop
         private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             switchTo("Database");
+        }
+
+        private void waitersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchTo("Staff");
+        }
+
+        private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchTo("Orders");
+        }
+
+        private void menuItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchTo("MenuItems");
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switchTo("Reports");
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBoxDeleteTable = new System.Windows.Forms.ComboBox();
+            this.btnConfirmDelete = new System.Windows.Forms.Button();
             this.comboBoxDeleteOrderID = new System.Windows.Forms.ComboBox();
-            this.lblDeletetableOrders = new System.Windows.Forms.Label();
             this.lblOrderDeleteID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnConfirmUP = new System.Windows.Forms.Button();
             this.comboBoxCashorCard = new System.Windows.Forms.ComboBox();
             this.comboBoxPaid = new System.Windows.Forms.ComboBox();
             this.textBoxWaiter = new System.Windows.Forms.TextBox();
@@ -47,8 +47,10 @@
             this.lblCashorCard = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
-            this.btnConfirmDelete = new System.Windows.Forms.Button();
-            this.btnConfirmUP = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblQuant = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxQuant = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -58,58 +60,49 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(210, 12);
+            this.tabControl1.Location = new System.Drawing.Point(32, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(493, 465);
+            this.tabControl1.Size = new System.Drawing.Size(707, 465);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnConfirmDelete);
-            this.tabPage1.Controls.Add(this.comboBoxDeleteTable);
             this.tabPage1.Controls.Add(this.comboBoxDeleteOrderID);
-            this.tabPage1.Controls.Add(this.lblDeletetableOrders);
             this.tabPage1.Controls.Add(this.lblOrderDeleteID);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(485, 436);
+            this.tabPage1.Size = new System.Drawing.Size(699, 436);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Delete Order";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // comboBoxDeleteTable
+            // btnConfirmDelete
             // 
-            this.comboBoxDeleteTable.FormattingEnabled = true;
-            this.comboBoxDeleteTable.Location = new System.Drawing.Point(255, 157);
-            this.comboBoxDeleteTable.Name = "comboBoxDeleteTable";
-            this.comboBoxDeleteTable.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxDeleteTable.TabIndex = 4;
-            this.comboBoxDeleteTable.Click += new System.EventHandler(this.comboBoxDeleteTable_Click);
+            this.btnConfirmDelete.Location = new System.Drawing.Point(355, 348);
+            this.btnConfirmDelete.Name = "btnConfirmDelete";
+            this.btnConfirmDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmDelete.TabIndex = 5;
+            this.btnConfirmDelete.Text = "Confirm";
+            this.btnConfirmDelete.UseVisualStyleBackColor = true;
+            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
             // 
             // comboBoxDeleteOrderID
             // 
             this.comboBoxDeleteOrderID.FormattingEnabled = true;
-            this.comboBoxDeleteOrderID.Location = new System.Drawing.Point(255, 100);
+            this.comboBoxDeleteOrderID.Location = new System.Drawing.Point(355, 206);
             this.comboBoxDeleteOrderID.Name = "comboBoxDeleteOrderID";
             this.comboBoxDeleteOrderID.Size = new System.Drawing.Size(121, 24);
             this.comboBoxDeleteOrderID.TabIndex = 3;
+            this.comboBoxDeleteOrderID.SelectedIndexChanged += new System.EventHandler(this.comboBoxDeleteOrderID_SelectedIndexChanged);
             this.comboBoxDeleteOrderID.Click += new System.EventHandler(this.comboBoxDeleteOrderID_Click);
-            // 
-            // lblDeletetableOrders
-            // 
-            this.lblDeletetableOrders.AutoSize = true;
-            this.lblDeletetableOrders.Location = new System.Drawing.Point(66, 160);
-            this.lblDeletetableOrders.Name = "lblDeletetableOrders";
-            this.lblDeletetableOrders.Size = new System.Drawing.Size(141, 17);
-            this.lblDeletetableOrders.TabIndex = 1;
-            this.lblDeletetableOrders.Text = "Delete Tables orders";
             // 
             // lblOrderDeleteID
             // 
             this.lblOrderDeleteID.AutoSize = true;
-            this.lblOrderDeleteID.Location = new System.Drawing.Point(63, 103);
+            this.lblOrderDeleteID.Location = new System.Drawing.Point(163, 209);
             this.lblOrderDeleteID.Name = "lblOrderDeleteID";
             this.lblOrderDeleteID.Size = new System.Drawing.Size(164, 17);
             this.lblOrderDeleteID.TabIndex = 0;
@@ -117,6 +110,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBoxQuant);
+            this.tabPage2.Controls.Add(this.lblQuant);
             this.tabPage2.Controls.Add(this.btnConfirmUP);
             this.tabPage2.Controls.Add(this.comboBoxCashorCard);
             this.tabPage2.Controls.Add(this.comboBoxPaid);
@@ -133,15 +128,26 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(485, 436);
+            this.tabPage2.Size = new System.Drawing.Size(699, 436);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // btnConfirmUP
+            // 
+            this.btnConfirmUP.Location = new System.Drawing.Point(123, 399);
+            this.btnConfirmUP.Name = "btnConfirmUP";
+            this.btnConfirmUP.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmUP.TabIndex = 13;
+            this.btnConfirmUP.Text = "Confirm";
+            this.btnConfirmUP.UseVisualStyleBackColor = true;
+            this.btnConfirmUP.Click += new System.EventHandler(this.btnConfirmUP_Click);
             // 
             // comboBoxCashorCard
             // 
             this.comboBoxCashorCard.FormattingEnabled = true;
-            this.comboBoxCashorCard.Location = new System.Drawing.Point(123, 344);
+            this.comboBoxCashorCard.Location = new System.Drawing.Point(449, 187);
             this.comboBoxCashorCard.Name = "comboBoxCashorCard";
             this.comboBoxCashorCard.Size = new System.Drawing.Size(121, 24);
             this.comboBoxCashorCard.TabIndex = 12;
@@ -151,7 +157,7 @@
             // comboBoxPaid
             // 
             this.comboBoxPaid.FormattingEnabled = true;
-            this.comboBoxPaid.Location = new System.Drawing.Point(122, 306);
+            this.comboBoxPaid.Location = new System.Drawing.Point(122, 184);
             this.comboBoxPaid.Name = "comboBoxPaid";
             this.comboBoxPaid.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPaid.TabIndex = 11;
@@ -159,21 +165,21 @@
             // 
             // textBoxWaiter
             // 
-            this.textBoxWaiter.Location = new System.Drawing.Point(122, 242);
+            this.textBoxWaiter.Location = new System.Drawing.Point(449, 113);
             this.textBoxWaiter.Name = "textBoxWaiter";
             this.textBoxWaiter.Size = new System.Drawing.Size(100, 22);
             this.textBoxWaiter.TabIndex = 10;
             // 
             // textBoxTable
             // 
-            this.textBoxTable.Location = new System.Drawing.Point(122, 174);
+            this.textBoxTable.Location = new System.Drawing.Point(123, 113);
             this.textBoxTable.Name = "textBoxTable";
             this.textBoxTable.Size = new System.Drawing.Size(100, 22);
             this.textBoxTable.TabIndex = 9;
             // 
             // dateTimePickerOrder
             // 
-            this.dateTimePickerOrder.Location = new System.Drawing.Point(122, 97);
+            this.dateTimePickerOrder.Location = new System.Drawing.Point(449, 54);
             this.dateTimePickerOrder.Name = "dateTimePickerOrder";
             this.dateTimePickerOrder.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerOrder.TabIndex = 8;
@@ -191,7 +197,7 @@
             // lblTable
             // 
             this.lblTable.AutoSize = true;
-            this.lblTable.Location = new System.Drawing.Point(20, 174);
+            this.lblTable.Location = new System.Drawing.Point(21, 113);
             this.lblTable.Name = "lblTable";
             this.lblTable.Size = new System.Drawing.Size(96, 17);
             this.lblTable.TabIndex = 5;
@@ -200,7 +206,7 @@
             // lblWaiter
             // 
             this.lblWaiter.AutoSize = true;
-            this.lblWaiter.Location = new System.Drawing.Point(33, 245);
+            this.lblWaiter.Location = new System.Drawing.Point(360, 116);
             this.lblWaiter.Name = "lblWaiter";
             this.lblWaiter.Size = new System.Drawing.Size(66, 17);
             this.lblWaiter.TabIndex = 4;
@@ -209,7 +215,7 @@
             // lblPaid
             // 
             this.lblPaid.AutoSize = true;
-            this.lblPaid.Location = new System.Drawing.Point(42, 309);
+            this.lblPaid.Location = new System.Drawing.Point(42, 187);
             this.lblPaid.Name = "lblPaid";
             this.lblPaid.Size = new System.Drawing.Size(74, 17);
             this.lblPaid.TabIndex = 3;
@@ -218,7 +224,7 @@
             // lblCashorCard
             // 
             this.lblCashorCard.AutoSize = true;
-            this.lblCashorCard.Location = new System.Drawing.Point(27, 344);
+            this.lblCashorCard.Location = new System.Drawing.Point(353, 187);
             this.lblCashorCard.Name = "lblCashorCard";
             this.lblCashorCard.Size = new System.Drawing.Size(89, 17);
             this.lblCashorCard.TabIndex = 2;
@@ -227,7 +233,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(15, 97);
+            this.lblDate.Location = new System.Drawing.Point(342, 54);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(101, 17);
             this.lblDate.TabIndex = 1;
@@ -242,31 +248,46 @@
             this.lblOrderID.TabIndex = 0;
             this.lblOrderID.Text = "Order ID";
             // 
-            // btnConfirmDelete
+            // button1
             // 
-            this.btnConfirmDelete.Location = new System.Drawing.Point(147, 278);
-            this.btnConfirmDelete.Name = "btnConfirmDelete";
-            this.btnConfirmDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmDelete.TabIndex = 5;
-            this.btnConfirmDelete.Text = "Confirm";
-            this.btnConfirmDelete.UseVisualStyleBackColor = true;
-            this.btnConfirmDelete.Click += new System.EventHandler(this.btnConfirmDelete_Click);
+            this.button1.Location = new System.Drawing.Point(774, 436);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnConfirmUP
+            // lblQuant
             // 
-            this.btnConfirmUP.Location = new System.Drawing.Point(123, 399);
-            this.btnConfirmUP.Name = "btnConfirmUP";
-            this.btnConfirmUP.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmUP.TabIndex = 13;
-            this.btnConfirmUP.Text = "Confirm";
-            this.btnConfirmUP.UseVisualStyleBackColor = true;
-            this.btnConfirmUP.Click += new System.EventHandler(this.btnConfirmUP_Click);
+            this.lblQuant.AutoSize = true;
+            this.lblQuant.Location = new System.Drawing.Point(53, 272);
+            this.lblQuant.Name = "lblQuant";
+            this.lblQuant.Size = new System.Drawing.Size(61, 17);
+            this.lblQuant.TabIndex = 15;
+            this.lblQuant.Text = "Quantity";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(0, 502);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBoxQuant
+            // 
+            this.textBoxQuant.Location = new System.Drawing.Point(143, 272);
+            this.textBoxQuant.Name = "textBoxQuant";
+            this.textBoxQuant.Size = new System.Drawing.Size(100, 22);
+            this.textBoxQuant.TabIndex = 17;
             // 
             // Orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 503);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "Orders";
             this.Text = "Orders";
@@ -277,6 +298,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,9 +306,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ComboBox comboBoxDeleteTable;
         private System.Windows.Forms.ComboBox comboBoxDeleteOrderID;
-        private System.Windows.Forms.Label lblDeletetableOrders;
         private System.Windows.Forms.Label lblOrderDeleteID;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBoxCashorCard;
@@ -303,5 +323,9 @@
         private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.Button btnConfirmDelete;
         private System.Windows.Forms.Button btnConfirmUP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblQuant;
+        private System.Windows.Forms.TextBox textBoxQuant;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

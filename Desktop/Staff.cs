@@ -28,7 +28,7 @@ namespace Desktop
         }
         private void addStaff(string first, string last, string username, string password)
         {
-            string queryAdd = "INSERT INTO Waiters (Firstname,Lastname,Username,Password) Values ('" + first + "','" + last + "','" + username + "','" + password + "')";
+            string queryAdd = "INSERT INTO WAITER (Waiter_Firstname,Waiter_Lastname,Username,Password) Values ('" + first + "','" + last + "','" + username + "','" + password + "')";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryAdd;
@@ -39,7 +39,7 @@ namespace Desktop
 
         private void updateStaff(int staffID, string first, string last, string username, string password)
         {
-            string queryUpdate = "UPDATE Waiters SET Firstname='" + first + "',Lastname='" + last + "',Username='" + username + "',Password='" + password + "' WHERE Staff_ID= '" + staffID + "'";
+            string queryUpdate = "UPDATE WAITER SET Waiter_Firstname='" + first + "',Waiter_Lastname='" + last + "',Username='" + username + "',Password='" + password + "' WHERE Waiter_ID= '" + staffID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -50,7 +50,7 @@ namespace Desktop
 
         private void deleteStaff(int staffID)
         {
-            string queryDelete = "DELETE FROM Orders WHERE Table_nr = '" + staffID + "'";
+            string queryDelete = "DELETE FROM WAITER WHERE Table_nr = '" + staffID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -72,7 +72,7 @@ namespace Desktop
 
         private void comboBoxDeleteStaffID_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM STAFF";
+            string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
             //put in comand
@@ -91,7 +91,7 @@ namespace Desktop
 
         private void comboBoxStaffIDUP_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM STAFF";
+            string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
             //put in comand
@@ -100,7 +100,7 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                comboBoxStaffIDUP.Items.Add(dataR["Staff_ID"]);
+                comboBoxStaffIDUP.Items.Add(dataR["Waiter_ID"]);
             }
             // close data reader
             dataR.Close();
@@ -110,30 +110,87 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string name = textBoxAddFirstname.Text;
-            string lastname = textBoxAddLastname.Text;
-            string username = textBoxAddUsername.Text;
-            string password = textBoxAddPassword.Text;
+            try
+            {
+                string name = textBoxAddFirstname.Text;
+                string lastname = textBoxAddLastname.Text;
+                string username = textBoxAddUsername.Text;
+                string password = textBoxAddPassword.Text;
 
-            addStaff(name, lastname, username, password);
+                addStaff(name, lastname, username, password);
+                MessageBox.Show("Waiter has been added");
+            }
+            catch
+            {
+                MessageBox.Show("Waiter could not be added");
+            }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
-            deleteStaff(id);
+
+            try
+            {
+                int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
+                deleteStaff(id);
+                MessageBox.Show("Waiter member has been deleted");
+            }
+            catch
+            {
+                MessageBox.Show("Waiter could not be deleted");
+            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(comboBoxStaffIDUP.SelectedItem.ToString());
-            string name = textBoxUPFirstName.Text;
-            string lastname = textBoxUpLastname.Text;
-            string password = textBoxPasswordUP.Text;
-            string username = textBoxUPusername.Text;
+            try
+            {
+                
+                int id = int.Parse(comboBoxStaffIDUP.SelectedItem.ToString());
+                string name = textBoxUPFirstName.Text;
+                string lastname = textBoxUpLastname.Text;
+                string password = textBoxPasswordUP.Text;
+                string username = textBoxUPusername.Text;
 
 
-            updateStaff(id, name, lastname, username, password);
+                updateStaff(id, name, lastname, username, password);
+                MessageBox.Show("Waiter has been updated");
+            }
+            catch
+            {
+                MessageBox.Show("Waiter could not be updated");
+            }
+            
+        }
+
+        private void comboBoxStaffIDUP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM WAITER WHERE Waiter_ID ='"+comboBoxStaffIDUP.SelectedItem.ToString()+"'";
+            //open connection
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                textBoxUPFirstName.Text = dataR["Waiter_Firstname"] + "";
+                textBoxUpLastname.Text = dataR["Waiter_Lastname"] + "";
+                textBoxUPusername.Text = dataR["Usertname"] + "";
+                textBoxPasswordUP.Text = dataR["Password"] + "";
+
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            myMainForm.switchTo("MainForm");
         }
     }
 }
