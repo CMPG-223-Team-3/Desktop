@@ -12,7 +12,9 @@ namespace Desktop
 {
     public partial class Desktop : Form
     {
-        IDictionary<string, Form> myForms = new Dictionary<string, Form>();
+        
+
+        public IDictionary<string, Form> myForms = new Dictionary<string, Form>();
         public Desktop()
         {
             InitializeComponent();
@@ -22,14 +24,25 @@ namespace Desktop
         {
             Desktop myMainForm = this;
 
-            /*string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
+            string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string uid = System.Environment.GetEnvironmentVariable("CMPG223UID", EnvironmentVariableTarget.Machine) ?? string.Empty;
             string password = System.Environment.GetEnvironmentVariable("CMPG223PASSWORD", EnvironmentVariableTarget.Machine) ?? string.Empty;
-            string port = System.Environment.GetEnvironmentVariable("CMPG223PORT", EnvironmentVariableTarget.Machine) ?? "3306";*/
+            string port = System.Environment.GetEnvironmentVariable("CMPG223PORT", EnvironmentVariableTarget.Machine) ?? "3306";
 
+
+            //myForms.Add("Categories", new Categories(ref myMainForm));
+            //myForms.Add("Customers", new Customers(ref myMainForm));
             myForms.Add("Database", new Database(ref myMainForm));
+            //myForms.Add("Locations", new Locations(ref myMainForm));
             myForms.Add("Login", new Login(ref myMainForm));
+            //myForms.Add("Menu Items", new Menu_Items(ref myMainForm));
+            //myForms.Add("Orders", new Orders(ref myMainForm));
+            //myForms.Add("Positions", new Positions(ref myMainForm));
+            //myForms.Add("Recipes", new Recipes(ref myMainForm));
+            //myForms.Add("Stock", new Stock(ref myMainForm));
+            //myForms.Add("Suppliers", new Suppliers(ref myMainForm));
+            //myForms.Add("Worklog", new Worklog(ref myMainForm));
 
 
             foreach (KeyValuePair<string, Form> kvp in myForms)
@@ -38,30 +51,24 @@ namespace Desktop
                 kvp.Value.StartPosition = FormStartPosition.CenterScreen;
             }
 
-            if(((Database)myForms["Database"]).testConnection())
-            {
-                this.switchTo("Login");
-            }
+            myForms["Login"].Show();
         }
 
-        private void switchTo(string nextFormKey)
+        public void HideAllForms(string nextFormKey)
         {
             foreach (KeyValuePair<string, Form> kvp in myForms)
             {
                 if (!kvp.Key.Equals(nextFormKey))
-                {
-                    kvp.Value.Hide();
-                }
-                else
-                {
-                    kvp.Value.Show();
+                { 
+                    kvp.Value.Hide(); 
                 }
             }
         }
 
         private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switchTo("Database");
+            HideAllForms("Database");
+            myForms["Database"].Show();
         }
     }
 }
