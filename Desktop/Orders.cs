@@ -35,6 +35,14 @@ namespace Desktop
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
             connection.Close();
+
+            string query2Delete = "DELETE FROM ORDER DETAIL WHERE Order_ID = '" + orderID + "'";
+            connection.Open();
+            cmd = new MySqlCommand();
+            cmd.CommandText = queryDelete;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void deleteOrderTable(int tableNum)
@@ -48,11 +56,19 @@ namespace Desktop
             connection.Close();
         }
 
-        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID)
+        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID,int status ,int quant )
         {
-            string queryUpdate = "UPDATE ORDERS SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
+            string queryUpdate = "UPDATE ORDERS SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard +  "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = queryUpdate;
+            cmd.Connection = connection;
+            cmd.ExecuteNonQuery();
+            connection.Close();
+
+            string query2Update = "UPDATE ORDER DETAIL SET Quantity_Ordered='" + quant + "' WHERE Order_ID='" + orderID + "'";
+            connection.Open();
+            cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
@@ -86,6 +102,7 @@ namespace Desktop
 
                 comboBoxPaid.SelectedItem = dataR["Paid"] + "";
                 comboBoxCashorCard.SelectedItem = dataR["CashOrCard"] + "";
+                comboBoxStatus.SelectedItem = dataR["Status"] + "";
             }
             // close data reader
             dataR.Close();
@@ -161,6 +178,8 @@ namespace Desktop
                 int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
                 DateTime date = dateTimePickerOrder.Value;// check this later on 
                 bool tableVal = false;
+                
+                
                 if (int.TryParse(textBoxTable.Text, out int table))
                     tableVal = true;
                 else
@@ -179,16 +198,28 @@ namespace Desktop
                     textBoxWaiter.Focus();
 
                 }
+                bool quantVal = false;
+                if (int.TryParse(textBoxQuant.Text, out int quant))
+                { 
+                      quantVal = true;
+
+                }
+                else 
+                {
+                    MessageBox.Show("Quantity needs to be a number");
+                    textBoxQuant.Focus();
+                }
 
 
 
                 int paid = int.Parse(comboBoxPaid.SelectedItem.ToString());
                 int paidStatus = int.Parse(comboBoxCashorCard.SelectedItem.ToString());
-
+                int status = int.Parse(comboBoxStatus.SelectedItem.ToString());
+                
 
                 if (waiterVal && tableVal)
                 {
-                    updateOrder(orderID, date, table, waiter, paid, paidStatus);
+                    updateOrder(orderID, date, table, waiter, paid, paidStatus,status,quant);
                     MessageBox.Show("Order has been updated");
 
                 }
@@ -279,6 +310,16 @@ namespace Desktop
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxQuant_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblQuant_Click(object sender, EventArgs e)
         {
 
         }

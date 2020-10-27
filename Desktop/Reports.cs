@@ -28,17 +28,65 @@ namespace Desktop
         }
         private void orders(DateTime beginDateTime, DateTime endDateTime)
         {
+            listViewOrders.Columns.Add("ORDER ID", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Date and Time", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Table number", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Waiter ID", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Paid", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Cash or Card", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Status", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Menu Item ID", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Quantity orderd", 3, HorizontalAlignment.Left);
+            
 
-            string top10Rquery = " SELECT * FROM ORDER WHERE Order_DateTime >='"+beginDateTime+"' AND Order_DateTime<= '"+endDateTime+"'";
+            int cashORcard = 0;
+            int status = 0;
+            int paid = 0;
+            int waiter = 0;
+            int table = 0;
+            DateTime date =new  DateTime();
+            int orderID = 0;
+            string orderQuery = " SELECT * FROM ORDER WHERE Order_DateTime >='"+beginDateTime+"' AND Order_DateTime<= '"+endDateTime+"'";
             connection.Open();
             //put in comand
-            MySqlCommand cmd = new MySqlCommand(top10Rquery, connection);
+            MySqlCommand cmd = new MySqlCommand(orderQuery, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
             // data reader
+            var itemOrder = new ListViewItem(new[] { "", "", "", "", "", "", "", "", "" });
             while (dataR.Read())
             {
                 //dataR.GetValue();
-                listBoxOrders.Items.Add(dataR["Order_ID"]+","+ dataR["Order_DateTime"] + "," + dataR["Table_nr"] + "," + dataR["Waiter_ID"] + "," + dataR["Paid"] + "," + dataR["CashOrCard"] + "," + dataR["Status"] );
+
+
+                //listViewOrders.Items.Add(dataR["Order_ID"]+","+ dataR["Order_DateTime"] + "," + dataR["Table_nr"] + "," + dataR["Waiter_ID"] + "," + dataR["Paid"] + "," + dataR["CashOrCard"] + "," + dataR["Status"] );
+                orderID = int.Parse(dataR["Order_ID"] + "");
+                date = DateTime.Parse(dataR["Order_DateTime"] + "");
+                table = int.Parse(dataR["Table_nr"] + "");
+                waiter = int.Parse(dataR["Waiter_ID"] + "");
+                status = int.Parse(dataR["Status"] + "");
+                cashORcard = int.Parse(dataR["CashOrCard"] + "");
+                paid = int.Parse(dataR["Paid"] + "");
+
+                // get Order detail info on order id 
+                orderQuery = " SELECT * FROM ORDER DETAIL WHERE Order_ID ='" + orderID + "'";
+                connection.Open();
+                //put in comand
+                cmd = new MySqlCommand(orderQuery, connection);
+                dataR = cmd.ExecuteReader();
+                // data reader
+                while (dataR.Read())
+                {
+                    //dataR.GetValue();
+                    //listViewOrders.Items.Add(orderID.ToString(), date.ToString, table.ToString,waiter.ToString,cashORcard.ToString,paid.ToString(),status.ToString, dataR["MenuItemID"] +"",dataR["Quantity_Orderd"] +"");
+                    itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR["MenuItemID"] + "", dataR["Quantity_Orderd"] + "" });
+                    listViewOrders.Items.Add(itemOrder);
+
+                }
+
+                // close data reader
+                dataR.Close();
+                // close connection 
+                connection.Close();
 
             }
 
@@ -71,10 +119,10 @@ namespace Desktop
             int[] Top10amount = new int[10];
 
             // fill arrays 
-            string menyQuery = "SELECT * FROM MENU_ITEM";
+            string menuQuery = "SELECT * FROM MENU_ITEM";
             connection.Open();
             //put in comand
-            cmd = new MySqlCommand(menyQuery, connection);
+            cmd = new MySqlCommand(menuQuery, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
             // data reader
             while (dataR.Read())
@@ -94,10 +142,10 @@ namespace Desktop
             int quantity = 0;
             int orderID = 0;
             int menuID = 0;
-            string orderRquery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
+            menuQuery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
             connection.Open();
             //put in comand
-             cmd = new MySqlCommand(orderRquery, connection);
+             cmd = new MySqlCommand(menuQuery, connection);
             dataR = cmd.ExecuteReader();
             // data reader
             while (dataR.Read())
@@ -105,11 +153,11 @@ namespace Desktop
 
                 // go get menu items connected to ID and add 
                 orderID = int.Parse(dataR["Order_ID"]+"" ) ;
-                 orderRquery = "SELECT * FROM ORDERS DETAIL where Order_ID = '" + orderID + "'  ";
+                menuQuery = "SELECT * FROM ORDERS DETAIL where Order_ID = '" + orderID + "'  ";
 
                 connection.Open();
                 //put in comand
-                cmd = new MySqlCommand(orderRquery, connection);
+                cmd = new MySqlCommand(menuQuery, connection);
                 MySqlDataReader dataR2 = cmd.ExecuteReader();
                 // data reader
                 while (dataR.Read())
@@ -155,8 +203,29 @@ namespace Desktop
                     
                 }
             }
-                
+            
+            for (int k=listSize; k>= listSize-10;k--)
+            {
+                menuQuery = "SELECT * FROM MENU-ITEM where Menu_Item_ID = '"+menuItemsList[k,0]+"'  ";
 
+                connection.Open();
+                //put in comand
+                cmd = new MySqlCommand(menuQuery, connection);
+                MySqlDataReader dataR2 = cmd.ExecuteReader();
+                // data reader
+                while (dataR2.Read())
+                {
+
+
+                    listBoxTop10.Items.Add(k.ToString() + ". " + dataR2["Item_Name"] + "");
+
+                }
+
+                // close data reader
+                dataR.Close();
+                // close connection 
+                connection.Close();
+            }
 
         }
 
@@ -226,6 +295,11 @@ namespace Desktop
         private void button4_Click(object sender, EventArgs e)
         {
             myMainForm.switchTo("MainForm");
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

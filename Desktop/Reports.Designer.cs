@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxOrders = new System.Windows.Forms.ListBox();
             this.listBoxTop10 = new System.Windows.Forms.ListBox();
             this.dateTimePickerBeginOrders = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerEndOrders = new System.Windows.Forms.DateTimePicker();
@@ -38,18 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.listViewOrders = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // listBoxOrders
-            // 
-            this.listBoxOrders.FormattingEnabled = true;
-            this.listBoxOrders.ItemHeight = 16;
-            this.listBoxOrders.Location = new System.Drawing.Point(26, 149);
-            this.listBoxOrders.Name = "listBoxOrders";
-            this.listBoxOrders.Size = new System.Drawing.Size(470, 356);
-            this.listBoxOrders.TabIndex = 0;
             // 
             // listBoxTop10
             // 
@@ -130,32 +120,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(886, 507);
+            this.button4.Location = new System.Drawing.Point(952, 518);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(75, 28);
             this.button4.TabIndex = 11;
             this.button4.Text = "Back";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // listViewOrders
+            // 
+            this.listViewOrders.HideSelection = false;
+            this.listViewOrders.Location = new System.Drawing.Point(34, 157);
+            this.listViewOrders.Name = "listViewOrders";
+            this.listViewOrders.Size = new System.Drawing.Size(501, 347);
+            this.listViewOrders.TabIndex = 12;
+            this.listViewOrders.UseCompatibleStateImageBehavior = false;
+            this.listViewOrders.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 558);
+            this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -165,7 +156,6 @@
             this.Controls.Add(this.dateTimePickerEndOrders);
             this.Controls.Add(this.dateTimePickerBeginOrders);
             this.Controls.Add(this.listBoxTop10);
-            this.Controls.Add(this.listBoxOrders);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
@@ -175,8 +165,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBoxOrders;
         private System.Windows.Forms.ListBox listBoxTop10;
         private System.Windows.Forms.DateTimePicker dateTimePickerBeginOrders;
         private System.Windows.Forms.DateTimePicker dateTimePickerEndOrders;
@@ -186,7 +174,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListView listViewOrders;
     }
 }

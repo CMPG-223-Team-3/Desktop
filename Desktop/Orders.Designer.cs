@@ -34,6 +34,8 @@
             this.comboBoxDeleteOrderID = new System.Windows.Forms.ComboBox();
             this.lblOrderDeleteID = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxQuant = new System.Windows.Forms.TextBox();
+            this.lblQuant = new System.Windows.Forms.Label();
             this.btnConfirmUP = new System.Windows.Forms.Button();
             this.comboBoxCashorCard = new System.Windows.Forms.ComboBox();
             this.comboBoxPaid = new System.Windows.Forms.ComboBox();
@@ -48,9 +50,9 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblQuant = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBoxQuant = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -110,6 +112,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBoxStatus);
+            this.tabPage2.Controls.Add(this.lblStatus);
             this.tabPage2.Controls.Add(this.textBoxQuant);
             this.tabPage2.Controls.Add(this.lblQuant);
             this.tabPage2.Controls.Add(this.btnConfirmUP);
@@ -133,6 +137,24 @@
             this.tabPage2.Text = "Update Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // textBoxQuant
+            // 
+            this.textBoxQuant.Location = new System.Drawing.Point(450, 252);
+            this.textBoxQuant.Name = "textBoxQuant";
+            this.textBoxQuant.Size = new System.Drawing.Size(100, 22);
+            this.textBoxQuant.TabIndex = 17;
+            this.textBoxQuant.TextChanged += new System.EventHandler(this.textBoxQuant_TextChanged);
+            // 
+            // lblQuant
+            // 
+            this.lblQuant.AutoSize = true;
+            this.lblQuant.Location = new System.Drawing.Point(360, 252);
+            this.lblQuant.Name = "lblQuant";
+            this.lblQuant.Size = new System.Drawing.Size(61, 17);
+            this.lblQuant.TabIndex = 15;
+            this.lblQuant.Text = "Quantity";
+            this.lblQuant.Click += new System.EventHandler(this.lblQuant_Click);
             // 
             // btnConfirmUP
             // 
@@ -258,15 +280,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblQuant
-            // 
-            this.lblQuant.AutoSize = true;
-            this.lblQuant.Location = new System.Drawing.Point(53, 272);
-            this.lblQuant.Name = "lblQuant";
-            this.lblQuant.Size = new System.Drawing.Size(61, 17);
-            this.lblQuant.TabIndex = 15;
-            this.lblQuant.Text = "Quantity";
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(0, 502);
@@ -274,12 +287,25 @@
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 2;
             // 
-            // textBoxQuant
+            // lblStatus
             // 
-            this.textBoxQuant.Location = new System.Drawing.Point(143, 272);
-            this.textBoxQuant.Name = "textBoxQuant";
-            this.textBoxQuant.Size = new System.Drawing.Size(100, 22);
-            this.textBoxQuant.TabIndex = 17;
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(45, 262);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.TabIndex = 18;
+            this.lblStatus.Text = "Status";
+            // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(123, 253);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxStatus.TabIndex = 19;
             // 
             // Orders
             // 
@@ -327,5 +353,7 @@
         private System.Windows.Forms.Label lblQuant;
         private System.Windows.Forms.TextBox textBoxQuant;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
