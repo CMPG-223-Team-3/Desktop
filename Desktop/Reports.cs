@@ -88,7 +88,7 @@ namespace Desktop
                 paid = int.Parse(r["Paid"].ToString());
 
                 // get Order detail info on order id 
-                orderQuery = " SELECT * FROM ORDER DETAIL WHERE Order_ID ='" + orderID + "'";
+                orderQuery = " SELECT * FROM ORDER-DETAIL WHERE Order_ID ='" + orderID + "'";
                 connection.Open();
                 //put in comand
                 cmd = new MySqlCommand(orderQuery, connection);
@@ -141,7 +141,7 @@ namespace Desktop
 
             // count menu items to make menu items list and amount 
 
-            string queryCount = "SELECT COUNT(Menu_Item_ID) FROM MENU_ITEM ";
+            string queryCount = "SELECT COUNT(Menu_Item_ID) FROM MENU-ITEM ";
             int listSize = 0;
             
             connection.Open();
@@ -155,7 +155,7 @@ namespace Desktop
             int[] Top10amount = new int[10];
 
             // fill arrays 
-            string menuQuery = "SELECT * FROM MENU_ITEM";
+            string menuQuery = "SELECT * FROM MENU-ITEM";
             connection.Open();
             //put in comand
             cmd = new MySqlCommand(menuQuery, connection);
@@ -171,6 +171,9 @@ namespace Desktop
                 }
 
             }
+
+            dataR.Close();
+            connection.Close();
 
 
             // go get orders in the selected time period 
@@ -201,8 +204,9 @@ namespace Desktop
             {
 
                 // go get menu items connected to ID and add 
-                orderID = int.Parse(dataR["Order_ID"] + "");
-                menuQuery = "SELECT * FROM ORDERS DETAIL where Order_ID = '" + orderID + "'  ";
+               
+                orderID = int.Parse(r["Order_ID"].ToString());
+                menuQuery = "SELECT * FROM ORDERS-DETAIL WHERE Order_ID = '" + orderID + "'  ";
 
                 connection.Open();
                 //put in comand
@@ -272,7 +276,7 @@ namespace Desktop
                 }
 
                 // close data reader
-                dataR.Close();
+                dataR2.Close();
                 // close connection 
                 connection.Close();
             }
