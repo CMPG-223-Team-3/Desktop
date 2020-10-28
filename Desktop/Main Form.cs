@@ -20,7 +20,6 @@ namespace Desktop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             menuStrip1.ForeColor =  System.Drawing.Color.White;
             menuStrip1.BackColor =   System.Drawing.Color.Black;
             //GUI
@@ -53,10 +52,9 @@ namespace Desktop
                 kvp.Value.StartPosition = FormStartPosition.CenterScreen;
             }
 
-            if(((Database)myForms["Database"]).testConnection())
-            {
-                this.switchTo("Login");
-            }
+            this.menuStrip1.Hide();
+
+            this.switchTo("Login");
         }
 
         public void switchTo(string nextFormKey)
@@ -72,6 +70,11 @@ namespace Desktop
                     kvp.Value.Show();
                 }
             }
+        }
+
+        public void LogedIn()
+        {
+            this.menuStrip1.Show();
         }
 
         private void databaseToolStripMenuItem_Click(object sender, EventArgs e)

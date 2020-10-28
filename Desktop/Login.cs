@@ -27,6 +27,7 @@ namespace Desktop
             if (pin==inputPin)
             {
                 myMainForm.switchTo("MainForm");
+                myMainForm.LogedIn();
             }
             else
             {
