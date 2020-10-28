@@ -84,11 +84,12 @@ namespace Desktop
                 table = int.Parse(r["Table_nr"].ToString());
                 waiter = int.Parse(r["Waiter_ID"].ToString());
                 status = int.Parse(r["Status"].ToString());
+
                 cashORcard = int.Parse(r["CashOrCard"].ToString());
                 paid = int.Parse(r["Paid"].ToString());
 
                 // get Order detail info on order id 
-                orderQuery = " SELECT * FROM ORDER-DETAIL WHERE Order_ID ='" + orderID + "'";
+                orderQuery = " SELECT * FROM `ORDER-DETAIL` WHERE Order_ID = '" + orderID + "'";
                 connection.Open();
                 //put in comand
                 cmd = new MySqlCommand(orderQuery, connection);
@@ -98,7 +99,7 @@ namespace Desktop
                 {
                     //dataR.GetValue();
                     //listViewOrders.Items.Add(orderID.ToString(), date.ToString, table.ToString,waiter.ToString,cashORcard.ToString,paid.ToString(),status.ToString, dataR["MenuItemID"] +"",dataR["Quantity_Orderd"] +"");
-                    itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR1["MenuItemID"] + "", dataR1["Quantity_Orderd"] + "" });
+                    itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR1["Menu_Item_ID"] + "", dataR1["Quantity_Ordered"] + "" });
                     listViewOrders.Items.Add(itemOrder);
 
                 }

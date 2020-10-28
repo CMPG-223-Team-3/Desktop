@@ -63,8 +63,8 @@ namespace Desktop
             btnLogin.BackColor = color;
             btnLogin.ForeColor = System.Drawing.Color.White;
 
-            
 
+            txtNum1.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
