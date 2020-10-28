@@ -30,7 +30,7 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            string query2Delete = "DELETE FROM ORDER DETAIL WHERE Order_ID = '" + orderID + "'";
+            string query2Delete = "DELETE FROM ORDER-DETAIL WHERE Order_ID = '" + orderID + "'";
             connection.Open();
             cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -61,7 +61,7 @@ namespace Desktop
             connection.Close();
 
             int menuID = 0;
-            string query = "SELECT * FROM ORDER DETAIL WHERE = '"+orderID+"'";
+            string query = "SELECT * FROM ORDER-DETAIL WHERE = '"+orderID+"'";
             //open connection
             connection.Open();
             //put in comand

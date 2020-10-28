@@ -35,15 +35,15 @@ namespace Desktop
 
 
 
-            listViewOrders.Columns.Add("ORDER ID", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Date and Time", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Table number", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Waiter ID", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Paid", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Cash or Card", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Status", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Menu Item ID", 3, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Quantity orderd", 3, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("ORDER ID", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Date and Time", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Table number", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Waiter ID", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Paid", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Cash or Card", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Status", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Menu Item ID", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Quantity orderd", -2, HorizontalAlignment.Left);
             
 
             int cashORcard = 0;

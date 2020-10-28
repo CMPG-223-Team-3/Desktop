@@ -239,7 +239,7 @@ namespace Desktop
                 try
                 {
                     // get order id
-                    query = "SELECT * FROM ORDERS DETAIL WHERE Menu_ID ='" + id + "'";
+                    query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
                     //open connection
                     connection.Open();
                     //put in comand
