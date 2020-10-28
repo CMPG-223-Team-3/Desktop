@@ -99,7 +99,7 @@ namespace Desktop
             System.Environment.SetEnvironmentVariable("CMPG223PORT", txtServerPort.Text, EnvironmentVariableTarget.User);
 
             server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.User) ?? "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
-            database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.User) ?? "sql7368973";
+            database = System.Environment.GetEnvironmentVariable("CMPG223DATABASE", EnvironmentVariableTarget.User) ?? "CMPG_223_DB";
             uid = System.Environment.GetEnvironmentVariable("CMPG223UID", EnvironmentVariableTarget.User) ?? "admin";
             password = System.Environment.GetEnvironmentVariable("CMPG223PASSWORD", EnvironmentVariableTarget.User) ?? "cmpg22310";
             port = System.Environment.GetEnvironmentVariable("CMPG223PORT", EnvironmentVariableTarget.User) ?? "3306";

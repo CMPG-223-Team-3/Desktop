@@ -15,7 +15,7 @@ namespace Desktop
     {
         private MySqlConnection connection;
         private string server = "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
-        private string database = "sql7368973";
+        private string database = "CMPG_223_DB";
         private string uid = "admin";
         private string password = "cmpg22310";
         string connectionstring;
@@ -46,7 +46,7 @@ namespace Desktop
             int table = 0;
             DateTime date =new  DateTime();
             int orderID = 0;
-            string orderQuery = " SELECT * FROM ORDER WHERE Order_DateTime >='"+beginDateTime+"' AND Order_DateTime<= '"+endDateTime+"'";
+            string orderQuery = " SELECT * FROM `ORDER` WHERE `Order_Date_Time` >='"+ beginDateTime.ToString("yyyy-MM-dd H:mm:ss") +"' AND `Order_Date_Time` <= '"+endDateTime.ToString("yyyy-MM-dd H:mm:ss") + "'";
             connection.Open();
             //put in comand
             MySqlCommand cmd = new MySqlCommand(orderQuery, connection);
@@ -60,21 +60,21 @@ namespace Desktop
 
                 //listViewOrders.Items.Add(dataR["Order_ID"]+","+ dataR["Order_DateTime"] + "," + dataR["Table_nr"] + "," + dataR["Waiter_ID"] + "," + dataR["Paid"] + "," + dataR["CashOrCard"] + "," + dataR["Status"] );
                 orderID = int.Parse(dataR["Order_ID"] + "");
-                date = DateTime.Parse(dataR["Order_DateTime"] + "");
+                date = DateTime.Parse(dataR["Order_Date_Time"] + "");
                 table = int.Parse(dataR["Table_nr"] + "");
                 waiter = int.Parse(dataR["Waiter_ID"] + "");
-                status = int.Parse(dataR["Status"] + "");
-                cashORcard = int.Parse(dataR["CashOrCard"] + "");
-                paid = int.Parse(dataR["Paid"] + "");
+                status = /*int.Parse(dataR["Status"] + "")*/0;
+                cashORcard = /*int.Parse(dataR["CashOrCard"] + "")*/0;
+                paid = /*int.Parse(dataR["Paid"] + "")*/0;
 
                 // get Order detail info on order id 
                 orderQuery = " SELECT * FROM ORDER DETAIL WHERE Order_ID ='" + orderID + "'";
-                connection.Open();
+                //connection.Open();
                 //put in comand
                 cmd = new MySqlCommand(orderQuery, connection);
-                dataR = cmd.ExecuteReader();
+                MySqlDataReader dataR1 = cmd.ExecuteReader();
                 // data reader
-                while (dataR.Read())
+                while (dataR1.Read())
                 {
                     //dataR.GetValue();
                     //listViewOrders.Items.Add(orderID.ToString(), date.ToString, table.ToString,waiter.ToString,cashORcard.ToString,paid.ToString(),status.ToString, dataR["MenuItemID"] +"",dataR["Quantity_Orderd"] +"");
@@ -84,9 +84,9 @@ namespace Desktop
                 }
 
                 // close data reader
-                dataR.Close();
+                dataR1.Close();
                 // close connection 
-                connection.Close();
+                //connection.Close();
 
             }
 

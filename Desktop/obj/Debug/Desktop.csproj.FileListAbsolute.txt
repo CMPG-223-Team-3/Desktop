@@ -89,3 +89,4 @@ C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\
 C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CopyComplete
 C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.exe
 C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.pdb
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Error_Form.resources

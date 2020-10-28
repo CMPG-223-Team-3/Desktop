@@ -70,7 +70,7 @@
             // txtNum1
             // 
             this.txtNum1.Location = new System.Drawing.Point(103, 72);
-            this.txtNum1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNum1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNum1.Name = "txtNum1";
             this.txtNum1.Size = new System.Drawing.Size(18, 20);
             this.txtNum1.TabIndex = 6;
@@ -79,26 +79,29 @@
             // txtNum2
             // 
             this.txtNum2.Location = new System.Drawing.Point(124, 72);
-            this.txtNum2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNum2.Margin = new System.Windows.Forms.Padding(2);
             this.txtNum2.Name = "txtNum2";
             this.txtNum2.Size = new System.Drawing.Size(18, 20);
             this.txtNum2.TabIndex = 7;
+            this.txtNum2.TextChanged += new System.EventHandler(this.txtNum2_TextChanged);
             // 
             // txtNum3
             // 
             this.txtNum3.Location = new System.Drawing.Point(145, 72);
-            this.txtNum3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNum3.Margin = new System.Windows.Forms.Padding(2);
             this.txtNum3.Name = "txtNum3";
             this.txtNum3.Size = new System.Drawing.Size(18, 20);
             this.txtNum3.TabIndex = 8;
+            this.txtNum3.TextChanged += new System.EventHandler(this.txtNum3_TextChanged);
             // 
             // txtNum4
             // 
             this.txtNum4.Location = new System.Drawing.Point(166, 72);
-            this.txtNum4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNum4.Margin = new System.Windows.Forms.Padding(2);
             this.txtNum4.Name = "txtNum4";
             this.txtNum4.Size = new System.Drawing.Size(18, 20);
             this.txtNum4.TabIndex = 9;
+            this.txtNum4.TextChanged += new System.EventHandler(this.txtNum4_TextChanged);
             // 
             // Login
             // 

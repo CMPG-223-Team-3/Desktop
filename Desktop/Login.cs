@@ -12,6 +12,7 @@ namespace Desktop
 {
     public partial class Login : Form
     {
+        int temp = 0;
         private Desktop myMainForm;
         private string pin = "2332";
         public Login(ref Desktop MainForm)
@@ -79,7 +80,74 @@ namespace Desktop
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (!int.TryParse(txtNum1.Text, out temp))
+            {
+                txtNum1.Text = "";
+            }
 
+            if (txtNum1.Text.Length > 1)
+            {
+                txtNum1.Text = "";
+            }
+
+            if (txtNum1.Text.Length == 1)
+            {
+                txtNum2.Focus();
+            }
+        }
+
+        private void txtNum2_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtNum2.Text, out temp))
+            {
+                txtNum2.Text = "";
+            }
+
+            if (txtNum2.Text.Length > 1)
+            {
+                txtNum2.Text = "";
+            }
+
+            if (txtNum2.Text.Length == 1)
+            {
+                txtNum3.Focus();
+            }
+        }
+
+        private void txtNum3_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtNum3.Text, out temp))
+            {
+                txtNum3.Text = "";
+            }
+
+            if (txtNum3.Text.Length > 1)
+            {
+                txtNum3.Text = "";
+            }
+
+            if (txtNum3.Text.Length == 1)
+            {
+                txtNum4.Focus();
+            }
+        }
+
+        private void txtNum4_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtNum3.Text, out temp))
+            {
+                txtNum3.Text = "";
+            }
+
+            if (txtNum3.Text.Length > 1)
+            {
+                txtNum3.Text = "";
+            }
+
+            if (txtNum4.Text.Length == 1)
+            {
+                this.btnLogin_Click(sender, e);
+            }
         }
     }
 }
