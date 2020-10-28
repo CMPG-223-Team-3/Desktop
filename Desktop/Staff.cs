@@ -209,13 +209,13 @@ namespace Desktop
 
             int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
             // delete menu item
-
+            connection.Open();
             try
             {
                 // get order id
                 query = "SELECT * FROM ORDER WHERE Waiter_ID_ ='" + id + "'";
                 //open connection
-                connection.Open();
+               
                 //put in comand
                 cmd = new MySqlCommand(query, connection);
                 dataR = cmd.ExecuteReader();
@@ -242,19 +242,19 @@ namespace Desktop
                 // close data reader
                 dataR.Close();
                 // close connection
-                connection.Close();
+                
             }
             catch
             {
                 MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
             }
 
+            connection.Close();
 
 
 
 
 
-            
 
             try
             {

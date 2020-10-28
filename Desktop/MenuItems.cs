@@ -137,7 +137,7 @@ namespace Desktop
 
         private void comboBoxDeleteMenuID_Click(object sender, EventArgs e)
         {
-
+            comboBoxDeleteMenuID.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
 
@@ -160,6 +160,7 @@ namespace Desktop
 
         private void comboBoxMenueIDUP_Click(object sender, EventArgs e)
         {
+            comboBoxMenueIDUP.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
             string query = "SELECT * FROM MENU-ITEM";

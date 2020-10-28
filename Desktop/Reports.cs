@@ -411,6 +411,7 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBoxOrders.Items.Clear();
             DateTime beginOrders = new DateTime();
             DateTime endOrders = new DateTime();
 
@@ -429,6 +430,7 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listBoxTop10.Items.Clear();
             DateTime beginTOp10 = new DateTime();
             DateTime endTop10 = new DateTime();
 

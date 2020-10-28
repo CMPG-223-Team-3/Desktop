@@ -180,6 +180,7 @@ namespace Desktop
 
         private void comboBoxOrderID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBoxDeleteOrderID.Items.Clear();
             string query = "SELECT * FROM ORDERS WHERE Order_ID '" + int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString()) + "'";
             //open connection
             connection.Open();
