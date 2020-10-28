@@ -46,9 +46,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(390, 230);
+            this.btnCancel.Location = new System.Drawing.Point(520, 283);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -57,98 +58,110 @@
             // 
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.Location = new System.Drawing.Point(240, 9);
+            this.lblHeading.Location = new System.Drawing.Point(320, 11);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(154, 37);
+            this.lblHeading.Size = new System.Drawing.Size(190, 46);
             this.lblHeading.TabIndex = 1;
             this.lblHeading.Text = "Database";
             // 
             // lblServerAddress
             // 
             this.lblServerAddress.AutoSize = true;
-            this.lblServerAddress.Location = new System.Drawing.Point(19, 83);
+            this.lblServerAddress.Location = new System.Drawing.Point(25, 102);
+            this.lblServerAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServerAddress.Name = "lblServerAddress";
-            this.lblServerAddress.Size = new System.Drawing.Size(85, 13);
+            this.lblServerAddress.Size = new System.Drawing.Size(114, 17);
             this.lblServerAddress.TabIndex = 2;
             this.lblServerAddress.Text = "Server Address :";
             // 
             // txtServerAddress
             // 
-            this.txtServerAddress.Location = new System.Drawing.Point(110, 80);
+            this.txtServerAddress.Location = new System.Drawing.Point(147, 98);
+            this.txtServerAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtServerAddress.Name = "txtServerAddress";
-            this.txtServerAddress.Size = new System.Drawing.Size(500, 20);
+            this.txtServerAddress.Size = new System.Drawing.Size(665, 22);
             this.txtServerAddress.TabIndex = 3;
             // 
             // txtServerPort
             // 
-            this.txtServerPort.Location = new System.Drawing.Point(110, 110);
+            this.txtServerPort.Location = new System.Drawing.Point(147, 135);
+            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(80, 20);
+            this.txtServerPort.Size = new System.Drawing.Size(105, 22);
             this.txtServerPort.TabIndex = 4;
             // 
             // txtSchema
             // 
-            this.txtSchema.Location = new System.Drawing.Point(110, 140);
+            this.txtSchema.Location = new System.Drawing.Point(147, 172);
+            this.txtSchema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSchema.Name = "txtSchema";
-            this.txtSchema.Size = new System.Drawing.Size(168, 20);
+            this.txtSchema.Size = new System.Drawing.Size(223, 22);
             this.txtSchema.TabIndex = 5;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(110, 170);
+            this.txtUsername.Location = new System.Drawing.Point(147, 209);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(168, 20);
+            this.txtUsername.Size = new System.Drawing.Size(223, 22);
             this.txtUsername.TabIndex = 6;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(110, 200);
+            this.txtPassword.Location = new System.Drawing.Point(147, 246);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(168, 20);
+            this.txtPassword.Size = new System.Drawing.Size(223, 22);
             this.txtPassword.TabIndex = 7;
             // 
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Location = new System.Drawing.Point(72, 113);
+            this.lblPort.Location = new System.Drawing.Point(96, 139);
+            this.lblPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(32, 13);
+            this.lblPort.Size = new System.Drawing.Size(42, 17);
             this.lblPort.TabIndex = 8;
             this.lblPort.Text = "Port :";
             // 
             // lblSchema
             // 
             this.lblSchema.AutoSize = true;
-            this.lblSchema.Location = new System.Drawing.Point(14, 143);
+            this.lblSchema.Location = new System.Drawing.Point(19, 176);
+            this.lblSchema.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSchema.Name = "lblSchema";
-            this.lblSchema.Size = new System.Drawing.Size(90, 13);
+            this.lblSchema.Size = new System.Drawing.Size(118, 17);
             this.lblSchema.TabIndex = 9;
             this.lblSchema.Text = "Database Name :";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(43, 177);
+            this.lblUsername.Location = new System.Drawing.Point(57, 218);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(61, 13);
+            this.lblUsername.Size = new System.Drawing.Size(81, 17);
             this.lblUsername.TabIndex = 10;
             this.lblUsername.Text = "Username :";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(43, 203);
+            this.lblPassword.Location = new System.Drawing.Point(57, 250);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(59, 13);
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
             this.lblPassword.TabIndex = 11;
             this.lblPassword.Text = "Password :";
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(290, 230);
+            this.btnOK.Location = new System.Drawing.Point(387, 283);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(100, 28);
             this.btnOK.TabIndex = 12;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -156,9 +169,10 @@
             // 
             // btnTestConnection
             // 
-            this.btnTestConnection.Location = new System.Drawing.Point(490, 230);
+            this.btnTestConnection.Location = new System.Drawing.Point(653, 283);
+            this.btnTestConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(100, 23);
+            this.btnTestConnection.Size = new System.Drawing.Size(133, 28);
             this.btnTestConnection.TabIndex = 13;
             this.btnTestConnection.Text = "Test Connection";
             this.btnTestConnection.UseVisualStyleBackColor = true;
@@ -166,9 +180,9 @@
             // 
             // Database
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 270);
+            this.ClientSize = new System.Drawing.Size(840, 332);
             this.Controls.Add(this.btnTestConnection);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblPassword);
@@ -184,8 +198,10 @@
             this.Controls.Add(this.lblHeading);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Database";
             this.Text = "Database";
+            this.Load += new System.EventHandler(this.Database_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

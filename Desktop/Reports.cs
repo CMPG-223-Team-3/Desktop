@@ -46,7 +46,7 @@ namespace Desktop
             int table = 0;
             DateTime date =new  DateTime();
             int orderID = 0;
-            string orderQuery = " SELECT * FROM ORDER WHERE Order_DateTime >='"+beginDateTime+"' AND Order_DateTime<= '"+endDateTime+"'";
+            string orderQuery = " SELECT * FROM ORDER WHERE Order_Date_Time >='"+beginDateTime+"' AND Order_Date_Time<= '"+endDateTime+"'";
             connection.Open();
             //put in comand
             MySqlCommand cmd = new MySqlCommand(orderQuery, connection);
@@ -60,7 +60,7 @@ namespace Desktop
 
                 //listViewOrders.Items.Add(dataR["Order_ID"]+","+ dataR["Order_DateTime"] + "," + dataR["Table_nr"] + "," + dataR["Waiter_ID"] + "," + dataR["Paid"] + "," + dataR["CashOrCard"] + "," + dataR["Status"] );
                 orderID = int.Parse(dataR["Order_ID"] + "");
-                date = DateTime.Parse(dataR["Order_DateTime"] + "");
+                date = DateTime.Parse(dataR["Order_Date_Time"] + "");
                 table = int.Parse(dataR["Table_nr"] + "");
                 waiter = int.Parse(dataR["Waiter_ID"] + "");
                 status = int.Parse(dataR["Status"] + "");
@@ -142,7 +142,7 @@ namespace Desktop
             int quantity = 0;
             int orderID = 0;
             int menuID = 0;
-            menuQuery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
+            menuQuery = "SELECT * FROM ORDERS where Order_Date_Time >= '" + beginDateTime + "' AND Order_Date_Time <= '" + endDateTime + "'  ";
             connection.Open();
             //put in comand
              cmd = new MySqlCommand(menuQuery, connection);

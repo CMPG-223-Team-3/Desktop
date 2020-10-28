@@ -24,7 +24,7 @@ namespace Desktop
             menuStrip1.BackColor =   System.Drawing.Color.Black;
             //GUI
 
-            string hex = "#0b1013";
+            string hex = "#536878";
             Color color = System.Drawing.ColorTranslator.FromHtml(hex);
             
             this.BackColor = color;
