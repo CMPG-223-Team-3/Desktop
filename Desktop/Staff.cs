@@ -74,6 +74,7 @@ namespace Desktop
             lblUpLastname.ForeColor = System.Drawing.Color.White;
             lblUPuasername.ForeColor = System.Drawing.Color.White;
             lblPasswordUP.ForeColor = System.Drawing.Color.White;
+            lblStaffHeading.ForeColor = System.Drawing.Color.White;
 
             comboBoxDeleteStaffID.ForeColor = System.Drawing.Color.White;
             comboBoxStaffIDUP.ForeColor = System.Drawing.Color.White;
@@ -108,7 +109,7 @@ namespace Desktop
 
             hex = "#19262d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
-            this.BackColor = color;
+            
             tabPageAddStaff.ForeColor = System.Drawing.Color.White;
             tabPageDeleteStaff.ForeColor = System.Drawing.Color.White;
             tabPageUpStaff.ForeColor = System.Drawing.Color.White;
@@ -147,7 +148,7 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                comboBoxDeleteStaffID.Items.Add(dataR["Staff_ID"]);
+                comboBoxDeleteStaffID.Items.Add(dataR["Waiter_ID"]);
             }
             // close data reader
             dataR.Close();
@@ -195,12 +196,72 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int payed;
+            int delivered;
+            int orderID = 0;
+            string query = "";
+            bool contain = false;
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+
+            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
+            // delete menu item
 
             try
             {
-                int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
-                deleteStaff(id);
-                MessageBox.Show("Waiter member has been deleted");
+                // get order id
+                query = "SELECT * FROM ORDER WHERE Waiter_ID_ ='" + id + "'";
+                //open connection
+                connection.Open();
+                //put in comand
+                cmd = new MySqlCommand(query, connection);
+                dataR = cmd.ExecuteReader();
+                // data reader
+                while (dataR.Read())
+                {
+
+                   
+                        payed = int.Parse(dataR["Paid"] + "");
+                        delivered = int.Parse(dataR["Status"] + "");
+                        if (payed == 0 || delivered == 0)
+                        {
+                            contain = true;
+                        }
+
+
+
+                    
+
+                    dataR.Close();
+                    // close connection
+                    connection.Close();
+                }
+                // close data reader
+                dataR.Close();
+                // close connection
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
+            }
+
+
+
+
+
+
+            
+
+            try
+            {
+
+                if (contain)
+
+                {
+                    deleteStaff(id);
+                    MessageBox.Show("Waiter has been deleted");
+                }
             }
             catch
             {

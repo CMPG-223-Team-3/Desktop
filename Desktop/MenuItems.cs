@@ -49,13 +49,7 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            string delete2query = "DELETE FROM ORDER DETAIL WHERE MenuItemID ='" + menuID + "'";
-            connection.Open();
-            cmd = new MySqlCommand();
-            cmd.CommandText = delete2query;
-            cmd.Connection = connection;
-            cmd.ExecuteNonQuery();
-            connection.Close();
+           
         }
 
         private void updateMenuItem(int menuID, string menuitem, string menuItemDes, double price)
@@ -114,7 +108,7 @@ namespace Desktop
 
              hex = "#19262d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
-            this.BackColor = color;
+            
             tabPageAddMenuItem.ForeColor = System.Drawing.Color.White;
             tabPageDeleteMenuItem.ForeColor = System.Drawing.Color.White;
             tabPageUPmenuItem.ForeColor = System.Drawing.Color.White;
@@ -187,9 +181,18 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool empty = true;
 
-            //Add menu item 
-            try
+            if (textBoxMenuItemPrice.Text==""|| textBoxMenuItemPrice.Text == "" || textBoxMenuItemPrice.Text == "" )
+            {
+                MessageBox.Show(" There are empty values , connot input empty values");
+            }
+            else
+            {
+                empty = false;
+            }
+                //Add menu item 
+             try
             {
                 string name = textBoxMenuItemName.Text;
                 string descrip = textBoxMenuItemDes.Text;
@@ -197,8 +200,12 @@ namespace Desktop
 
                 if (double.TryParse(textBoxMenuItemPrice.Text, out double price))
                 {
-                    addMenuItem(name, descrip, price);
-                    MessageBox.Show("Menu Item has been  added");
+                    if(!empty)
+                    {
+                        addMenuItem(name, descrip, price);
+                        MessageBox.Show("Menu Item has been  added");
+                    }
+                    
                 }
                 else
                 {
@@ -218,11 +225,11 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string payed = "";
-            string delivered = "";
-            bool contain = false;
+            int payed ;
+            int delivered ;
             int orderID = 0;
             string query = "";
+            bool contain = false;
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
@@ -231,7 +238,7 @@ namespace Desktop
             
                 try
                 {
-                    // check of order doesnt xist with this menuID
+                    // get order id
                     query = "SELECT * FROM ORDERS DETAIL WHERE Menu_ID ='" + id + "'";
                     //open connection
                     connection.Open();
@@ -241,12 +248,33 @@ namespace Desktop
                     // data reader
                     while (dataR.Read())
                     {
-                        if (int.Parse(dataR["Menu_ID"] + "") == id)
+                       
+                        orderID = int.Parse(dataR["Order_ID"] + "");
+                             // check of order doesnt exist with this menuID
+                        query = "SELECT * FROM ORDER WHERE Order_ID ='" + orderID + "'";
+                       //open connection
+                      connection.Open();
+                      //put in comand
+                      cmd = new MySqlCommand(query, connection);
+                      dataR = cmd.ExecuteReader();
+                      // data reader
+                      while (dataR.Read())
+                      {
+                        payed = int.Parse(dataR["Paid"] + "");
+                        delivered =int.Parse( dataR["Status"] + "");
+                        if (payed == 0 || delivered == 0)
                         {
                             contain = true;
                         }
-                        orderID = int.Parse(dataR["Order_ID"] + "");
-                    }
+                        
+                        
+                        
+                      }
+                      
+                      dataR.Close();
+                      // close connection
+                      connection.Close();
+                }
                     // close data reader
                     dataR.Close();
                     // close connection
@@ -254,45 +282,28 @@ namespace Desktop
                 }
                 catch
                 {
-                    deleteMenuItem(id);
+                   MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
                 }
                 
 
                 
-                // check of order doesnt exist with this menuID
-                 query = "SELECT * FROM ORDER WHERE Order_ID ='"+orderID+"'";
-                //open connection
-                connection.Open();
-                //put in comand
-                 cmd = new MySqlCommand(query, connection);
-                dataR = cmd.ExecuteReader();
-                // data reader
-                while (dataR.Read())
+                
+
+            try
+            {
+                if (contain)
+
                 {
-                    payed = dataR["Paid"] + "";
-                    delivered = dataR["Status"] + "";
+                    deleteMenuItem(id);
+                    MessageBox.Show("Menu Item has been deleted");
                 }
-                // close data reader
-                dataR.Close();
-                // close connection
-                connection.Close();
-
-
-            if ((payed == "0") && (delivered == "0") && (contain))
-
-            {
-                MessageBox.Show("Error.Menu Item could not be deleted. A order that has not been delivered and payed contains this menu item");
             }
-            else if ((payed == "0") && (delivered == "1") && (contain))
+            catch
             {
-                MessageBox.Show("Error.Menu Item could not be deleted. A order that has not been  payed contains this menu item");
-
+                MessageBox.Show("Menu Item could not be  deleted");
             }
-            else
-            {
-                deleteMenuItem(id);
-                MessageBox.Show("Menu Item has been deleted");
-            }
+            
+            
 
                
             
@@ -306,6 +317,16 @@ namespace Desktop
         private void button3_Click(object sender, EventArgs e)
         {
             // update menuItems
+
+            bool empty = true;
+            if (textBoxMenuNameUP.Text == "" || textBoxMenuPriceUP.Text == "" || textBoxMenuDesUP.Text == "")
+            {
+                MessageBox.Show(" There are empty values , connot input empty values");
+            }
+            else
+            {
+                empty = false;
+            }
             try
             {
                 int id = int.Parse(comboBoxMenueIDUP.SelectedItem.ToString());
@@ -316,8 +337,12 @@ namespace Desktop
 
                 if (double.TryParse(textBoxMenuPriceUP.Text,out double price ))
                 {
-                    updateMenuItem(id, itemName, itemDes, price);
-                    MessageBox.Show("Menu Item has  been added");
+                    if( !empty)
+                    {
+                        updateMenuItem(id, itemName, itemDes, price);
+                        MessageBox.Show("Menu Item has  been added");
+                    }
+                    
                 }
                 else
                 {

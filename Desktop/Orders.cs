@@ -52,7 +52,7 @@ namespace Desktop
 
         private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
-            string queryUpdate = "UPDATE ORDER SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
+            string queryUpdate = "UPDATE ORDER SET Order_Date_Time='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -123,6 +123,8 @@ namespace Desktop
             lblWaiter.ForeColor = System.Drawing.Color.White;
             lblOrderID.ForeColor = System.Drawing.Color.White;
             lblTable.ForeColor = System.Drawing.Color.White;
+            lblOrderHeading.ForeColor = System.Drawing.Color.White;
+
 
             comboBoxCashorCard.ForeColor = System.Drawing.Color.White;
             comboBoxDeleteOrderID.ForeColor = System.Drawing.Color.White;
@@ -154,7 +156,7 @@ namespace Desktop
             textBoxWaiter.BackColor = color;
             hex = "#19262d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
-            this.BackColor = color;
+            
             tabPageDeleteOrder.ForeColor = System.Drawing.Color.White;
             tabPageUpOrders.ForeColor = System.Drawing.Color.White;
             tabPageDeleteOrder.BackColor = color;
@@ -190,7 +192,7 @@ namespace Desktop
                 textBoxTable.Text = dataR["Table_nr"] + "";
                 textBoxWaiter.Text = dataR["Waiter_ID"] + "";
 
-                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_DateTime"] + "");
+                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_Date_Time"] + "");
 
                 comboBoxPaid.SelectedItem = dataR["Paid"] + "";
                 comboBoxCashorCard.SelectedItem = dataR["CashOrCard"] + "";
@@ -271,8 +273,16 @@ namespace Desktop
                 int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
                 DateTime date = dateTimePickerOrder.Value;// check this later on 
                 bool tableVal = false;
+                bool empty = true;
 
-
+                if ((textBoxQuant.Text=="")|| (textBoxTable.Text =="")|| (textBoxWaiter.Text ==""))
+                {
+                    MessageBox.Show("Can not submit empty values");
+                }
+                else
+                {
+                    empty = false;
+                }
                 if (int.TryParse(textBoxTable.Text, out int table))
                     tableVal = true;
                 else
@@ -310,7 +320,7 @@ namespace Desktop
                 int status = int.Parse(comboBoxStatus.SelectedItem.ToString());
 
 
-                if (waiterVal && tableVal)
+                if ((waiterVal) && (tableVal)&&(quantVal) &&( !empty))
                 {
                     updateOrder(orderID, date, table, waiter, paid, paidStatus, status, quant);
                     MessageBox.Show("Order has been updated");

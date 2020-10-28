@@ -112,5 +112,54 @@ namespace Desktop
 
             MessageBox.Show("Server info saved");
         }
+
+        private void Database_Load(object sender, EventArgs e)
+        {
+            lblHeading.ForeColor = System.Drawing.Color.White;
+
+
+            lblPassword.ForeColor = System.Drawing.Color.White;
+            lblPort.ForeColor = System.Drawing.Color.White;
+            lblSchema.ForeColor = System.Drawing.Color.White;
+            lblServerAddress.ForeColor = System.Drawing.Color.White;
+            lblUsername.ForeColor = System.Drawing.Color.White;
+            
+
+            
+
+            txtPassword.ForeColor = System.Drawing.Color.White;
+            txtSchema.ForeColor = System.Drawing.Color.White;
+            txtServerAddress.ForeColor = System.Drawing.Color.White;
+            txtServerPort.ForeColor = System.Drawing.Color.White;
+            txtUsername.ForeColor = System.Drawing.Color.White;
+            
+
+
+
+            string hex = "#536878";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+
+            
+
+            txtPassword.BackColor = color;
+            txtSchema.BackColor = color;
+            txtServerAddress.BackColor = color;
+            txtServerPort.BackColor = color;
+            txtUsername.BackColor = color;
+            
+
+            
+
+            hex = "#020b0d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            btnCancel.BackColor = color;
+            btnCancel.ForeColor = System.Drawing.Color.White;
+
+            btnTestConnection.BackColor = color;
+            btnTestConnection.ForeColor = System.Drawing.Color.White;
+
+            
+        }
     }
 }
