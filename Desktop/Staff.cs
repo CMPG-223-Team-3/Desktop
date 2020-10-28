@@ -139,6 +139,7 @@ namespace Desktop
 
         private void comboBoxDeleteStaffID_Click(object sender, EventArgs e)
         {
+            comboBoxDeleteStaffID.Items.Clear();
             string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
@@ -158,6 +159,7 @@ namespace Desktop
 
         private void comboBoxStaffIDUP_Click(object sender, EventArgs e)
         {
+            comboBoxStaffIDUP.Items.Clear();
             string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
@@ -306,7 +308,7 @@ namespace Desktop
             {
                 textBoxUPFirstName.Text = dataR["Waiter_Firstname"] + "";
                 textBoxUpLastname.Text = dataR["Waiter_Lastname"] + "";
-                textBoxUPusername.Text = dataR["Usertname"] + "";
+                textBoxUPusername.Text = dataR["Username"] + "";
                 textBoxPasswordUP.Text = dataR["Password"] + "";
 
             }

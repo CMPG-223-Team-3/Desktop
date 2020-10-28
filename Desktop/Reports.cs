@@ -36,7 +36,7 @@ namespace Desktop
 
 
 
-            listViewOrders.Columns.Add("ORDER ID", -2, HorizontalAlignment.Left);
+           /* listViewOrders.Columns.Add("ORDER ID", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Date and Time", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Table number", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Waiter ID", -2, HorizontalAlignment.Left);
@@ -44,7 +44,7 @@ namespace Desktop
             listViewOrders.Columns.Add("Cash or Card", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Status", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Menu Item ID", -2, HorizontalAlignment.Left);
-            listViewOrders.Columns.Add("Quantity orderd", -2, HorizontalAlignment.Left);
+            listViewOrders.Columns.Add("Quantity orderd", -2, HorizontalAlignment.Left);*/
             
 
             int cashORcard = 0;
@@ -133,9 +133,9 @@ namespace Desktop
                     //dataR.GetValue();
                     //listViewOrders.Items.Add(orderID.ToString(), date.ToString, table.ToString,waiter.ToString,cashORcard.ToString,paid.ToString(),status.ToString, dataR["MenuItemID"] +"",dataR["Quantity_Orderd"] +"");
                     itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR1["Menu_Item_ID"] + "", dataR1["Quantity_Ordered"] + "" });
-                    listViewOrders.Items.Add(itemOrder);
+                    //listViewOrders.Items.Add(itemOrder);
                     listBoxOrders.Items.Add(" ORDER ID: "+orderID.ToString()+ "\t Date:" + date.ToString()+ "\t Table:" + table.ToString()+ " \tWaiter ID: " + waiter.ToString()+ " \t" + sCashOrCard+ " \t Paid:" + sPaid+ "\t "+sStatus + "\tMenu Item ID: " + dataR1["Menu_Item_ID"] + " \tQuantity: " + dataR1["Quantity_Ordered"] + "" );
-                    listBoxOrders.Items.Add("======================================================================================");
+                    listBoxOrders.Items.Add("=================================================================================================================================================");
 
                 }
 
