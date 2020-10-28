@@ -60,3 +60,32 @@ C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.csproj.GenerateResou
 C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.csproj.CopyComplete
 C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.exe
 C:\Users\User\Desktop\Git\Desktop\Desktop\obj\Debug\Desktop.pdb
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\Desktop.exe.config
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\Desktop.exe
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\Desktop.pdb
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\Google.Protobuf.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\Renci.SshNet.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\System.Buffers.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\System.Memory.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\bin\Debug\MySql.Data.xml
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.csprojAssemblyReference.cache
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.exe.config
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Database.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Login.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Desktop.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.MenuItems.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Orders.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Properties.Resources.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Reports.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.Staff.resources
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.GenerateResource.cache
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CoreCompileInputs.cache
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.csproj.CopyComplete
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.exe
+C:\Users\dminn\OneDrive\Documents\2020\Semester 2\CMPG 223\Code\Desktop\Desktop\obj\Debug\Desktop.pdb
