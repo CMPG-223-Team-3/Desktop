@@ -39,11 +39,11 @@
             this.listBoxOrders = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageOrder = new System.Windows.Forms.TabPage();
-            this.tabPageTop10 = new System.Windows.Forms.TabPage();
-            this.lblBeginOrder = new System.Windows.Forms.Label();
             this.lblEndOrder = new System.Windows.Forms.Label();
-            this.lblBegin10 = new System.Windows.Forms.Label();
+            this.lblBeginOrder = new System.Windows.Forms.Label();
+            this.tabPageTop10 = new System.Windows.Forms.TabPage();
             this.lblEnd10 = new System.Windows.Forms.Label();
+            this.lblBegin10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageOrder.SuspendLayout();
             this.tabPageTop10.SuspendLayout();
@@ -162,6 +162,24 @@
             this.tabPageOrder.Text = "Order Report";
             this.tabPageOrder.UseVisualStyleBackColor = true;
             // 
+            // lblEndOrder
+            // 
+            this.lblEndOrder.AutoSize = true;
+            this.lblEndOrder.Location = new System.Drawing.Point(303, 44);
+            this.lblEndOrder.Name = "lblEndOrder";
+            this.lblEndOrder.Size = new System.Drawing.Size(33, 17);
+            this.lblEndOrder.TabIndex = 16;
+            this.lblEndOrder.Text = "End";
+            // 
+            // lblBeginOrder
+            // 
+            this.lblBeginOrder.AutoSize = true;
+            this.lblBeginOrder.Location = new System.Drawing.Point(29, 44);
+            this.lblBeginOrder.Name = "lblBeginOrder";
+            this.lblBeginOrder.Size = new System.Drawing.Size(44, 17);
+            this.lblBeginOrder.TabIndex = 15;
+            this.lblBeginOrder.Text = "Begin";
+            // 
             // tabPageTop10
             // 
             this.tabPageTop10.Controls.Add(this.lblEnd10);
@@ -178,41 +196,23 @@
             this.tabPageTop10.Text = "Top 10 Report";
             this.tabPageTop10.UseVisualStyleBackColor = true;
             // 
-            // lblBeginOrder
+            // lblEnd10
             // 
-            this.lblBeginOrder.AutoSize = true;
-            this.lblBeginOrder.Location = new System.Drawing.Point(29, 44);
-            this.lblBeginOrder.Name = "lblBeginOrder";
-            this.lblBeginOrder.Size = new System.Drawing.Size(46, 17);
-            this.lblBeginOrder.TabIndex = 15;
-            this.lblBeginOrder.Text = "label1";
-            // 
-            // lblEndOrder
-            // 
-            this.lblEndOrder.AutoSize = true;
-            this.lblEndOrder.Location = new System.Drawing.Point(303, 44);
-            this.lblEndOrder.Name = "lblEndOrder";
-            this.lblEndOrder.Size = new System.Drawing.Size(46, 17);
-            this.lblEndOrder.TabIndex = 16;
-            this.lblEndOrder.Text = "label2";
+            this.lblEnd10.AutoSize = true;
+            this.lblEnd10.Location = new System.Drawing.Point(432, 32);
+            this.lblEnd10.Name = "lblEnd10";
+            this.lblEnd10.Size = new System.Drawing.Size(33, 17);
+            this.lblEnd10.TabIndex = 11;
+            this.lblEnd10.Text = "End";
             // 
             // lblBegin10
             // 
             this.lblBegin10.AutoSize = true;
             this.lblBegin10.Location = new System.Drawing.Point(152, 32);
             this.lblBegin10.Name = "lblBegin10";
-            this.lblBegin10.Size = new System.Drawing.Size(46, 17);
+            this.lblBegin10.Size = new System.Drawing.Size(44, 17);
             this.lblBegin10.TabIndex = 10;
-            this.lblBegin10.Text = "label3";
-            // 
-            // lblEnd10
-            // 
-            this.lblEnd10.AutoSize = true;
-            this.lblEnd10.Location = new System.Drawing.Point(432, 32);
-            this.lblEnd10.Name = "lblEnd10";
-            this.lblEnd10.Size = new System.Drawing.Size(46, 17);
-            this.lblEnd10.TabIndex = 11;
-            this.lblEnd10.Text = "label4";
+            this.lblBegin10.Text = "Begin";
             // 
             // Reports
             // 

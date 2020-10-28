@@ -148,7 +148,7 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                comboBoxDeleteStaffID.Items.Add(dataR["Waiter_ID"]);
+                comboBoxDeleteStaffID.Items.Add(dataR["Waiter_ID"]+"");
             }
             // close data reader
             dataR.Close();
@@ -167,7 +167,7 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                comboBoxStaffIDUP.Items.Add(dataR["Waiter_ID"]);
+                comboBoxStaffIDUP.Items.Add(dataR["Waiter_ID"]+"");
             }
             // close data reader
             dataR.Close();
@@ -177,6 +177,7 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //add
             try
             {
                 string name = textBoxAddFirstname.Text;
