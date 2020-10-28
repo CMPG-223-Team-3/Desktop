@@ -159,7 +159,7 @@
             this.tabPageOrder.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageOrder.Size = new System.Drawing.Size(1152, 451);
             this.tabPageOrder.TabIndex = 0;
-            this.tabPageOrder.Text = "tabPage1";
+            this.tabPageOrder.Text = "Order Report";
             this.tabPageOrder.UseVisualStyleBackColor = true;
             // 
             // tabPageTop10
@@ -173,9 +173,9 @@
             this.tabPageTop10.Location = new System.Drawing.Point(4, 25);
             this.tabPageTop10.Name = "tabPageTop10";
             this.tabPageTop10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTop10.Size = new System.Drawing.Size(1003, 451);
+            this.tabPageTop10.Size = new System.Drawing.Size(1152, 451);
             this.tabPageTop10.TabIndex = 1;
-            this.tabPageTop10.Text = "tabPage2";
+            this.tabPageTop10.Text = "Top 10 Report";
             this.tabPageTop10.UseVisualStyleBackColor = true;
             // 
             // lblBeginOrder
