@@ -112,6 +112,11 @@ namespace Desktop
             {
                 txtNum3.Focus();
             }
+
+            if (txtNum2.Text.Length == 0)
+            {
+                txtNum1.Focus();
+            }
         }
 
         private void txtNum3_TextChanged(object sender, EventArgs e)
@@ -130,6 +135,11 @@ namespace Desktop
             {
                 txtNum4.Focus();
             }
+
+            if (txtNum3.Text.Length == 0)
+            {
+                txtNum2.Focus();
+            }
         }
 
         private void txtNum4_TextChanged(object sender, EventArgs e)
@@ -147,6 +157,35 @@ namespace Desktop
             if (txtNum4.Text.Length == 1)
             {
                 this.btnLogin_Click(sender, e);
+            }
+
+            if (txtNum4.Text.Length == 0)
+            {
+                txtNum3.Focus();
+            }
+        }
+
+        private void txtNum4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Back)
+            {
+                txtNum3.Focus();
+            }
+        }
+
+        private void txtNum3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                txtNum2.Focus();
+            }
+        }
+
+        private void txtNum2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                txtNum1.Focus();
             }
         }
     }

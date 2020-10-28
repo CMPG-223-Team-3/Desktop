@@ -84,6 +84,7 @@
             this.txtNum2.Size = new System.Drawing.Size(18, 20);
             this.txtNum2.TabIndex = 7;
             this.txtNum2.TextChanged += new System.EventHandler(this.txtNum2_TextChanged);
+            this.txtNum2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum2_KeyPress);
             // 
             // txtNum3
             // 
@@ -93,6 +94,7 @@
             this.txtNum3.Size = new System.Drawing.Size(18, 20);
             this.txtNum3.TabIndex = 8;
             this.txtNum3.TextChanged += new System.EventHandler(this.txtNum3_TextChanged);
+            this.txtNum3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum3_KeyPress);
             // 
             // txtNum4
             // 
@@ -102,6 +104,7 @@
             this.txtNum4.Size = new System.Drawing.Size(18, 20);
             this.txtNum4.TabIndex = 9;
             this.txtNum4.TextChanged += new System.EventHandler(this.txtNum4_TextChanged);
+            this.txtNum4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNum4_KeyPress);
             // 
             // Login
             // 
