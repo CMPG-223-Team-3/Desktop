@@ -231,6 +231,7 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
@@ -242,7 +243,7 @@ namespace Desktop
                     // get order id
                     query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
                     //open connection
-                    connection.Open();
+                   
                     //put in comand
                     cmd = new MySqlCommand(query, connection);
                     dataR = cmd.ExecuteReader();
@@ -274,7 +275,7 @@ namespace Desktop
                       
                       dataR.Close();
                       // close connection
-                      connection.Close();
+                      
                 }
                     // close data reader
                     dataR.Close();
@@ -285,10 +286,10 @@ namespace Desktop
                 {
                    MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
                 }
-                
+            connection.Close();
 
-                
-                
+
+
 
             try
             {

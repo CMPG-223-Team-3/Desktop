@@ -159,7 +159,10 @@ namespace Desktop
             btnTestConnection.BackColor = color;
             btnTestConnection.ForeColor = System.Drawing.Color.White;
 
-            
+            btnOK.BackColor = color;
+            btnOK.ForeColor = System.Drawing.Color.White;
+
+
         }
     }
 }
