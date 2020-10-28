@@ -204,12 +204,13 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
             int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
             // delete menu item
-            connection.Open();
+            
             try
             {
                 // get order id

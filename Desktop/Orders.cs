@@ -207,6 +207,7 @@ namespace Desktop
 
         private void comboBoxOrderID_Click(object sender, EventArgs e)
         {
+            comboBoxDeleteOrderID.Items.Clear();
             string query = "SELECT * FROM ORDERS";
             //open connection
             connection.Open();
