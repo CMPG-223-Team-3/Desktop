@@ -187,9 +187,18 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool empty = true;
 
-            //Add menu item 
-            try
+            if (textBoxMenuItemPrice.Text==""|| textBoxMenuItemPrice.Text == "" || textBoxMenuItemPrice.Text == "" )
+            {
+                MessageBox.Show(" There are empty values , connot input empty values");
+            }
+            else
+            {
+                empty = false;
+            }
+                //Add menu item 
+             try
             {
                 string name = textBoxMenuItemName.Text;
                 string descrip = textBoxMenuItemDes.Text;
@@ -197,8 +206,12 @@ namespace Desktop
 
                 if (double.TryParse(textBoxMenuItemPrice.Text, out double price))
                 {
-                    addMenuItem(name, descrip, price);
-                    MessageBox.Show("Menu Item has been  added");
+                    if(!empty)
+                    {
+                        addMenuItem(name, descrip, price);
+                        MessageBox.Show("Menu Item has been  added");
+                    }
+                    
                 }
                 else
                 {

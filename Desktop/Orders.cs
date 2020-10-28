@@ -271,8 +271,16 @@ namespace Desktop
                 int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
                 DateTime date = dateTimePickerOrder.Value;// check this later on 
                 bool tableVal = false;
+                bool empty = true;
 
-
+                if ((textBoxQuant.Text=="")|| (textBoxTable.Text =="")|| (textBoxWaiter.Text ==""))
+                {
+                    MessageBox.Show("Can not submit empty values");
+                }
+                else
+                {
+                    empty = false;
+                }
                 if (int.TryParse(textBoxTable.Text, out int table))
                     tableVal = true;
                 else
@@ -310,7 +318,7 @@ namespace Desktop
                 int status = int.Parse(comboBoxStatus.SelectedItem.ToString());
 
 
-                if (waiterVal && tableVal)
+                if ((waiterVal) && (tableVal)&&(quantVal) &&( !empty))
                 {
                     updateOrder(orderID, date, table, waiter, paid, paidStatus, status, quant);
                     MessageBox.Show("Order has been updated");
