@@ -44,67 +44,74 @@
             // listBoxTop10
             // 
             this.listBoxTop10.FormattingEnabled = true;
-            this.listBoxTop10.ItemHeight = 16;
-            this.listBoxTop10.Location = new System.Drawing.Point(715, 228);
+            this.listBoxTop10.Location = new System.Drawing.Point(536, 185);
+            this.listBoxTop10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBoxTop10.Name = "listBoxTop10";
-            this.listBoxTop10.Size = new System.Drawing.Size(194, 276);
+            this.listBoxTop10.Size = new System.Drawing.Size(146, 225);
             this.listBoxTop10.TabIndex = 1;
             this.listBoxTop10.SelectedIndexChanged += new System.EventHandler(this.listBoxTop10_SelectedIndexChanged);
             // 
             // dateTimePickerBeginOrders
             // 
-            this.dateTimePickerBeginOrders.Location = new System.Drawing.Point(15, 111);
+            this.dateTimePickerBeginOrders.Location = new System.Drawing.Point(11, 90);
+            this.dateTimePickerBeginOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerBeginOrders.Name = "dateTimePickerBeginOrders";
-            this.dateTimePickerBeginOrders.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerBeginOrders.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerBeginOrders.TabIndex = 2;
             // 
             // dateTimePickerEndOrders
             // 
-            this.dateTimePickerEndOrders.Location = new System.Drawing.Point(273, 111);
+            this.dateTimePickerEndOrders.Location = new System.Drawing.Point(205, 90);
+            this.dateTimePickerEndOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerEndOrders.Name = "dateTimePickerEndOrders";
-            this.dateTimePickerEndOrders.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEndOrders.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerEndOrders.TabIndex = 3;
             // 
             // dateTimePickerBeginTop10
             // 
-            this.dateTimePickerBeginTop10.Location = new System.Drawing.Point(598, 118);
+            this.dateTimePickerBeginTop10.Location = new System.Drawing.Point(448, 96);
+            this.dateTimePickerBeginTop10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerBeginTop10.Name = "dateTimePickerBeginTop10";
-            this.dateTimePickerBeginTop10.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerBeginTop10.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerBeginTop10.TabIndex = 4;
             this.dateTimePickerBeginTop10.ValueChanged += new System.EventHandler(this.dateTimePickerBeginTop10_ValueChanged);
             // 
             // dateTimePickerEndTopt10
             // 
-            this.dateTimePickerEndTopt10.Location = new System.Drawing.Point(856, 118);
+            this.dateTimePickerEndTopt10.Location = new System.Drawing.Point(642, 96);
+            this.dateTimePickerEndTopt10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerEndTopt10.Name = "dateTimePickerEndTopt10";
-            this.dateTimePickerEndTopt10.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEndTopt10.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerEndTopt10.TabIndex = 5;
             this.dateTimePickerEndTopt10.ValueChanged += new System.EventHandler(this.dateTimePickerEndTopt10_ValueChanged);
             // 
             // lblOrder
             // 
             this.lblOrder.AutoSize = true;
-            this.lblOrder.Location = new System.Drawing.Point(12, 77);
+            this.lblOrder.Location = new System.Drawing.Point(9, 63);
+            this.lblOrder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOrder.Name = "lblOrder";
-            this.lblOrder.Size = new System.Drawing.Size(52, 17);
+            this.lblOrder.Size = new System.Drawing.Size(38, 13);
             this.lblOrder.TabIndex = 6;
             this.lblOrder.Text = "Orders";
             // 
             // lblTop10
             // 
             this.lblTop10.AutoSize = true;
-            this.lblTop10.Location = new System.Drawing.Point(595, 77);
+            this.lblTop10.Location = new System.Drawing.Point(446, 63);
+            this.lblTop10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTop10.Name = "lblTop10";
-            this.lblTop10.Size = new System.Drawing.Size(49, 17);
+            this.lblTop10.Size = new System.Drawing.Size(38, 13);
             this.lblTop10.TabIndex = 7;
             this.lblTop10.Text = "Top10";
             this.lblTop10.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnOrderRep
             // 
-            this.btnOrderRep.Location = new System.Drawing.Point(153, 140);
+            this.btnOrderRep.Location = new System.Drawing.Point(115, 114);
+            this.btnOrderRep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOrderRep.Name = "btnOrderRep";
-            this.btnOrderRep.Size = new System.Drawing.Size(181, 37);
+            this.btnOrderRep.Size = new System.Drawing.Size(136, 30);
             this.btnOrderRep.TabIndex = 8;
             this.btnOrderRep.Text = "Generate orders report";
             this.btnOrderRep.UseVisualStyleBackColor = true;
@@ -112,9 +119,10 @@
             // 
             // btnTop10Rep
             // 
-            this.btnTop10Rep.Location = new System.Drawing.Point(715, 147);
+            this.btnTop10Rep.Location = new System.Drawing.Point(536, 119);
+            this.btnTop10Rep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTop10Rep.Name = "btnTop10Rep";
-            this.btnTop10Rep.Size = new System.Drawing.Size(202, 40);
+            this.btnTop10Rep.Size = new System.Drawing.Size(152, 32);
             this.btnTop10Rep.TabIndex = 9;
             this.btnTop10Rep.Text = "Generate Top 10 Menu items";
             this.btnTop10Rep.UseVisualStyleBackColor = true;
@@ -123,9 +131,10 @@
             // listViewOrders
             // 
             this.listViewOrders.HideSelection = false;
-            this.listViewOrders.Location = new System.Drawing.Point(34, 191);
+            this.listViewOrders.Location = new System.Drawing.Point(26, 155);
+            this.listViewOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewOrders.Name = "listViewOrders";
-            this.listViewOrders.Size = new System.Drawing.Size(501, 347);
+            this.listViewOrders.Size = new System.Drawing.Size(377, 283);
             this.listViewOrders.TabIndex = 12;
             this.listViewOrders.UseCompatibleStateImageBehavior = false;
             this.listViewOrders.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -134,17 +143,18 @@
             // 
             this.lblReportsHeading.AutoSize = true;
             this.lblReportsHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReportsHeading.Location = new System.Drawing.Point(486, 9);
+            this.lblReportsHeading.Location = new System.Drawing.Point(364, 7);
+            this.lblReportsHeading.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReportsHeading.Name = "lblReportsHeading";
-            this.lblReportsHeading.Size = new System.Drawing.Size(120, 36);
+            this.lblReportsHeading.Size = new System.Drawing.Size(98, 29);
             this.lblReportsHeading.TabIndex = 13;
             this.lblReportsHeading.Text = "Reports";
             // 
             // Reports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 558);
+            this.ClientSize = new System.Drawing.Size(794, 453);
             this.Controls.Add(this.lblReportsHeading);
             this.Controls.Add(this.listViewOrders);
             this.Controls.Add(this.btnTop10Rep);
@@ -156,6 +166,8 @@
             this.Controls.Add(this.dateTimePickerEndOrders);
             this.Controls.Add(this.dateTimePickerBeginOrders);
             this.Controls.Add(this.listBoxTop10);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Reports";
             this.Text = "Reports";
             this.Load += new System.EventHandler(this.Reports_Load);
