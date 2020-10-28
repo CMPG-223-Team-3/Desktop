@@ -13,6 +13,7 @@ namespace Desktop
     public partial class Login : Form
     {
         private Desktop myMainForm;
+        private string pin = "2332";
         public Login(ref Desktop MainForm)
         {
             InitializeComponent();
@@ -21,11 +22,46 @@ namespace Desktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string inputPin = txtNum1.Text + txtNum2.Text + txtNum3.Text + txtNum4.Text;
 
+            if (pin==inputPin)
+            {
+                myMainForm.switchTo("MainForm");
+            }
+            else
+            {
+                MessageBox.Show("PIN is invalid");
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            string hex = "#536878";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+
+            lblHeading.ForeColor = System.Drawing.Color.White;
+            lblPin.ForeColor = System.Drawing.Color.White;
+            
+
+            txtNum1.ForeColor = System.Drawing.Color.White;
+            txtNum2.ForeColor = System.Drawing.Color.White;
+            txtNum3.ForeColor = System.Drawing.Color.White;
+            txtNum4.ForeColor = System.Drawing.Color.White;
+
+            txtNum1.BackColor = color;
+            txtNum2.BackColor = color;
+            txtNum3.BackColor = color;
+            txtNum4.BackColor = color;
+
+            
+
+            hex = "#02075d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            btnLogin.BackColor = color;
+            btnLogin.ForeColor = System.Drawing.Color.White;
+
+            
 
         }
 
@@ -33,6 +69,16 @@ namespace Desktop
         {
 
             myMainForm.switchTo("Main Form");
+        }
+
+        private void lblUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

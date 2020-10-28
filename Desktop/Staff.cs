@@ -15,10 +15,10 @@ namespace Desktop
     public partial class Staff : Form
     {
         private MySqlConnection connection;
-        private string server = "sql7.freemysqlhosting.net";
+        private string server = "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
         private string database = "sql7368973";
-        private string uid = "sql7368973";
-        private string password = "1lFxsKtjXr";
+        private string uid = "admin";
+        private string password = "cmpg22310";
         string connectionstring;
         private Desktop myMainForm ;
         public Staff(ref Desktop MainForm)
@@ -60,9 +60,75 @@ namespace Desktop
         }
         private void Staff_Load(object sender, EventArgs e)
         {
-            connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
-                 + ";" + "PASSWORD" + password + ";";
+            connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid
+                 + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionstring);
+
+            lblStaffIDdelete.ForeColor = System.Drawing.Color.White;
+            lblAddFirstname.ForeColor = System.Drawing.Color.White;
+            lblAddLastname.ForeColor = System.Drawing.Color.White;
+            lblAddUsername.ForeColor = System.Drawing.Color.White;
+            lblAddPassword.ForeColor = System.Drawing.Color.White;
+            lblStaffUP.ForeColor = System.Drawing.Color.White;
+            lblUPfirstname.ForeColor = System.Drawing.Color.White;
+            lblUpLastname.ForeColor = System.Drawing.Color.White;
+            lblUPuasername.ForeColor = System.Drawing.Color.White;
+            lblPasswordUP.ForeColor = System.Drawing.Color.White;
+
+            comboBoxDeleteStaffID.ForeColor = System.Drawing.Color.White;
+            comboBoxStaffIDUP.ForeColor = System.Drawing.Color.White;
+
+            textBoxAddFirstname.ForeColor = System.Drawing.Color.White;
+            textBoxAddLastname.ForeColor = System.Drawing.Color.White;
+            textBoxAddUsername.ForeColor = System.Drawing.Color.White;
+            textBoxAddPassword.ForeColor = System.Drawing.Color.White;
+            textBoxUPFirstName.ForeColor = System.Drawing.Color.White;
+            textBoxUpLastname.ForeColor = System.Drawing.Color.White;
+            textBoxUPusername.ForeColor = System.Drawing.Color.White;
+            textBoxPasswordUP.ForeColor = System.Drawing.Color.White;
+
+
+
+            string hex = "#536878";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+
+            comboBoxStaffIDUP.BackColor = color;
+            comboBoxDeleteStaffID.BackColor = color;
+
+         
+            textBoxAddFirstname.BackColor = color;
+            textBoxAddLastname.BackColor = color;
+            textBoxAddUsername.BackColor = color;
+            textBoxAddPassword.BackColor = color;
+            textBoxUPFirstName.BackColor = color;
+            textBoxUpLastname.BackColor = color;
+            textBoxUPusername.BackColor = color;
+            textBoxPasswordUP.BackColor = color;
+
+            hex = "#19262d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+            tabPageAddStaff.ForeColor = System.Drawing.Color.White;
+            tabPageDeleteStaff.ForeColor = System.Drawing.Color.White;
+            tabPageUpStaff.ForeColor = System.Drawing.Color.White;
+            tabPageAddStaff.BackColor = color;
+            tabPageDeleteStaff.BackColor = color;
+            tabPageUpStaff.BackColor = color;
+
+
+
+
+            hex = "#020b0d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            btnAddStaff.BackColor = color;
+            btnAddStaff.ForeColor = System.Drawing.Color.White;
+
+            btnDeleteStaff.BackColor = color;
+            btnDeleteStaff.ForeColor = System.Drawing.Color.White;
+
+            btnUpStaff.BackColor = color;
+            btnUpStaff.ForeColor = System.Drawing.Color.White;
         }
 
         private void comboBoxDeleteStaffID_SelectedIndexChanged(object sender, EventArgs e)
@@ -191,6 +257,11 @@ namespace Desktop
         private void button4_Click(object sender, EventArgs e)
         {
             myMainForm.switchTo("MainForm");
+        }
+
+        private void lblStaffUP_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageAddStaff = new System.Windows.Forms.TabPage();
+            this.btnAddStaff = new System.Windows.Forms.Button();
             this.textBoxAddPassword = new System.Windows.Forms.TextBox();
             this.textBoxAddUsername = new System.Windows.Forms.TextBox();
             this.textBoxAddLastname = new System.Windows.Forms.TextBox();
@@ -39,12 +39,12 @@
             this.lblAddUsername = new System.Windows.Forms.Label();
             this.lblAddLastname = new System.Windows.Forms.Label();
             this.lblAddFirstname = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tabPageDeleteStaff = new System.Windows.Forms.TabPage();
+            this.btnDeleteStaff = new System.Windows.Forms.Button();
             this.comboBoxDeleteStaffID = new System.Windows.Forms.ComboBox();
             this.lblStaffIDdelete = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPageUpStaff = new System.Windows.Forms.TabPage();
+            this.btnUpStaff = new System.Windows.Forms.Button();
             this.comboBoxStaffIDUP = new System.Windows.Forms.ComboBox();
             this.lblStaffUP = new System.Windows.Forms.Label();
             this.textBoxPasswordUP = new System.Windows.Forms.TextBox();
@@ -55,52 +55,52 @@
             this.lblUPuasername = new System.Windows.Forms.Label();
             this.lblUpLastname = new System.Windows.Forms.Label();
             this.lblUPfirstname = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.lblStaffHeading = new System.Windows.Forms.Label();
+            this.tabControl.SuspendLayout();
+            this.tabPageAddStaff.SuspendLayout();
+            this.tabPageDeleteStaff.SuspendLayout();
+            this.tabPageUpStaff.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(53, 26);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(508, 362);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl.Controls.Add(this.tabPageAddStaff);
+            this.tabControl.Controls.Add(this.tabPageDeleteStaff);
+            this.tabControl.Controls.Add(this.tabPageUpStaff);
+            this.tabControl.Location = new System.Drawing.Point(122, 76);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(508, 362);
+            this.tabControl.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageAddStaff
             // 
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBoxAddPassword);
-            this.tabPage1.Controls.Add(this.textBoxAddUsername);
-            this.tabPage1.Controls.Add(this.textBoxAddLastname);
-            this.tabPage1.Controls.Add(this.textBoxAddFirstname);
-            this.tabPage1.Controls.Add(this.lblAddPassword);
-            this.tabPage1.Controls.Add(this.lblAddUsername);
-            this.tabPage1.Controls.Add(this.lblAddLastname);
-            this.tabPage1.Controls.Add(this.lblAddFirstname);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(500, 333);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add Staff member ";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageAddStaff.Controls.Add(this.btnAddStaff);
+            this.tabPageAddStaff.Controls.Add(this.textBoxAddPassword);
+            this.tabPageAddStaff.Controls.Add(this.textBoxAddUsername);
+            this.tabPageAddStaff.Controls.Add(this.textBoxAddLastname);
+            this.tabPageAddStaff.Controls.Add(this.textBoxAddFirstname);
+            this.tabPageAddStaff.Controls.Add(this.lblAddPassword);
+            this.tabPageAddStaff.Controls.Add(this.lblAddUsername);
+            this.tabPageAddStaff.Controls.Add(this.lblAddLastname);
+            this.tabPageAddStaff.Controls.Add(this.lblAddFirstname);
+            this.tabPageAddStaff.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAddStaff.Name = "tabPageAddStaff";
+            this.tabPageAddStaff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddStaff.Size = new System.Drawing.Size(500, 333);
+            this.tabPageAddStaff.TabIndex = 0;
+            this.tabPageAddStaff.Text = "Add Waiter";
+            this.tabPageAddStaff.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAddStaff
             // 
-            this.button1.Location = new System.Drawing.Point(135, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddStaff.Location = new System.Drawing.Point(135, 246);
+            this.btnAddStaff.Name = "btnAddStaff";
+            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStaff.TabIndex = 8;
+            this.btnAddStaff.Text = "Add";
+            this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxAddPassword
             // 
@@ -166,28 +166,28 @@
             this.lblAddFirstname.TabIndex = 0;
             this.lblAddFirstname.Text = "First name";
             // 
-            // tabPage2
+            // tabPageDeleteStaff
             // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.comboBoxDeleteStaffID);
-            this.tabPage2.Controls.Add(this.lblStaffIDdelete);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(500, 333);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Delete staff member";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageDeleteStaff.Controls.Add(this.btnDeleteStaff);
+            this.tabPageDeleteStaff.Controls.Add(this.comboBoxDeleteStaffID);
+            this.tabPageDeleteStaff.Controls.Add(this.lblStaffIDdelete);
+            this.tabPageDeleteStaff.Location = new System.Drawing.Point(4, 25);
+            this.tabPageDeleteStaff.Name = "tabPageDeleteStaff";
+            this.tabPageDeleteStaff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDeleteStaff.Size = new System.Drawing.Size(500, 333);
+            this.tabPageDeleteStaff.TabIndex = 1;
+            this.tabPageDeleteStaff.Text = "Delete Waiter";
+            this.tabPageDeleteStaff.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDeleteStaff
             // 
-            this.button2.Location = new System.Drawing.Point(161, 254);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnDeleteStaff.Location = new System.Drawing.Point(161, 254);
+            this.btnDeleteStaff.Name = "btnDeleteStaff";
+            this.btnDeleteStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteStaff.TabIndex = 3;
+            this.btnDeleteStaff.Text = "Delete";
+            this.btnDeleteStaff.UseVisualStyleBackColor = true;
+            this.btnDeleteStaff.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBoxDeleteStaffID
             // 
@@ -208,35 +208,35 @@
             this.lblStaffIDdelete.TabIndex = 1;
             this.lblStaffIDdelete.Text = "Staff ID";
             // 
-            // tabPage3
+            // tabPageUpStaff
             // 
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.comboBoxStaffIDUP);
-            this.tabPage3.Controls.Add(this.lblStaffUP);
-            this.tabPage3.Controls.Add(this.textBoxPasswordUP);
-            this.tabPage3.Controls.Add(this.textBoxUPusername);
-            this.tabPage3.Controls.Add(this.textBoxUpLastname);
-            this.tabPage3.Controls.Add(this.textBoxUPFirstName);
-            this.tabPage3.Controls.Add(this.lblPasswordUP);
-            this.tabPage3.Controls.Add(this.lblUPuasername);
-            this.tabPage3.Controls.Add(this.lblUpLastname);
-            this.tabPage3.Controls.Add(this.lblUPfirstname);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(500, 333);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Update staff member";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageUpStaff.Controls.Add(this.btnUpStaff);
+            this.tabPageUpStaff.Controls.Add(this.comboBoxStaffIDUP);
+            this.tabPageUpStaff.Controls.Add(this.lblStaffUP);
+            this.tabPageUpStaff.Controls.Add(this.textBoxPasswordUP);
+            this.tabPageUpStaff.Controls.Add(this.textBoxUPusername);
+            this.tabPageUpStaff.Controls.Add(this.textBoxUpLastname);
+            this.tabPageUpStaff.Controls.Add(this.textBoxUPFirstName);
+            this.tabPageUpStaff.Controls.Add(this.lblPasswordUP);
+            this.tabPageUpStaff.Controls.Add(this.lblUPuasername);
+            this.tabPageUpStaff.Controls.Add(this.lblUpLastname);
+            this.tabPageUpStaff.Controls.Add(this.lblUPfirstname);
+            this.tabPageUpStaff.Location = new System.Drawing.Point(4, 25);
+            this.tabPageUpStaff.Name = "tabPageUpStaff";
+            this.tabPageUpStaff.Size = new System.Drawing.Size(500, 333);
+            this.tabPageUpStaff.TabIndex = 2;
+            this.tabPageUpStaff.Text = "Update Waiter";
+            this.tabPageUpStaff.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnUpStaff
             // 
-            this.button3.Location = new System.Drawing.Point(200, 288);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Update";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnUpStaff.Location = new System.Drawing.Point(200, 288);
+            this.btnUpStaff.Name = "btnUpStaff";
+            this.btnUpStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnUpStaff.TabIndex = 18;
+            this.btnUpStaff.Text = "Update";
+            this.btnUpStaff.UseVisualStyleBackColor = true;
+            this.btnUpStaff.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBoxStaffIDUP
             // 
@@ -256,6 +256,7 @@
             this.lblStaffUP.Size = new System.Drawing.Size(54, 17);
             this.lblStaffUP.TabIndex = 16;
             this.lblStaffUP.Text = "Staff ID";
+            this.lblStaffUP.Click += new System.EventHandler(this.lblStaffUP_Click);
             // 
             // textBoxPasswordUP
             // 
@@ -321,41 +322,42 @@
             this.lblUPfirstname.TabIndex = 8;
             this.lblUPfirstname.Text = "First name";
             // 
-            // button4
+            // lblStaffHeading
             // 
-            this.button4.Location = new System.Drawing.Point(637, 361);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.lblStaffHeading.AutoSize = true;
+            this.lblStaffHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffHeading.Location = new System.Drawing.Point(343, 23);
+            this.lblStaffHeading.Name = "lblStaffHeading";
+            this.lblStaffHeading.Size = new System.Drawing.Size(116, 36);
+            this.lblStaffHeading.TabIndex = 2;
+            this.lblStaffHeading.Text = "Waiters";
             // 
             // Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.lblStaffHeading);
+            this.Controls.Add(this.tabControl);
             this.Name = "Staff";
             this.Text = "Staff";
             this.Load += new System.EventHandler(this.Staff_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabPageAddStaff.ResumeLayout(false);
+            this.tabPageAddStaff.PerformLayout();
+            this.tabPageDeleteStaff.ResumeLayout(false);
+            this.tabPageDeleteStaff.PerformLayout();
+            this.tabPageUpStaff.ResumeLayout(false);
+            this.tabPageUpStaff.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageAddStaff;
         private System.Windows.Forms.TextBox textBoxAddPassword;
         private System.Windows.Forms.TextBox textBoxAddUsername;
         private System.Windows.Forms.TextBox textBoxAddLastname;
@@ -364,10 +366,10 @@
         private System.Windows.Forms.Label lblAddUsername;
         private System.Windows.Forms.Label lblAddLastname;
         private System.Windows.Forms.Label lblAddFirstname;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageDeleteStaff;
         private System.Windows.Forms.ComboBox comboBoxDeleteStaffID;
         private System.Windows.Forms.Label lblStaffIDdelete;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageUpStaff;
         private System.Windows.Forms.ComboBox comboBoxStaffIDUP;
         private System.Windows.Forms.Label lblStaffUP;
         private System.Windows.Forms.TextBox textBoxPasswordUP;
@@ -378,9 +380,9 @@
         private System.Windows.Forms.Label lblUPuasername;
         private System.Windows.Forms.Label lblUpLastname;
         private System.Windows.Forms.Label lblUPfirstname;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAddStaff;
+        private System.Windows.Forms.Button btnDeleteStaff;
+        private System.Windows.Forms.Button btnUpStaff;
+        private System.Windows.Forms.Label lblStaffHeading;
     }
 }

@@ -20,6 +20,17 @@ namespace Desktop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+            menuStrip1.ForeColor =  System.Drawing.Color.White;
+            menuStrip1.BackColor =   System.Drawing.Color.Black;
+            //GUI
+
+            string hex = "#0b1013";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            
+            this.BackColor = color;
+
+
             Desktop myMainForm = this;
 
             /*string server = System.Environment.GetEnvironmentVariable("CMPG223SERVER", EnvironmentVariableTarget.Machine) ?? string.Empty;
@@ -87,5 +98,20 @@ namespace Desktop
         {
             switchTo("Reports");
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        //GUI
+
+        /*string hex = "#536878";
+        Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+        this.BackColor = color;*/
+
+        
+
+
     }
 }

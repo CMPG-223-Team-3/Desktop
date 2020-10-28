@@ -42,6 +42,8 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -51,6 +53,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1121, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -63,7 +66,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // manageToolStripMenuItem
@@ -81,35 +84,35 @@
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.databaseToolStripMenuItem.Text = "Database";
             this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
             // 
             // waitersToolStripMenuItem
             // 
             this.waitersToolStripMenuItem.Name = "waitersToolStripMenuItem";
-            this.waitersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.waitersToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.waitersToolStripMenuItem.Text = "Waiters";
             this.waitersToolStripMenuItem.Click += new System.EventHandler(this.waitersToolStripMenuItem_Click);
             // 
             // ordersToolStripMenuItem
             // 
             this.ordersToolStripMenuItem.Name = "ordersToolStripMenuItem";
-            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ordersToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.ordersToolStripMenuItem.Text = "Orders";
             this.ordersToolStripMenuItem.Click += new System.EventHandler(this.ordersToolStripMenuItem_Click);
             // 
             // menuItemsToolStripMenuItem
             // 
             this.menuItemsToolStripMenuItem.Name = "menuItemsToolStripMenuItem";
-            this.menuItemsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuItemsToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.menuItemsToolStripMenuItem.Text = "Menu Items";
             this.menuItemsToolStripMenuItem.Click += new System.EventHandler(this.menuItemsToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace Desktop
 {
@@ -15,10 +9,10 @@ namespace Desktop
     {
 
         private MySqlConnection connection;
-        private string server = "sql7.freemysqlhosting.net";
+        private string server = "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
         private string database = "sql7368973";
-        private string uid = "sql7368973";
-        private string password = "1lFxsKtjXr";
+        private string uid = "admin";
+        private string password = "cmpg22310";
         string connectionstring;
         private Desktop myMainForm;
         public Orders(ref Desktop MainForm)
@@ -56,9 +50,9 @@ namespace Desktop
             connection.Close();
         }
 
-        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID,int status ,int quant )
+        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
-            string queryUpdate = "UPDATE ORDERS SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard +  "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
+            string queryUpdate = "UPDATE ORDER SET Order_DateTime='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -66,20 +60,118 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            string query2Update = "UPDATE ORDER DETAIL SET Quantity_Ordered='" + quant + "' WHERE Order_ID='" + orderID + "'";
+            int menuID = 0;
+            string query = "SELECT * FROM ORDER DETAIL WHERE = '"+orderID+"'";
+            //open connection
+            connection.Open();
+            //put in comand
+            cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                menuID=int.Parse(dataR["MenuItemID"]+"");
+            }
+            // close data reader
+            dataR.Close();
+            // close connection
+            connection.Close();
+
+
+            int unitPrice = 0;
+
+            query = "SELECT * FROM MENU_ITEM";
+            //open connection
+            connection.Open();
+            //put in comand
+             cmd = new MySqlCommand(query, connection);
+              dataR= cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                unitPrice= int.Parse(dataR["Price"]+"");
+            }
+            // close data reader
+            dataR.Close();
+            // close connection
+            connection.Close();
+
+            double pricePaid = unitPrice*quant;
+            string query2Update = "UPDATE ORDER DETAIL SET Quantity_Ordered='" + quant + "', Price_Paid='"+pricePaid+"' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
             connection.Close();
+
+
         }
 
         private void Orders_Load(object sender, EventArgs e)
         {
-            connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
-                 + ";" + "PASSWORD" + password + ";";
+            connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid
+                 + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionstring);
+
+
+            lblCashorCard.ForeColor = System.Drawing.Color.White;
+            lblDate.ForeColor = System.Drawing.Color.White;
+            lblPaid.ForeColor = System.Drawing.Color.White;
+            lblQuant.ForeColor = System.Drawing.Color.White;
+            lblStatus.ForeColor = System.Drawing.Color.White;
+            lblWaiter.ForeColor = System.Drawing.Color.White;
+            lblOrderID.ForeColor = System.Drawing.Color.White;
+            lblTable.ForeColor = System.Drawing.Color.White;
+
+            comboBoxCashorCard.ForeColor = System.Drawing.Color.White;
+            comboBoxDeleteOrderID.ForeColor = System.Drawing.Color.White;
+            comboBoxOrderID.ForeColor = System.Drawing.Color.White;
+            comboBoxPaid.ForeColor = System.Drawing.Color.White;
+            comboBoxStatus.ForeColor = System.Drawing.Color.White;
+            comboBoxCashorCard.ForeColor = System.Drawing.Color.White;
+            dateTimePickerOrder.ForeColor = System.Drawing.Color.White;
+
+            textBoxQuant.ForeColor = System.Drawing.Color.White;
+            textBoxTable.ForeColor = System.Drawing.Color.White;
+            textBoxWaiter.ForeColor = System.Drawing.Color.White;
+
+
+
+            string hex = "#536878";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+
+            comboBoxCashorCard.BackColor = color;
+            comboBoxDeleteOrderID.BackColor = color;
+            comboBoxOrderID.BackColor = color;
+            comboBoxPaid.BackColor = color;
+            comboBoxStatus.BackColor = color;
+            comboBoxCashorCard.BackColor = color;
+
+            textBoxQuant.BackColor = color;
+            textBoxTable.BackColor = color;
+            textBoxWaiter.BackColor = color;
+            hex = "#19262d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+            tabPageDeleteOrder.ForeColor = System.Drawing.Color.White;
+            tabPageUpOrders.ForeColor = System.Drawing.Color.White;
+            tabPageDeleteOrder.BackColor = color;
+            tabPageUpOrders.BackColor = color;
+
+
+
+            hex = "#020b0d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+           
+            btnConfirmDelete.BackColor = color;
+            btnConfirmDelete.ForeColor = System.Drawing.Color.White;
+
+            btnConfirmUP.BackColor = color;
+            btnConfirmUP.ForeColor = System.Drawing.Color.White;
+
+
 
 
         }
@@ -174,12 +266,13 @@ namespace Desktop
 
         private void btnConfirmUP_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
                 DateTime date = dateTimePickerOrder.Value;// check this later on 
                 bool tableVal = false;
-                
-                
+
+
                 if (int.TryParse(textBoxTable.Text, out int table))
                     tableVal = true;
                 else
@@ -200,11 +293,11 @@ namespace Desktop
                 }
                 bool quantVal = false;
                 if (int.TryParse(textBoxQuant.Text, out int quant))
-                { 
-                      quantVal = true;
+                {
+                    quantVal = true;
 
                 }
-                else 
+                else
                 {
                     MessageBox.Show("Quantity needs to be a number");
                     textBoxQuant.Focus();
@@ -215,20 +308,21 @@ namespace Desktop
                 int paid = int.Parse(comboBoxPaid.SelectedItem.ToString());
                 int paidStatus = int.Parse(comboBoxCashorCard.SelectedItem.ToString());
                 int status = int.Parse(comboBoxStatus.SelectedItem.ToString());
-                
+
 
                 if (waiterVal && tableVal)
                 {
-                    updateOrder(orderID, date, table, waiter, paid, paidStatus,status,quant);
+                    updateOrder(orderID, date, table, waiter, paid, paidStatus, status, quant);
                     MessageBox.Show("Order has been updated");
 
                 }
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Order could not be updated");
-            
+
             }
-            
+
 
         }
 
@@ -272,17 +366,21 @@ namespace Desktop
 
         private void btnConfirmDelete_Click(object sender, EventArgs e)
         {
-            try {
+
+            
+            try
+            {
                 int deleteID = int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString());
 
                 deleteOrderID(deleteID);
 
                 MessageBox.Show("Order has been deleted");
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Order could not be deleted");
             }
-            
+
 
 
 
@@ -291,7 +389,7 @@ namespace Desktop
 
         private void comboBoxDeleteOrderID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -320,6 +418,36 @@ namespace Desktop
         }
 
         private void lblQuant_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerOrder_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxWaiter_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblWaiter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCashorCard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOrderHeading_Click(object sender, EventArgs e)
         {
 
         }

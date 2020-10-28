@@ -14,10 +14,10 @@ namespace Desktop
     public partial class Reports : Form
     {
         private MySqlConnection connection;
-        private string server = "sql7.freemysqlhosting.net";
+        private string server = "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
         private string database = "sql7368973";
-        private string uid = "sql7368973";
-        private string password = "1lFxsKtjXr";
+        private string uid = "admin";
+        private string password = "cmpg22310";
         string connectionstring;
 
         private Desktop myMainForm;
@@ -231,9 +231,54 @@ namespace Desktop
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            connectionstring = "SERVE=" + server + ";" + "DATABASE=" + database + ";" + "UID" + uid
-                 + ";" + "PASSWORD" + password + ";";
+            connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid
+                 + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionstring);
+
+            lblOrder.ForeColor = System.Drawing.Color.White;
+            lblTop10.ForeColor = System.Drawing.Color.White;
+            btnOrderRep.ForeColor = System.Drawing.Color.White;
+            btnTop10Rep.ForeColor = System.Drawing.Color.White;
+            dateTimePickerBeginOrders.ForeColor = System.Drawing.Color.White;
+            dateTimePickerBeginTop10.ForeColor = System.Drawing.Color.White;
+            dateTimePickerEndOrders.ForeColor = System.Drawing.Color.White;
+            dateTimePickerEndTopt10.ForeColor = System.Drawing.Color.White;
+            lblReportsHeading.ForeColor = System.Drawing.Color.White;
+
+
+
+
+
+
+            string hex = "#536878";
+            Color color = System.Drawing.ColorTranslator.FromHtml(hex);
+            this.BackColor = color;
+
+            dateTimePickerBeginOrders.BackColor = color;
+            dateTimePickerBeginTop10.BackColor = color;
+
+
+
+            hex = "#19262d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+
+            listBoxTop10.BackColor = color;
+            listViewOrders.BackColor = color;
+
+            listViewOrders.ForeColor = System.Drawing.Color.White;
+            listBoxTop10.ForeColor = System.Drawing.Color.White;
+
+
+
+            hex = "#020b0d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
+            btnOrderRep.BackColor = color;
+            btnOrderRep.ForeColor = System.Drawing.Color.White;
+
+            btnTop10Rep.BackColor = color;
+            btnTop10Rep.ForeColor = System.Drawing.Color.White;
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
