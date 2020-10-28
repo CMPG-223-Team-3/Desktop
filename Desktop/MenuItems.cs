@@ -16,7 +16,7 @@ namespace Desktop
     {
         private MySqlConnection connection;
         private string server = "cmpg-223-db.ci6pbvbzz3x3.us-west-1.rds.amazonaws.com";
-        private string database = "sql7368973";
+        private string database = "CMPG_223_DB";
         private string uid = "admin";
         private string password = "cmpg22310";
         string connectionstring;

@@ -23,6 +23,7 @@ namespace Desktop
         private MySqlCommandBuilder build;
         private DataTable order = new DataTable();
         private DataTable order10 = new DataTable();
+        private DataTable menu = new DataTable();
 
         private Desktop myMainForm;
         public Reports(ref Desktop MainForm)
@@ -51,6 +52,9 @@ namespace Desktop
             int paid = 0;
             int waiter = 0;
             int table = 0;
+            string sCashOrCard ="";
+            string sPaid = "";
+            string sStatus = "";
             DateTime date =new  DateTime();
             int orderID = 0;
             string orderQuery = " SELECT * FROM `ORDER` WHERE `Order_Date_Time` >='"+ beginDateTime.ToString("yyyy-MM-dd H:mm:ss") +"' AND `Order_Date_Time` <= '"+endDateTime.ToString("yyyy-MM-dd H:mm:ss") + "'";
@@ -77,6 +81,7 @@ namespace Desktop
          
             // data reader
             var itemOrder = new ListViewItem(new[] { "", "", "", "", "", "", "", "", "" });
+            //listBox1.Items.Add(" ORDER ID  Date \t \tTable \t Waiter ID "+"    "+ "Cash or Card \t  Paid \t Status \t Menu Item ID \t Quantity");
             foreach ( DataRow r in order.Rows)
             {
                 orderID = int.Parse(r["Order_ID"].ToString());
@@ -84,9 +89,37 @@ namespace Desktop
                 table = int.Parse(r["Table_nr"].ToString());
                 waiter = int.Parse(r["Waiter_ID"].ToString());
                 status = int.Parse(r["Status"].ToString());
+                if (status == 0)
+                {
+                    sStatus = "NotDelivered";
+                }
+                else
+                {
+                    sStatus = "Delivered";
+                }
+
+               
 
                 cashORcard = int.Parse(r["CashOrCard"].ToString());
+                if (cashORcard ==0)
+                {
+                    sCashOrCard = "Cash";
+                }
+                else
+                {
+                    sCashOrCard = "Card";
+                }
                 paid = int.Parse(r["Paid"].ToString());
+                if(paid==0)
+                {
+                    sPaid = "false";
+
+                }
+                else
+                {
+                    sPaid = "true";
+                }
+
 
                 // get Order detail info on order id 
                 orderQuery = " SELECT * FROM `ORDER-DETAIL` WHERE Order_ID = '" + orderID + "'";
@@ -101,6 +134,8 @@ namespace Desktop
                     //listViewOrders.Items.Add(orderID.ToString(), date.ToString, table.ToString,waiter.ToString,cashORcard.ToString,paid.ToString(),status.ToString, dataR["MenuItemID"] +"",dataR["Quantity_Orderd"] +"");
                     itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR1["Menu_Item_ID"] + "", dataR1["Quantity_Ordered"] + "" });
                     listViewOrders.Items.Add(itemOrder);
+                    listBoxOrders.Items.Add(" ORDER ID: "+orderID.ToString()+ "\t Date:" + date.ToString()+ "\t Table:" + table.ToString()+ " \tWaiter ID: " + waiter.ToString()+ " \t" + sCashOrCard+ " \t Paid:" + sPaid+ "\t "+sStatus + "\tMenu Item ID: " + dataR1["Menu_Item_ID"] + " \tQuantity: " + dataR1["Quantity_Ordered"] + "" );
+                    listBoxOrders.Items.Add("======================================================================================");
 
                 }
 
@@ -109,6 +144,8 @@ namespace Desktop
                 //close connection 
                 connection.Close();
             }
+
+         
 
 
 
@@ -142,24 +179,48 @@ namespace Desktop
 
             // count menu items to make menu items list and amount 
 
-            string queryCount = "SELECT COUNT(Menu_Item_ID) FROM MENU-ITEM ";
+            string queryCount = "SELECT * FROM `MENU-ITEM` ";
             int listSize = 0;
             
             connection.Open();
-            MySqlCommand cmd = new MySqlCommand(queryCount, connection);
-            listSize = int.Parse(cmd.ExecuteScalar() + "");
+            MySqlCommand cmmd = new MySqlCommand();
+            cmmd.CommandText = queryCount;
+            cmmd.Connection = connection;
+            try
+            {
+                adap = new MySqlDataAdapter(cmmd);
+                build = new MySqlCommandBuilder(adap);
+
+                DataTable ds = new DataTable();
+                adap.Fill(ds);
+
+                menu = ds;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error " + e.Message);
+            }
+
+            foreach(DataRow r in menu.Rows)
+            {
+                listSize += 1;
+            }
+
+            /*listSize = cmd.ExecuteReader()["count"];*/
             connection.Close();
 
-            int[,] menuItemsList = new int[listSize,1];
+            MessageBox.Show(listSize + "");
+
+            int[,] menuItemsList = new int[listSize,2];
             
-            string[] Top10names = new string[10];
-            int[] Top10amount = new int[10];
+            /*string[] Top10names = new string[10];
+            int[] Top10amount = new int[10];*/
 
             // fill arrays 
-            string menuQuery = "SELECT * FROM MENU-ITEM";
+            string menuQuery = "SELECT * FROM `MENU-ITEM`";
             connection.Open();
             //put in comand
-            cmd = new MySqlCommand(menuQuery, connection);
+            MySqlCommand cmd = new MySqlCommand(menuQuery, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
             // data reader
             while (dataR.Read())
@@ -183,7 +244,7 @@ namespace Desktop
             int menuID = 0;
 
             menuQuery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
-            MySqlCommand cmmd = new MySqlCommand();
+            cmmd = new MySqlCommand();
             cmmd.CommandText = menuQuery;
             cmmd.Connection = connection;
             try
@@ -247,9 +308,9 @@ namespace Desktop
             int temp = 0;
             for (int i = 0; i < listSize; i++)
             {
-                for (int k = 0; k < listSize; k++)
+                for (int k = 0; k < listSize-1; k++)
                 {
-                    if (menuItemsList[k,1]> menuItemsList[k + 1, 1])
+                    if (menuItemsList[k,1]< menuItemsList[k + 1, 1])
                     {
                         temp = menuItemsList[k, 1];
                         menuItemsList[k, 1] = menuItemsList[k + 1, 1];
@@ -258,10 +319,10 @@ namespace Desktop
                     
                 }
             }
-            
-            for (int k=listSize; k>= listSize-10;k--)
+            int p = listSize;
+            for (int k=listSize-1;(k>=0) &&( k>= listSize-10);k--)
             {
-                menuQuery = "SELECT * FROM MENU-ITEM where Menu_Item_ID = '"+menuItemsList[k,0]+"'  ";
+                menuQuery = "SELECT * FROM `MENU-ITEM` WHERE `Menu_Item_ID` = '"+menuItemsList[k,0]+"'  ";
 
                 connection.Open();
                 //put in comand
@@ -272,7 +333,7 @@ namespace Desktop
                 {
 
 
-                    listBoxTop10.Items.Add(k.ToString() + ". " + dataR2["Item_Name"] + "");
+                    listBoxTop10.Items.Add((p-k).ToString() + ". " + dataR2["Item_Name"] + "");
 
                 }
 
@@ -281,7 +342,7 @@ namespace Desktop
                 // close connection 
                 connection.Close();
             }
-
+            MessageBox.Show("Done");
         }
 
         private void Reports_Load(object sender, EventArgs e)
@@ -290,8 +351,10 @@ namespace Desktop
                  + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionstring);
 
-            lblOrder.ForeColor = System.Drawing.Color.White;
-            lblTop10.ForeColor = System.Drawing.Color.White;
+            lblBegin10.ForeColor = System.Drawing.Color.White;
+            lblBeginOrder.ForeColor = System.Drawing.Color.White;
+            lblEnd10.ForeColor = System.Drawing.Color.White;
+            lblEndOrder.ForeColor = System.Drawing.Color.White;
             btnOrderRep.ForeColor = System.Drawing.Color.White;
             btnTop10Rep.ForeColor = System.Drawing.Color.White;
             dateTimePickerBeginOrders.ForeColor = System.Drawing.Color.White;
@@ -299,6 +362,8 @@ namespace Desktop
             dateTimePickerEndOrders.ForeColor = System.Drawing.Color.White;
             dateTimePickerEndTopt10.ForeColor = System.Drawing.Color.White;
             lblReportsHeading.ForeColor = System.Drawing.Color.White;
+            listBoxOrders.ForeColor = System.Drawing.Color.White;
+            
 
 
 
@@ -318,12 +383,20 @@ namespace Desktop
             color = System.Drawing.ColorTranslator.FromHtml(hex);
 
             listBoxTop10.BackColor = color;
-            listViewOrders.BackColor = color;
+            listBoxOrders.BackColor = color;
 
-            listViewOrders.ForeColor = System.Drawing.Color.White;
+            
             listBoxTop10.ForeColor = System.Drawing.Color.White;
 
+            hex = "#19262d";
+            color = System.Drawing.ColorTranslator.FromHtml(hex);
 
+            tabPageOrder.ForeColor = System.Drawing.Color.White;
+            tabPageOrder.ForeColor = System.Drawing.Color.White;
+            
+            tabPageOrder.BackColor = color;
+            tabPageTop10.BackColor = color;
+            
 
             hex = "#020b0d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
@@ -367,7 +440,7 @@ namespace Desktop
             {
                 beginTOp10 = dateTimePickerBeginTop10.Value;
                 endTop10 = dateTimePickerEndTopt10.Value;
-                orders(beginTOp10, endTop10);
+                top10(beginTOp10, endTop10);
             }
             
         }
