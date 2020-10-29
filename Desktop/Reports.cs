@@ -36,7 +36,7 @@ namespace Desktop
 
 
 
-            /*listViewOrders.Columns.Add("ORDER ID", -2, HorizontalAlignment.Left);
+           /* listViewOrders.Columns.Add("ORDER ID", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Date and Time", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Table number", -2, HorizontalAlignment.Left);
             listViewOrders.Columns.Add("Waiter ID", -2, HorizontalAlignment.Left);
@@ -135,7 +135,7 @@ namespace Desktop
                     itemOrder = new ListViewItem(new[] { orderID.ToString(), date.ToString(), table.ToString(), waiter.ToString(), cashORcard.ToString(), paid.ToString(), status.ToString(), dataR1["Menu_Item_ID"] + "", dataR1["Quantity_Ordered"] + "" });
                     //listViewOrders.Items.Add(itemOrder);
                     listBoxOrders.Items.Add(" ORDER ID: "+orderID.ToString()+ "\t Date:" + date.ToString()+ "\t Table:" + table.ToString()+ " \tWaiter ID: " + waiter.ToString()+ " \t" + sCashOrCard+ " \t Paid:" + sPaid+ "\t "+sStatus + "\tMenu Item ID: " + dataR1["Menu_Item_ID"] + " \tQuantity: " + dataR1["Quantity_Ordered"] + "" );
-                    listBoxOrders.Items.Add("======================================================================================");
+                    listBoxOrders.Items.Add("=================================================================================================================================================");
 
                 }
 
@@ -411,6 +411,7 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBoxOrders.Items.Clear();
             DateTime beginOrders = new DateTime();
             DateTime endOrders = new DateTime();
 
@@ -429,6 +430,7 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listBoxTop10.Items.Clear();
             DateTime beginTOp10 = new DateTime();
             DateTime endTop10 = new DateTime();
 

@@ -180,7 +180,8 @@ namespace Desktop
 
         private void comboBoxOrderID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM ORDERS WHERE Order_ID '" + int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString()) + "'";
+            comboBoxDeleteOrderID.Items.Clear();
+            string query = "SELECT * FROM ORDER WHERE Order_ID '" + int.Parse(comboBoxDeleteOrderID.SelectedItem.ToString()) + "'";
             //open connection
             connection.Open();
             //put in comand
@@ -206,7 +207,8 @@ namespace Desktop
 
         private void comboBoxOrderID_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM ORDERS";
+            comboBoxDeleteOrderID.Items.Clear();
+            string query = "SELECT * FROM `ORDER`";
             //open connection
             connection.Open();
             //put in comand
@@ -215,7 +217,7 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                comboBoxDeleteOrderID.Items.Add(dataR["Order_ID"]);
+                comboBoxOrderID.Items.Add(dataR["Order_ID"]+"");
             }
             // close data reader
             dataR.Close();
@@ -225,21 +227,7 @@ namespace Desktop
 
         private void comboBoxPaid_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM ORDERS";
-            //open connection
-            connection.Open();
-            //put in comand
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
-            // data reader
-            while (dataR.Read())
-            {
-                comboBoxDeleteOrderID.Items.Add(dataR["Paid"]);
-            }
-            // close data reader
-            dataR.Close();
-            // close connection 
-            connection.Close();
+            
         }
 
         private void comboBoxCashorCard_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,21 +237,7 @@ namespace Desktop
 
         private void comboBoxCashorCard_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM ORDERS";
-            //open connection
-            connection.Open();
-            //put in comand
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
-            // data reader
-            while (dataR.Read())
-            {
-                comboBoxDeleteOrderID.Items.Add(dataR["CheckOrCash"]);
-            }
-            // close data reader
-            dataR.Close();
-            // close connection 
-            connection.Close();
+            
         }
 
         private void btnConfirmUP_Click(object sender, EventArgs e)
@@ -338,7 +312,8 @@ namespace Desktop
 
         private void comboBoxDeleteOrderID_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM ORDERS";
+            comboBoxDeleteOrderID.Items.Clear();
+            string query = "SELECT * FROM `ORDER`";
             //open connection
             connection.Open();
             //put in comand
@@ -355,24 +330,7 @@ namespace Desktop
             connection.Close();
         }
 
-        private void comboBoxDeleteTable_Click(object sender, EventArgs e)
-        {
-            string query = "SELECT * FROM ORDERS";
-            //open connection
-            connection.Open();
-            //put in comand
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
-            // data reader
-            while (dataR.Read())
-            {
-                comboBoxDeleteOrderID.Items.Add(dataR["Table_nr"]);
-            }
-            // close data reader
-            dataR.Close();
-            // close connection 
-            connection.Close();
-        }
+      
 
         private void btnConfirmDelete_Click(object sender, EventArgs e)
         {

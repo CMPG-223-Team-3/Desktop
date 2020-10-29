@@ -139,6 +139,7 @@ namespace Desktop
 
         private void comboBoxDeleteStaffID_Click(object sender, EventArgs e)
         {
+            comboBoxDeleteStaffID.Items.Clear();
             string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
@@ -158,6 +159,7 @@ namespace Desktop
 
         private void comboBoxStaffIDUP_Click(object sender, EventArgs e)
         {
+            comboBoxStaffIDUP.Items.Clear();
             string query = "SELECT * FROM WAITER";
             //open connection
             connection.Open();
@@ -202,18 +204,19 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
             int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
             // delete menu item
-
+            
             try
             {
                 // get order id
                 query = "SELECT * FROM ORDER WHERE Waiter_ID_ ='" + id + "'";
                 //open connection
-                connection.Open();
+               
                 //put in comand
                 cmd = new MySqlCommand(query, connection);
                 dataR = cmd.ExecuteReader();
@@ -240,19 +243,19 @@ namespace Desktop
                 // close data reader
                 dataR.Close();
                 // close connection
-                connection.Close();
+                
             }
             catch
             {
                 MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
             }
 
+            connection.Close();
 
 
 
 
 
-            
 
             try
             {
@@ -306,7 +309,7 @@ namespace Desktop
             {
                 textBoxUPFirstName.Text = dataR["Waiter_Firstname"] + "";
                 textBoxUpLastname.Text = dataR["Waiter_Lastname"] + "";
-                textBoxUPusername.Text = dataR["Usertname"] + "";
+                textBoxUPusername.Text = dataR["Username"] + "";
                 textBoxPasswordUP.Text = dataR["Password"] + "";
 
             }

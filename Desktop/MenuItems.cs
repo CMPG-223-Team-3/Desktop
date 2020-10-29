@@ -137,7 +137,7 @@ namespace Desktop
 
         private void comboBoxDeleteMenuID_Click(object sender, EventArgs e)
         {
-
+            comboBoxDeleteMenuID.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
 
@@ -160,6 +160,7 @@ namespace Desktop
 
         private void comboBoxMenueIDUP_Click(object sender, EventArgs e)
         {
+            comboBoxMenueIDUP.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
             string query = "SELECT * FROM MENU-ITEM";
@@ -230,6 +231,7 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            connection.Open();
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
@@ -241,7 +243,7 @@ namespace Desktop
                     // get order id
                     query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
                     //open connection
-                    connection.Open();
+                   
                     //put in comand
                     cmd = new MySqlCommand(query, connection);
                     dataR = cmd.ExecuteReader();
@@ -273,7 +275,7 @@ namespace Desktop
                       
                       dataR.Close();
                       // close connection
-                      connection.Close();
+                      
                 }
                     // close data reader
                     dataR.Close();
@@ -284,10 +286,10 @@ namespace Desktop
                 {
                    MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
                 }
-                
+            connection.Close();
 
-                
-                
+
+
 
             try
             {
