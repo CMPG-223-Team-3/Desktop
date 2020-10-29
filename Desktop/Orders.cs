@@ -22,7 +22,7 @@ namespace Desktop
         }
         private void deleteOrderID(int orderID)
         {
-            string queryDelete = "DELETE FROM ORDER WHERE Order_ID = '" + orderID + "'";
+            string queryDelete = "DELETE FROM `ORDER` WHERE Order_ID = '" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -41,7 +41,7 @@ namespace Desktop
 
         private void deleteOrderTable(int tableNum)
         {
-            string queryDelete = "DELETE FROM ORDERS WHERE Table_nr = '" + tableNum + "'";
+            string queryDelete = "DELETE FROM `ORDER` WHERE Table_nr = '" + tableNum + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -52,7 +52,7 @@ namespace Desktop
 
         private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
-            string queryUpdate = "UPDATE ORDER SET Order_Date_Time='" + orderDateTime + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + cashOrCard + "' WHERE Order_ID='" + orderID + "'";
+            string queryUpdate = "UPDATE `ORDER` SET Order_Date_Time='" + orderDateTime.ToString("yyyy-MM-dd H:mm:ss") + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + status + "' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -61,7 +61,7 @@ namespace Desktop
             connection.Close();
 
             int menuID = 0;
-            string query = "SELECT * FROM ORDER-DETAIL WHERE = '"+orderID+"'";
+            string query = "SELECT * FROM `ORDER-DETAIL` WHERE = '"+orderID+"'";
             //open connection
             connection.Open();
             //put in comand
@@ -80,7 +80,7 @@ namespace Desktop
 
             int unitPrice = 0;
 
-            query = "SELECT * FROM MENU_ITEM";
+            query = "SELECT * FROM `MENU-ITEM` WHERE Menu_Item_ID ='"+ menuID + "'";
             //open connection
             connection.Open();
             //put in comand
@@ -97,7 +97,7 @@ namespace Desktop
             connection.Close();
 
             double pricePaid = unitPrice*quant;
-            string query2Update = "UPDATE ORDER DETAIL SET Quantity_Ordered='" + quant + "', Price_Paid='"+pricePaid+"' WHERE Order_ID='" + orderID + "'";
+            string query2Update = "UPDATE `ORDER-DETAIL` SET Quantity_Ordered='" + quant + "', Price_Paid='"+pricePaid+"' WHERE Order_ID='" + orderID + "'";
             connection.Open();
             cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
@@ -181,28 +181,7 @@ namespace Desktop
         private void comboBoxOrderID_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            string query = "SELECT * FROM ORDER WHERE Order_ID '" + comboBoxDeleteOrderID.SelectedItem.ToString() + "'";
-            //open connection
-            connection.Open();
-            //put in comand
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
-            // data reader
-            while (dataR.Read())
-            {
-                textBoxTable.Text = dataR["Table_nr"] + "";
-                textBoxWaiter.Text = dataR["Waiter_ID"] + "";
-
-                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_Date_Time"] + "");
-
-                comboBoxPaid.SelectedItem = dataR["Paid"] + "";
-                comboBoxCashorCard.SelectedItem = dataR["CashOrCard"] + "";
-                comboBoxStatus.SelectedItem = dataR["Status"] + "";
-            }
-            // close data reader
-            dataR.Close();
-            // close connection 
-            connection.Close();
+            
         }
 
         private void comboBoxOrderID_Click(object sender, EventArgs e)
@@ -301,9 +280,9 @@ namespace Desktop
 
                 }
             }
-            catch
+            catch(Exception ef)
             {
-                MessageBox.Show("Order could not be updated");
+                MessageBox.Show("Order could not be updated ."+ef.Message);
 
             }
 
@@ -344,9 +323,9 @@ namespace Desktop
 
                 MessageBox.Show("Order has been deleted");
             }
-            catch( Exception e)
+            catch( Exception es)
             {
-                MessageBox.Show("Order could not be deleted . "+e.Message);
+                MessageBox.Show("Order could not be deleted . "+es.Message);
             }
 
 
@@ -418,6 +397,51 @@ namespace Desktop
         private void lblOrderHeading_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxOrderID_SelectedValueChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM `ORDER` WHERE Order_ID ='" + comboBoxOrderID.SelectedItem.ToString() + "' ;";
+            //open connection
+            connection.Open();
+            //put in comand
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                textBoxTable.Text = dataR["Table_nr"] + "";
+                textBoxWaiter.Text = dataR["Waiter_ID"] + "";
+
+                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_Date_Time"] + "");
+                comboBoxPaid.Items.Add(dataR["Paid"] + "");
+                comboBoxPaid.SelectedItem = dataR["Paid"] + "";
+                comboBoxCashorCard.Items.Add ( dataR["CashOrCard"] + "");
+                comboBoxCashorCard.SelectedItem = dataR["CashOrCard"] + "";
+                comboBoxStatus.Items.Add( dataR["Status"] + "");
+                comboBoxStatus.SelectedItem = dataR["Status"] + "";
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
+
+
+            query = "SELECT * FROM `ORDER-DETAIL` WHERE Order_ID ='" + comboBoxOrderID.SelectedItem.ToString() + "' ;";
+            //open connection
+            connection.Open();
+            //put in comand
+             cmd = new MySqlCommand(query, connection);
+             dataR = cmd.ExecuteReader();
+            // data reader
+            while (dataR.Read())
+            {
+                textBoxQuant.Text = dataR["Quantity_Ordered"] + "";
+            }
+            // close data reader
+            dataR.Close();
+            // close connection 
+            connection.Close();
         }
     }
 }

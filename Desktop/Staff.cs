@@ -50,7 +50,7 @@ namespace Desktop
 
         private void deleteStaff(int staffID)
         {
-            string queryDelete = "DELETE FROM WAITER WHERE Table_nr = '" + staffID + "'";
+            string queryDelete = "DELETE FROM WAITER WHERE Waiter_ID = '" + staffID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -199,26 +199,30 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int payed;
-            int delivered;
+            int payed=0;
+            int delivered=0;
             int orderID = 0;
             string query = "";
             bool can = false;
-            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
-            // delete menu item
-            connection.Open();
-            query = "SELECT * FROM `ORDER` WHERE Waiter_ID ='" + id + "'";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
+            bool contain = true;
 
-            
-            
+
+            int id=0;
+            // delete menu item
             try
             {
                 // get order id
-                
+                id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
                 //open connection
-               
+                connection.Open();
+                query = "SELECT * FROM `ORDER` WHERE Waiter_ID ='" + id + "'";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataR = cmd.ExecuteReader();
+
+                
+                
+                
+
                 //put in comand
                 cmd = new MySqlCommand(query, connection);
                 dataR = cmd.ExecuteReader();
@@ -229,10 +233,7 @@ namespace Desktop
                    
                         payed = int.Parse(dataR["Paid"] + "");
                         delivered = int.Parse(dataR["Status"] + "");
-                        if (payed == 1 && delivered == 1)
-                        {
-                            can = true;
-                        }
+                       
 
 
 
@@ -249,14 +250,22 @@ namespace Desktop
             }
             catch
             {
-                MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered");
+                contain = false;
             }
 
             connection.Close();
 
 
 
-
+            if ((payed == 1 && delivered == 1)||!contain)
+            {
+                can = true;
+            }
+            else
+            {
+                can = false;
+                MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered");
+            }
 
 
             try
@@ -269,9 +278,9 @@ namespace Desktop
                     MessageBox.Show("Waiter has been deleted");
                 }
             }
-            catch
+            catch( Exception ew)
             {
-                MessageBox.Show("Waiter could not be deleted");
+                MessageBox.Show("Waiter could not be deleted. "+ew.Message);
             }
            
         }

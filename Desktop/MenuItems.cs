@@ -21,6 +21,9 @@ namespace Desktop
         private string password = "cmpg22310";
         string connectionstring;
         private Desktop myMainForm;
+        private MySqlDataAdapter adap;
+        private MySqlCommandBuilder build;
+        private DataTable menu = new DataTable();
 
         public MenuItems(ref Desktop MainForm)
         {
@@ -228,72 +231,91 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int payed ;
-            int delivered ;
+            int payed =0;
+            int delivered=0 ;
             int orderID = 0;
             string query = "";
             bool can = false;
-            int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
-            // delete menu item
-            connection.Open();
-            query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_Item_ID ='" + id + "'";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
+            bool contain = true;
+            int id = 0;
 
-           
-            
+
+
+
                 try
                 {
-                    // get order id
-                    
+                 id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
+                 query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_Item_ID ='" + id + "'"; 
+                
+                  MySqlCommand cmmd = new MySqlCommand();
+                  cmmd.CommandText = query;
+                  cmmd.Connection = connection;
+                  try
+                  {
+                    adap = new MySqlDataAdapter(cmmd);
+                    build = new MySqlCommandBuilder(adap);
+
+                    DataTable ds = new DataTable();
+                    adap.Fill(ds);
+
+                    menu = ds;
+                  }
+                  catch
+                  {
+
+                  }
+
+                
+                // delete menu item
+
+                foreach( DataRow r in menu.Rows)
+                {
+                    orderID = int.Parse(r["Order_ID"].ToString() );
+                    // check of order doesnt exist with this menuID
+                    query = "SELECT * FROM `ORDER` WHERE Order_ID ='" + orderID + "'";
                     //open connection
-                   
+                    connection.Open();
                     //put in comand
-                    cmd = new MySqlCommand(query, connection);
-                    dataR = cmd.ExecuteReader();
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataR = cmd.ExecuteReader();
                     // data reader
                     while (dataR.Read())
                     {
-                       
-                        orderID = int.Parse(dataR["Order_ID"] + "");
-                             // check of order doesnt exist with this menuID
-                        query = "SELECT * FROM `ORDER` WHERE Order_ID ='" + orderID + "'";
-                       //open connection
-                      connection.Open();
-                      //put in comand
-                      cmd = new MySqlCommand(query, connection);
-                      dataR = cmd.ExecuteReader();
-                      // data reader
-                      while (dataR.Read())
-                      {
                         payed = int.Parse(dataR["Paid"] + "");
-                        delivered =int.Parse( dataR["Status"] + "");
-                        if (payed == 1 && delivered == 1)
-                        {
-                            can = true;
-                        }
-                        
-                        
-                        
-                      }
-                      
-                      dataR.Close();
-                      // close connection
-                      
-                }
-                    // close data reader
+                        delivered = int.Parse(dataR["Status"] + "");
+
+
+
+
+                    }
+
                     dataR.Close();
                     // close connection
                     connection.Close();
                 }
+                
+                       
+                        
+                             
+
+                
+                }
                 catch
                 {
-                   MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered");
+                   contain = false;
+                   
                 }
-            connection.Close();
+            
 
 
-
+            if ((payed == 1 && delivered == 1)||!contain)
+            {
+                can = true;
+            }
+            else
+            { MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered"); 
+            
+            }
 
             try
             {
