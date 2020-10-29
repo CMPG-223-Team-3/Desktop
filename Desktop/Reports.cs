@@ -332,7 +332,6 @@ namespace Desktop
                 while (dataR2.Read())
                 {
 
-
                     listBoxTop10.Items.Add((p-k).ToString() + ". " + dataR2["Item_Name"] + "");
 
                 }

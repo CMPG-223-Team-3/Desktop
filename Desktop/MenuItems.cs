@@ -57,7 +57,7 @@ namespace Desktop
 
         private void updateMenuItem(int menuID, string menuitem, string menuItemDes, double price)
         {
-            string updatequery = "UPDATE `MENU-ITEM` SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
+            string updatequery = "UPDATE `MENU-ITEM` SET Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' WHERE `Menu_Item_ID`= '"+menuID+"'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = updatequery;
@@ -379,9 +379,9 @@ namespace Desktop
                 }
                
             }
-            catch
+            catch(Exception ep)
             {
-                MessageBox.Show("Menu Item could not be added");
+                MessageBox.Show("Menu Item could not be updated."+ ep.Message);
             }
             
         }

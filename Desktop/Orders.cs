@@ -50,7 +50,7 @@ namespace Desktop
             connection.Close();
         }
 
-        private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
+        private void updateOrder(int orderID, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
            
             string queryUpdate = "UPDATE `ORDER` SET Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + status + "' WHERE `Order_ID`='" + orderID + "';";
@@ -123,7 +123,7 @@ namespace Desktop
 
 
             lblCashorCard.ForeColor = System.Drawing.Color.White;
-            lblDate.ForeColor = System.Drawing.Color.White;
+            
             lblPaid.ForeColor = System.Drawing.Color.White;
             lblQuant.ForeColor = System.Drawing.Color.White;
             lblStatus.ForeColor = System.Drawing.Color.White;
@@ -139,7 +139,7 @@ namespace Desktop
             comboBoxPaid.ForeColor = System.Drawing.Color.White;
             comboBoxStatus.ForeColor = System.Drawing.Color.White;
             comboBoxCashorCard.ForeColor = System.Drawing.Color.White;
-            dateTimePickerOrder.ForeColor = System.Drawing.Color.White;
+            
 
             textBoxQuant.ForeColor = System.Drawing.Color.White;
             textBoxTable.ForeColor = System.Drawing.Color.White;
@@ -231,7 +231,7 @@ namespace Desktop
             try
             {
                 int orderID = int.Parse(comboBoxOrderID.SelectedItem.ToString());
-                DateTime date = dateTimePickerOrder.Value;// check this later on 
+               
                 bool tableVal = false;
                 bool empty = true;
 
@@ -282,7 +282,7 @@ namespace Desktop
 
                 if ((waiterVal) && (tableVal)&&(quantVal) &&( !empty))
                 {
-                    updateOrder(orderID, date, table, waiter, paid, paidStatus, status, quant);
+                    updateOrder(orderID, table, waiter, paid, paidStatus, status, quant);
                     MessageBox.Show("Order has been updated");
 
                 }
@@ -420,7 +420,7 @@ namespace Desktop
                 textBoxTable.Text = dataR["Table_nr"] + "";
                 textBoxWaiter.Text = dataR["Waiter_ID"] + "";
 
-                dateTimePickerOrder.Value = DateTime.Parse(dataR["Order_Date_Time"] + "");
+               
                 comboBoxPaid.Items.Add(dataR["Paid"] + "");
                 comboBoxPaid.SelectedItem = dataR["Paid"] + "";
                 comboBoxCashorCard.Items.Add ( dataR["CashOrCard"] + "");
