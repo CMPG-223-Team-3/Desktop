@@ -52,7 +52,7 @@ namespace Desktop
 
         private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
-            int temp = 0;
+           
             string queryUpdate = "UPDATE `ORDER` SET Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + status + "' WHERE `Order_ID`='" + orderID + "';";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
@@ -62,8 +62,7 @@ namespace Desktop
             connection.Close();
             //   `Order_Date_Time`='" + orderDateTime.ToString("yyyy-MM-dd H:mm:ss") + "',
 
-            MessageBox.Show(temp + "");
-            temp++;
+            
             int menuID = 0;
             string query = "SELECT * FROM `ORDER-DETAIL` WHERE Order_ID= '"+orderID+"'";
             //open connection
@@ -81,8 +80,7 @@ namespace Desktop
             // close connection
             connection.Close();
 
-            MessageBox.Show(temp + "");
-            temp++;
+            
 
             double unitPrice = 0;
 
@@ -102,8 +100,7 @@ namespace Desktop
             // close connection
             connection.Close();
 
-            MessageBox.Show(temp + "");
-            temp++;
+           
 
             double pricePaid = unitPrice*quant;
             string query2Update = "UPDATE `ORDER-DETAIL` SET Quantity_Ordered='" + quant + "', Price_Paid='"+pricePaid+"' WHERE Order_ID='" + orderID + "'";
@@ -114,8 +111,7 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            MessageBox.Show(temp + "");
-            temp++;
+            
 
         }
 
