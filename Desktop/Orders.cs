@@ -22,7 +22,7 @@ namespace Desktop
         }
         private void deleteOrderID(int orderID)
         {
-            string queryDelete = "DELETE FROM ORDERS WHERE Order_ID = '" + orderID + "'";
+            string queryDelete = "DELETE FROM ORDER WHERE Order_ID = '" + orderID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -30,7 +30,7 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
-            string query2Delete = "DELETE FROM ORDER-DETAIL WHERE Order_ID = '" + orderID + "'";
+            string query2Delete = "DELETE FROM `ORDER-DETAIL` WHERE Order_ID = '" + orderID + "'";
             connection.Open();
             cmd = new MySqlCommand();
             cmd.CommandText = queryDelete;
@@ -207,7 +207,7 @@ namespace Desktop
 
         private void comboBoxOrderID_Click(object sender, EventArgs e)
         {
-            comboBoxDeleteOrderID.Items.Clear();
+            comboBoxOrderID.Items.Clear();
             string query = "SELECT * FROM `ORDER`";
             //open connection
             connection.Open();
@@ -344,9 +344,9 @@ namespace Desktop
 
                 MessageBox.Show("Order has been deleted");
             }
-            catch
+            catch( Exception e)
             {
-                MessageBox.Show("Order could not be deleted");
+                MessageBox.Show("Order could not be deleted . "+e.Message);
             }
 
 

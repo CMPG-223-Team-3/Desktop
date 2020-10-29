@@ -30,7 +30,7 @@ namespace Desktop
 
         private void addMenuItem(string menuitem, string menuItemDes, double price)
         {
-            string addquery = "INSERT INTO MENU-ITEM (Item_Name,Item_Description,Price) VALUES('" + menuitem + "','" + menuItemDes + "','" + price + "')";
+            string addquery = "INSERT INTO `MENU-ITEM` (Item_Name,Item_Description,Price) VALUES('" + menuitem + "','" + menuItemDes + "','" + price + "')";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = addquery;
@@ -41,7 +41,7 @@ namespace Desktop
 
         private void deleteMenuItem(int menuID)
         {
-            string deletequery = "DELETE FROM MENU-ITEM WHERE Menu_Item_ID ='" + menuID + "'";
+            string deletequery = "DELETE FROM `MENU-ITEM` WHERE Menu_Item_ID ='" + menuID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = deletequery;
@@ -54,7 +54,7 @@ namespace Desktop
 
         private void updateMenuItem(int menuID, string menuitem, string menuItemDes, double price)
         {
-            string updatequery = "UPDATE MENU-ITEM SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
+            string updatequery = "UPDATE `MENU-ITEM` SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = updatequery;
@@ -232,11 +232,11 @@ namespace Desktop
             int delivered ;
             int orderID = 0;
             string query = "";
-            bool contain = false;
+            bool can = false;
             int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
             // delete menu item
             connection.Open();
-            query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_ID ='" + id + "'";
+            query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_Item_ID ='" + id + "'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
@@ -257,7 +257,7 @@ namespace Desktop
                        
                         orderID = int.Parse(dataR["Order_ID"] + "");
                              // check of order doesnt exist with this menuID
-                        query = "SELECT * FROM ORDER WHERE Order_ID ='" + orderID + "'";
+                        query = "SELECT * FROM `ORDER` WHERE Order_ID ='" + orderID + "'";
                        //open connection
                       connection.Open();
                       //put in comand
@@ -268,9 +268,9 @@ namespace Desktop
                       {
                         payed = int.Parse(dataR["Paid"] + "");
                         delivered =int.Parse( dataR["Status"] + "");
-                        if (payed == 0 || delivered == 0)
+                        if (payed == 1 && delivered == 1)
                         {
-                            contain = true;
+                            can = true;
                         }
                         
                         
@@ -288,7 +288,7 @@ namespace Desktop
                 }
                 catch
                 {
-                   MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
+                   MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered");
                 }
             connection.Close();
 
@@ -297,7 +297,7 @@ namespace Desktop
 
             try
             {
-                if (contain)
+                if (can)
 
                 {
                     deleteMenuItem(id);

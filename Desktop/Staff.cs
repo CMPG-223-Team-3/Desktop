@@ -203,7 +203,7 @@ namespace Desktop
             int delivered;
             int orderID = 0;
             string query = "";
-            bool contain = false;
+            bool can = false;
             int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
             // delete menu item
             connection.Open();
@@ -229,9 +229,9 @@ namespace Desktop
                    
                         payed = int.Parse(dataR["Paid"] + "");
                         delivered = int.Parse(dataR["Status"] + "");
-                        if (payed == 0 || delivered == 0)
+                        if (payed == 1 && delivered == 1)
                         {
-                            contain = true;
+                            can = true;
                         }
 
 
@@ -249,7 +249,7 @@ namespace Desktop
             }
             catch
             {
-                MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
+                MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered");
             }
 
             connection.Close();
@@ -262,7 +262,7 @@ namespace Desktop
             try
             {
 
-                if (contain)
+                if (can)
 
                 {
                     deleteStaff(id);

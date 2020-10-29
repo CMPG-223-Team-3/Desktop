@@ -33,6 +33,12 @@ namespace Desktop
             else
             {
                 MessageBox.Show("PIN is invalid");
+                txtNum1.Clear();
+                txtNum2.Clear();
+                txtNum4.Clear();
+                txtNum3.Clear();
+
+                txtNum1.Focus();
             }
         }
 
