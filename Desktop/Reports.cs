@@ -145,7 +145,7 @@ namespace Desktop
                 connection.Close();
             }
 
-         
+
 
 
 
@@ -168,7 +168,7 @@ namespace Desktop
             dataR.Close();
             // close connection 
             connection.Close();*/
-
+            MessageBox.Show("Done");
         }
 
         private void top10(DateTime beginDateTime, DateTime endDateTime)
@@ -209,7 +209,7 @@ namespace Desktop
             /*listSize = cmd.ExecuteReader()["count"];*/
             connection.Close();
 
-            MessageBox.Show(listSize + "");
+            
 
             int[,] menuItemsList = new int[listSize,2];
             
@@ -243,7 +243,7 @@ namespace Desktop
             int orderID = 0;
             int menuID = 0;
 
-            menuQuery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime + "' AND Order_DateTime <= '" + endDateTime + "'  ";
+            menuQuery = "SELECT * FROM ORDERS where Order_DateTime >= '" + beginDateTime.ToString("yyyy-MM-dd H:mm:ss") + "' AND Order_DateTime <= '" + endDateTime.ToString("yyyy-MM-dd H:mm:ss") + "'  ";
             cmmd = new MySqlCommand();
             cmmd.CommandText = menuQuery;
             cmmd.Connection = connection;

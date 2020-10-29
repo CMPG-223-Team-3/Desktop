@@ -21,6 +21,9 @@ namespace Desktop
         private string password = "cmpg22310";
         string connectionstring;
         private Desktop myMainForm;
+        private MySqlDataAdapter adap;
+        private MySqlCommandBuilder build;
+        private DataTable menu = new DataTable();
 
         public MenuItems(ref Desktop MainForm)
         {
@@ -30,7 +33,7 @@ namespace Desktop
 
         private void addMenuItem(string menuitem, string menuItemDes, double price)
         {
-            string addquery = "INSERT INTO MENU-ITEM (Item_Name,Item_Description,Price) VALUES('" + menuitem + "','" + menuItemDes + "','" + price + "')";
+            string addquery = "INSERT INTO `MENU-ITEM` (Item_Name,Item_Description,Price) VALUES('" + menuitem + "','" + menuItemDes + "','" + price + "')";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = addquery;
@@ -41,7 +44,7 @@ namespace Desktop
 
         private void deleteMenuItem(int menuID)
         {
-            string deletequery = "DELETE FROM MENU-ITEM WHERE Menu_Item_ID ='" + menuID + "'";
+            string deletequery = "DELETE FROM `MENU-ITEM` WHERE Menu_Item_ID ='" + menuID + "'";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = deletequery;
@@ -54,7 +57,7 @@ namespace Desktop
 
         private void updateMenuItem(int menuID, string menuitem, string menuItemDes, double price)
         {
-            string updatequery = "UPDATE MENU-ITEM SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
+            string updatequery = "UPDATE `MENU-ITEM` SET Menu_Item_ID = '" + menuID + "',Item_Name='" + menuitem + "',Item_Description='" + menuItemDes + "',Price='" + price + "' ";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = updatequery;
@@ -89,6 +92,7 @@ namespace Desktop
             textBoxMenuNameUP.ForeColor = System.Drawing.Color.White;
             textBoxMenuItemDes.ForeColor = System.Drawing.Color.White;
             textBoxMenuPriceUP.ForeColor = System.Drawing.Color.White;
+            textBoxMenuDesUP.ForeColor = System.Drawing.Color.White;
 
 
 
@@ -105,8 +109,9 @@ namespace Desktop
             textBoxMenuNameUP.BackColor = color;
             textBoxMenuItemDes.BackColor = color;
             textBoxMenuPriceUP.BackColor = color;
+            textBoxMenuDesUP.BackColor = color;
 
-             hex = "#19262d";
+            hex = "#19262d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
             
             tabPageAddMenuItem.ForeColor = System.Drawing.Color.White;
@@ -141,7 +146,7 @@ namespace Desktop
             // When combo box clicked all Menu IDs are put in the items
 
 
-            string query = "SELECT * FROM MENU-ITEM";
+            string query = "SELECT * FROM `MENU-ITEM`";
             //open connection
             connection.Open();
             //put in comand
@@ -163,7 +168,7 @@ namespace Desktop
             comboBoxMenueIDUP.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
-            string query = "SELECT * FROM MENU-ITEM";
+            string query = "SELECT * FROM `MENU-ITEM`";
             //open connection
             connection.Open();
             //put in comand
@@ -226,74 +231,95 @@ namespace Desktop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int payed ;
-            int delivered ;
+            int payed =0;
+            int delivered=0 ;
             int orderID = 0;
             string query = "";
-            bool contain = false;
-            connection.Open();
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataR = cmd.ExecuteReader();
+            bool can = false;
+            bool contain = true;
+            int id = 0;
 
-            int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
-            // delete menu item
-            
+
+
+
                 try
                 {
-                    // get order id
-                    query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
+                 id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
+                 query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_Item_ID ='" + id + "'"; 
+                
+                  MySqlCommand cmmd = new MySqlCommand();
+                  cmmd.CommandText = query;
+                  cmmd.Connection = connection;
+                  try
+                  {
+                    adap = new MySqlDataAdapter(cmmd);
+                    build = new MySqlCommandBuilder(adap);
+
+                    DataTable ds = new DataTable();
+                    adap.Fill(ds);
+
+                    menu = ds;
+                  }
+                  catch
+                  {
+
+                  }
+
+                
+                // delete menu item
+
+                foreach( DataRow r in menu.Rows)
+                {
+                    orderID = int.Parse(r["Order_ID"].ToString() );
+                    // check of order doesnt exist with this menuID
+                    query = "SELECT * FROM `ORDER` WHERE Order_ID ='" + orderID + "'";
                     //open connection
-                   
+                    connection.Open();
                     //put in comand
-                    cmd = new MySqlCommand(query, connection);
-                    dataR = cmd.ExecuteReader();
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataR = cmd.ExecuteReader();
                     // data reader
                     while (dataR.Read())
                     {
-                       
-                        orderID = int.Parse(dataR["Order_ID"] + "");
-                             // check of order doesnt exist with this menuID
-                        query = "SELECT * FROM ORDER WHERE Order_ID ='" + orderID + "'";
-                       //open connection
-                      connection.Open();
-                      //put in comand
-                      cmd = new MySqlCommand(query, connection);
-                      dataR = cmd.ExecuteReader();
-                      // data reader
-                      while (dataR.Read())
-                      {
                         payed = int.Parse(dataR["Paid"] + "");
-                        delivered =int.Parse( dataR["Status"] + "");
-                        if (payed == 0 || delivered == 0)
-                        {
-                            contain = true;
-                        }
-                        
-                        
-                        
-                      }
-                      
-                      dataR.Close();
-                      // close connection
-                      
-                }
-                    // close data reader
+                        delivered = int.Parse(dataR["Status"] + "");
+
+
+
+
+                    }
+
                     dataR.Close();
                     // close connection
                     connection.Close();
                 }
+                
+                       
+                        
+                             
+
+                
+                }
                 catch
                 {
-                   MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed or delivered");
+                   contain = false;
+                   
                 }
-            connection.Close();
+            
 
 
-
+            if ((payed == 1 && delivered == 1)||!contain)
+            {
+                can = true;
+            }
+            else
+            { MessageBox.Show("Connot delete Menu item , there ore orders with this item that are not payed and delivered"); 
+            
+            }
 
             try
             {
-                if (contain)
+                if (can)
 
                 {
                     deleteMenuItem(id);
@@ -364,7 +390,7 @@ namespace Desktop
         {
 
             // Menu info linked to Id  is put into update texboxes and comboboxes so it can be edited
-            string query = "SELECT * FROM MENU-ITEM WHERE Menu_Item_ID = '"+int.Parse(comboBoxMenueIDUP.SelectedItem.ToString())+"'";
+            string query = "SELECT * FROM `MENU-ITEM` WHERE Menu_Item_ID = '"+int.Parse(comboBoxMenueIDUP.SelectedItem.ToString())+"'";
             //open connection
             connection.Open();
             //put in comand
