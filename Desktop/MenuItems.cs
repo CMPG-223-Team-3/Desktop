@@ -89,6 +89,7 @@ namespace Desktop
             textBoxMenuNameUP.ForeColor = System.Drawing.Color.White;
             textBoxMenuItemDes.ForeColor = System.Drawing.Color.White;
             textBoxMenuPriceUP.ForeColor = System.Drawing.Color.White;
+            textBoxMenuDesUP.ForeColor = System.Drawing.Color.White;
 
 
 
@@ -105,8 +106,9 @@ namespace Desktop
             textBoxMenuNameUP.BackColor = color;
             textBoxMenuItemDes.BackColor = color;
             textBoxMenuPriceUP.BackColor = color;
+            textBoxMenuDesUP.BackColor = color;
 
-             hex = "#19262d";
+            hex = "#19262d";
             color = System.Drawing.ColorTranslator.FromHtml(hex);
             
             tabPageAddMenuItem.ForeColor = System.Drawing.Color.White;
@@ -141,7 +143,7 @@ namespace Desktop
             // When combo box clicked all Menu IDs are put in the items
 
 
-            string query = "SELECT * FROM MENU-ITEM";
+            string query = "SELECT * FROM `MENU-ITEM`";
             //open connection
             connection.Open();
             //put in comand
@@ -163,7 +165,7 @@ namespace Desktop
             comboBoxMenueIDUP.Items.Clear();
             // When combo box clicked all Menu IDs are put in the items
 
-            string query = "SELECT * FROM MENU-ITEM";
+            string query = "SELECT * FROM `MENU-ITEM`";
             //open connection
             connection.Open();
             //put in comand
@@ -231,17 +233,19 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
+            // delete menu item
             connection.Open();
+            query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
-            int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
-            // delete menu item
+           
             
                 try
                 {
                     // get order id
-                    query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
+                    
                     //open connection
                    
                     //put in comand
@@ -364,7 +368,7 @@ namespace Desktop
         {
 
             // Menu info linked to Id  is put into update texboxes and comboboxes so it can be edited
-            string query = "SELECT * FROM MENU-ITEM WHERE Menu_Item_ID = '"+int.Parse(comboBoxMenueIDUP.SelectedItem.ToString())+"'";
+            string query = "SELECT * FROM `MENU-ITEM` WHERE Menu_Item_ID = '"+int.Parse(comboBoxMenueIDUP.SelectedItem.ToString())+"'";
             //open connection
             connection.Open();
             //put in comand

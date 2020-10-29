@@ -204,17 +204,19 @@ namespace Desktop
             int orderID = 0;
             string query = "";
             bool contain = false;
+            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
+            // delete menu item
             connection.Open();
+            query = "SELECT * FROM `ORDER` WHERE Waiter_ID ='" + id + "'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
-            int id = int.Parse(comboBoxDeleteStaffID.SelectedItem.ToString());
-            // delete menu item
+            
             
             try
             {
                 // get order id
-                query = "SELECT * FROM ORDER WHERE Waiter_ID_ ='" + id + "'";
+                
                 //open connection
                
                 //put in comand
