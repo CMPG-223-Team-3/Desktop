@@ -52,16 +52,20 @@ namespace Desktop
 
         private void updateOrder(int orderID, DateTime orderDateTime, int table, int paid, int cashOrCard, int waiterID, int status, int quant)
         {
-            string queryUpdate = "UPDATE `ORDER` SET Order_Date_Time='" + orderDateTime.ToString("yyyy-MM-dd H:mm:ss") + "',Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + status + "' WHERE Order_ID='" + orderID + "'";
+            int temp = 0;
+            string queryUpdate = "UPDATE `ORDER` SET Table_nr='" + table + "',Waiter_ID='" + waiterID + "',Paid='" + paid + "',CashOrCard ='" + cashOrCard + "',Status ='" + status + "' WHERE `Order_ID`='" + orderID + "';";
             connection.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = queryUpdate;
             cmd.Connection = connection;
             cmd.ExecuteNonQuery();
             connection.Close();
+            //   `Order_Date_Time`='" + orderDateTime.ToString("yyyy-MM-dd H:mm:ss") + "',
 
+            MessageBox.Show(temp + "");
+            temp++;
             int menuID = 0;
-            string query = "SELECT * FROM `ORDER-DETAIL` WHERE = '"+orderID+"'";
+            string query = "SELECT * FROM `ORDER-DETAIL` WHERE Order_ID= '"+orderID+"'";
             //open connection
             connection.Open();
             //put in comand
@@ -70,15 +74,17 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                menuID=int.Parse(dataR["MenuItemID"]+"");
+                menuID=int.Parse(dataR["Menu_Item_ID"]+"");
             }
             // close data reader
             dataR.Close();
             // close connection
             connection.Close();
 
+            MessageBox.Show(temp + "");
+            temp++;
 
-            int unitPrice = 0;
+            double unitPrice = 0;
 
             query = "SELECT * FROM `MENU-ITEM` WHERE Menu_Item_ID ='"+ menuID + "'";
             //open connection
@@ -89,12 +95,15 @@ namespace Desktop
             // data reader
             while (dataR.Read())
             {
-                unitPrice= int.Parse(dataR["Price"]+"");
+                unitPrice= double.Parse(dataR["Price"]+"");
             }
             // close data reader
             dataR.Close();
             // close connection
             connection.Close();
+
+            MessageBox.Show(temp + "");
+            temp++;
 
             double pricePaid = unitPrice*quant;
             string query2Update = "UPDATE `ORDER-DETAIL` SET Quantity_Ordered='" + quant + "', Price_Paid='"+pricePaid+"' WHERE Order_ID='" + orderID + "'";
@@ -105,6 +114,8 @@ namespace Desktop
             cmd.ExecuteNonQuery();
             connection.Close();
 
+            MessageBox.Show(temp + "");
+            temp++;
 
         }
 
@@ -442,6 +453,16 @@ namespace Desktop
             dataR.Close();
             // close connection 
             connection.Close();
+        }
+
+        private void lblPaid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxPaid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

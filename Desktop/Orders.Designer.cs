@@ -43,13 +43,11 @@
             this.comboBoxPaid = new System.Windows.Forms.ComboBox();
             this.textBoxWaiter = new System.Windows.Forms.TextBox();
             this.textBoxTable = new System.Windows.Forms.TextBox();
-            this.dateTimePickerOrder = new System.Windows.Forms.DateTimePicker();
             this.comboBoxOrderID = new System.Windows.Forms.ComboBox();
             this.lblTable = new System.Windows.Forms.Label();
             this.lblWaiter = new System.Windows.Forms.Label();
             this.lblPaid = new System.Windows.Forms.Label();
             this.lblCashorCard = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
             this.lblOrderHeading = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -124,13 +122,11 @@
             this.tabPageUpOrders.Controls.Add(this.comboBoxPaid);
             this.tabPageUpOrders.Controls.Add(this.textBoxWaiter);
             this.tabPageUpOrders.Controls.Add(this.textBoxTable);
-            this.tabPageUpOrders.Controls.Add(this.dateTimePickerOrder);
             this.tabPageUpOrders.Controls.Add(this.comboBoxOrderID);
             this.tabPageUpOrders.Controls.Add(this.lblTable);
             this.tabPageUpOrders.Controls.Add(this.lblWaiter);
             this.tabPageUpOrders.Controls.Add(this.lblPaid);
             this.tabPageUpOrders.Controls.Add(this.lblCashorCard);
-            this.tabPageUpOrders.Controls.Add(this.lblDate);
             this.tabPageUpOrders.Controls.Add(this.lblOrderID);
             this.tabPageUpOrders.Location = new System.Drawing.Point(4, 25);
             this.tabPageUpOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -148,7 +144,7 @@
             this.comboBoxStatus.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(124, 274);
+            this.comboBoxStatus.Location = new System.Drawing.Point(123, 200);
             this.comboBoxStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(121, 24);
@@ -157,7 +153,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(45, 284);
+            this.lblStatus.Location = new System.Drawing.Point(44, 210);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(48, 17);
             this.lblStatus.TabIndex = 18;
@@ -165,7 +161,7 @@
             // 
             // textBoxQuant
             // 
-            this.textBoxQuant.Location = new System.Drawing.Point(460, 267);
+            this.textBoxQuant.Location = new System.Drawing.Point(124, 266);
             this.textBoxQuant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxQuant.Name = "textBoxQuant";
             this.textBoxQuant.Size = new System.Drawing.Size(100, 22);
@@ -175,7 +171,7 @@
             // lblQuant
             // 
             this.lblQuant.AutoSize = true;
-            this.lblQuant.Location = new System.Drawing.Point(371, 267);
+            this.lblQuant.Location = new System.Drawing.Point(35, 266);
             this.lblQuant.Name = "lblQuant";
             this.lblQuant.Size = new System.Drawing.Size(61, 17);
             this.lblQuant.TabIndex = 15;
@@ -199,7 +195,7 @@
             this.comboBoxCashorCard.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.comboBoxCashorCard.Location = new System.Drawing.Point(459, 202);
+            this.comboBoxCashorCard.Location = new System.Drawing.Point(460, 143);
             this.comboBoxCashorCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxCashorCard.Name = "comboBoxCashorCard";
             this.comboBoxCashorCard.Size = new System.Drawing.Size(121, 24);
@@ -213,16 +209,17 @@
             this.comboBoxPaid.Items.AddRange(new object[] {
             "0",
             "1"});
-            this.comboBoxPaid.Location = new System.Drawing.Point(123, 206);
+            this.comboBoxPaid.Location = new System.Drawing.Point(460, 204);
             this.comboBoxPaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPaid.Name = "comboBoxPaid";
             this.comboBoxPaid.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPaid.TabIndex = 11;
+            this.comboBoxPaid.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaid_SelectedIndexChanged);
             this.comboBoxPaid.Click += new System.EventHandler(this.comboBoxPaid_Click);
             // 
             // textBoxWaiter
             // 
-            this.textBoxWaiter.Location = new System.Drawing.Point(459, 128);
+            this.textBoxWaiter.Location = new System.Drawing.Point(460, 69);
             this.textBoxWaiter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxWaiter.Name = "textBoxWaiter";
             this.textBoxWaiter.Size = new System.Drawing.Size(100, 22);
@@ -236,15 +233,6 @@
             this.textBoxTable.Name = "textBoxTable";
             this.textBoxTable.Size = new System.Drawing.Size(100, 22);
             this.textBoxTable.TabIndex = 9;
-            // 
-            // dateTimePickerOrder
-            // 
-            this.dateTimePickerOrder.Location = new System.Drawing.Point(459, 69);
-            this.dateTimePickerOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerOrder.Name = "dateTimePickerOrder";
-            this.dateTimePickerOrder.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerOrder.TabIndex = 8;
-            this.dateTimePickerOrder.ValueChanged += new System.EventHandler(this.dateTimePickerOrder_ValueChanged);
             // 
             // comboBoxOrderID
             // 
@@ -270,7 +258,7 @@
             // lblWaiter
             // 
             this.lblWaiter.AutoSize = true;
-            this.lblWaiter.Location = new System.Drawing.Point(371, 130);
+            this.lblWaiter.Location = new System.Drawing.Point(372, 71);
             this.lblWaiter.Name = "lblWaiter";
             this.lblWaiter.Size = new System.Drawing.Size(66, 17);
             this.lblWaiter.TabIndex = 4;
@@ -280,31 +268,22 @@
             // lblPaid
             // 
             this.lblPaid.AutoSize = true;
-            this.lblPaid.Location = new System.Drawing.Point(43, 209);
+            this.lblPaid.Location = new System.Drawing.Point(380, 207);
             this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(74, 17);
+            this.lblPaid.Size = new System.Drawing.Size(78, 17);
             this.lblPaid.TabIndex = 3;
-            this.lblPaid.Text = "Paid staus";
+            this.lblPaid.Text = "Paid status";
+            this.lblPaid.Click += new System.EventHandler(this.lblPaid_Click);
             // 
             // lblCashorCard
             // 
             this.lblCashorCard.AutoSize = true;
-            this.lblCashorCard.Location = new System.Drawing.Point(363, 202);
+            this.lblCashorCard.Location = new System.Drawing.Point(364, 143);
             this.lblCashorCard.Name = "lblCashorCard";
             this.lblCashorCard.Size = new System.Drawing.Size(89, 17);
             this.lblCashorCard.TabIndex = 2;
             this.lblCashorCard.Text = "Card or cash";
             this.lblCashorCard.Click += new System.EventHandler(this.lblCashorCard_Click);
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(352, 69);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(101, 17);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "Date and Time";
-            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // lblOrderID
             // 
@@ -359,13 +338,11 @@
         private System.Windows.Forms.ComboBox comboBoxPaid;
         private System.Windows.Forms.TextBox textBoxWaiter;
         private System.Windows.Forms.TextBox textBoxTable;
-        private System.Windows.Forms.DateTimePicker dateTimePickerOrder;
         private System.Windows.Forms.ComboBox comboBoxOrderID;
         private System.Windows.Forms.Label lblTable;
         private System.Windows.Forms.Label lblWaiter;
         private System.Windows.Forms.Label lblPaid;
         private System.Windows.Forms.Label lblCashorCard;
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.Button btnConfirmDelete;
         private System.Windows.Forms.Button btnConfirmUP;
