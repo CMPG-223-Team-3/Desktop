@@ -236,7 +236,7 @@ namespace Desktop
             int id = int.Parse(comboBoxDeleteMenuID.SelectedItem.ToString());
             // delete menu item
             connection.Open();
-            query = "SELECT * FROM ORDERS-DETAIL WHERE Menu_ID ='" + id + "'";
+            query = "SELECT * FROM `ORDER-DETAIL` WHERE Menu_ID ='" + id + "'";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataR = cmd.ExecuteReader();
 
