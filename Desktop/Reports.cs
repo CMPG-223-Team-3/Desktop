@@ -180,10 +180,10 @@ namespace Desktop
             // count menu items to make menu items list and amount 
             MySqlCommand cmmd = new MySqlCommand();
             string queryCount = "SELECT * FROM `MENU-ITEM` ";
-            int listSize = 6;/*
+            int listSize = 0;
             
             connection.Open();
-            MySqlCommand cmmd = new MySqlCommand();
+            //MySqlCommand cmmd = new MySqlCommand();
             cmmd.CommandText = queryCount;
             cmmd.Connection = connection;
             try
@@ -201,20 +201,23 @@ namespace Desktop
                 MessageBox.Show("Error " + e.Message);
             }
 
-            foreach(DataRow r in menu.Rows)
+            listSize = menu.Rows.Count;
+            int[,] menuItemsList = new int[listSize, 2];
+            int j = 0;
+
+            foreach (DataRow r in menu.Rows)
             {
-                listSize += 1;
-
-
+                menuItemsList[j, 0] = int.Parse(r["Menu_Item_ID"].ToString());
+                j++;
             }
 
 
 
-            listSize = cmd.ExecuteReader()["count"];
-            connection.Close();*/
-            
 
-            int[,] menuItemsList = new int[6,2];
+
+
+            //listSize = cmd.ExecuteReader()["count"];
+            connection.Close();
             
             /*string[] Top10names = new string[10];
             int[] Top10amount = new int[10];*/
@@ -242,10 +245,10 @@ namespace Desktop
             dataR.Close();
             connection.Close();*/
 
-            for (int i = 0; i < 6; i++)
+            /*for (int i = 0; i < 6; i++)
             {
                 menuItemsList[i, 0] = i+1;
-            }
+            }*/
 
 
             // go get orders in the selected time period 
@@ -281,7 +284,7 @@ namespace Desktop
                 int prodID = int.Parse(r["MenuItemID"].ToString());
                 int count = int.Parse(r["Quantity_Orderd"].ToString());
 
-                for(int i = 0; i< 6; i++)
+                for(int i = 0; i< listSize; i++)
                 {
                     if (menuItemsList[i,0] == prodID)
                     {
@@ -329,9 +332,9 @@ namespace Desktop
 
             int temp1 = 0;
             int temp2 = 0;
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < listSize; i++)
             {
-                for (int k = 0; k < 5; k++)
+                for (int k = 0; k < listSize-1; k++)
                 {
                     if (menuItemsList[k,1]< menuItemsList[k + 1, 1])
                     {
