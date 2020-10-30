@@ -178,9 +178,9 @@ namespace Desktop
 
 
             // count menu items to make menu items list and amount 
-
+            MySqlCommand cmmd = new MySqlCommand();
             string queryCount = "SELECT * FROM `MENU-ITEM` ";
-            int listSize = 0;
+            int listSize = 6;/*
             
             connection.Open();
             MySqlCommand cmmd = new MySqlCommand();
@@ -204,20 +204,25 @@ namespace Desktop
             foreach(DataRow r in menu.Rows)
             {
                 listSize += 1;
+
+
             }
 
-            /*listSize = cmd.ExecuteReader()["count"];*/
-            connection.Close();
 
+
+            listSize = cmd.ExecuteReader()["count"];
+            connection.Close();*/
             
 
-            int[,] menuItemsList = new int[listSize,2];
+            int[,] menuItemsList = new int[6,2];
             
             /*string[] Top10names = new string[10];
             int[] Top10amount = new int[10];*/
 
             // fill arrays 
             string menuQuery = "SELECT * FROM `MENU-ITEM`";
+            MySqlCommand cmd = new MySqlCommand(menuQuery, connection);
+            /*
             connection.Open();
             //put in comand
             MySqlCommand cmd = new MySqlCommand(menuQuery, connection);
@@ -235,7 +240,12 @@ namespace Desktop
             }
 
             dataR.Close();
-            connection.Close();
+            connection.Close();*/
+
+            for (int i = 0; i < 6; i++)
+            {
+                menuItemsList[i, 0] = i+1;
+            }
 
 
             // go get orders in the selected time period 
@@ -268,14 +278,26 @@ namespace Desktop
                 // go get menu items connected to ID and add 
                
                 orderID = int.Parse(r["Order_ID"].ToString());
-                menuQuery = "SELECT * FROM ORDERS-DETAIL WHERE Order_ID = '" + orderID + "'  ";
+                int prodID = int.Parse(r["MenuItemID"].ToString());
+                int count = int.Parse(r["Quantity_Orderd"].ToString());
 
-                connection.Open();
+                for(int i = 0; i< 6; i++)
+                {
+                    if (menuItemsList[i,0] == prodID)
+                    {
+                        menuItemsList[i,1] += count;
+                    }
+                }
+
+
+                //menuQuery = "SELECT * FROM `ORDERS-DETAIL` WHERE Order_ID = '" + orderID + "'  ";
+
+                //connection.Open();
                 //put in comand
-                cmd = new MySqlCommand(menuQuery, connection);
-                MySqlDataReader dataR2 = cmd.ExecuteReader();
+                //cmd = new MySqlCommand(menuQuery, connection);
+                //MySqlDataReader dataR2 = cmd.ExecuteReader();
                 // data reader
-                while (dataR.Read())
+                /*while (dataR.Read())
                 {
                     menuID = int.Parse(dataR["MenuItemID"] + "");
                     quantity = int.Parse(dataR["Quantity_Orderd"] + "");
@@ -289,12 +311,12 @@ namespace Desktop
 
                     }
 
-                }
+                }*/
 
                 // close data reader
-                dataR.Close();
+                //dataR.Close();
                 // close connection 
-                connection.Close();
+                //connection.Close();
 
             }
 
@@ -305,16 +327,20 @@ namespace Desktop
 
 
 
-            int temp = 0;
-            for (int i = 0; i < listSize; i++)
+            int temp1 = 0;
+            int temp2 = 0;
+            for (int i = 0; i < 6; i++)
             {
-                for (int k = 0; k < listSize-1; k++)
+                for (int k = 0; k < 5; k++)
                 {
                     if (menuItemsList[k,1]< menuItemsList[k + 1, 1])
                     {
-                        temp = menuItemsList[k, 1];
+                        temp1 = menuItemsList[k, 0];
+                        temp2 = menuItemsList[k, 1];
+                        menuItemsList[k, 0] = menuItemsList[k + 1, 0];
                         menuItemsList[k, 1] = menuItemsList[k + 1, 1];
-                        menuItemsList[k + 1, 1] = temp;
+                        menuItemsList[k + 1, 0] = temp1;
+                        menuItemsList[k + 1, 1] = temp2;
                     }
                     
                 }
@@ -333,6 +359,7 @@ namespace Desktop
                 {
 
                     listBoxTop10.Items.Add((p-k).ToString() + ". " + dataR2["Item_Name"] + "");
+                    //MessageBox.Show((p - k) + " " + dataR2["Item_Name"]);
 
                 }
 
